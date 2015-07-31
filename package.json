@@ -2,24 +2,40 @@
   "name": "updeep",
   "version": "0.0.0",
   "description": "[WIP: do not use] Easily update immutable objects (frozen or not) in a declarative way.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "homepage": "https://github.com/aaronjensen/updeep",
   "repository": {
     "type": "git",
     "url": "https://github.com/aaronjensen/updeep"
   },
+  "author": "Aaron Jensen",
+  "files": [
+    "dist"
+  ],
+  "main": "index.js",
   "keywords": [
     "immutable",
     "frozen",
     "functional",
     "declarative"
   ],
-  "author": "Aaron Jensen",
+  "scripts": {
+    "test": "gulp",
+    "prepublish": "gulp prepublish"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/aaronjensen/updeep/issues"
   },
-  "homepage": "https://github.com/aaronjensen/updeep"
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-eslint": "^0.15.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^0.4.5",
+    "gulp-coveralls": "^0.1.0",
+    "gulp-babel": "^5.1.0",
+    "babel-core": "^5.5.0"
+  }
 }

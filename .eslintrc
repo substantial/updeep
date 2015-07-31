@@ -1,0 +1,21 @@
+{
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "strict": [2, "global"],
+    "quotes": [2, "single"],
+    "indent": [2, 2],
+    "one-var": [2, "never"],
+    "consistent-return": 0,
+    "no-use-before-define": [2, "nofunc"],
+    "space-before-function-paren": [2, {anonymous: "always", named: "never"}]
+  },
+  "env": {
+    "node": true,
+    "mocha": true
+  }
+}
