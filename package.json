@@ -11,7 +11,7 @@
   "files": [
     "dist"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
   "keywords": [
     "immutable",
     "frozen",
