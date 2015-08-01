@@ -1,5 +1,5 @@
-# updeep [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> [WIP: do not use] Easily update immutable objects (frozen or not) in a declarative way.
+# updeep [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] 
+> Easily update immutable objects (frozen or not) in a declarative way.
 
 
 ## Install
@@ -12,14 +12,19 @@ $ npm install --save updeep
 ## Usage
 
 ```js
-var updeep = require('updeep');
+var u = require('updeep');
 
-updeep('Rainbow');
+u({ foo: 3 }, { foo: 1, bar: 2 });
+// => { foo: 3, bar: 2 }
+
+Or with a function:
+u({ foo: x => (x + 1) }, { foo: 2 });
+// => { foo: 3 }
 ```
 
 ## License
 
-MIT © [Aaron Jensen]()
+MIT © [Aaron Jensen](https://twitter.com/aaronjensen)
 
 
 [npm-image]: https://badge.fury.io/js/updeep.svg
@@ -28,5 +33,3 @@ MIT © [Aaron Jensen]()
 [travis-url]: https://travis-ci.org/updeep
 [daviddm-image]: https://david-dm.org/updeep.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/updeep
-[coveralls-image]: https://coveralls.io/repos/updeep/badge.svg
-[coveralls-url]: https://coveralls.io/r/updeep
