@@ -20,6 +20,7 @@ supports [partial application][currying], so the parameter order is: `updeep(upd
 
 ## Examples
 
+### Full example
 ```js
 var u = require('updeep');
 
@@ -53,47 +54,55 @@ var newPerson = u({
 //      email: 'bob@example.com',
 //      version: 2
 //    }
+```
 
+### Simple update
 
-// Simple update
-
+```js
 u({ x: { b: 3 } }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0, b: 3 } }
+```
 
+### Multiple updates, including an array
 
-// Multiple updates, including an array
-
+```js
 u({ x: { b: 3 }, y: { 1: 4 } }, { x: { a: 0, b: 0 }, y: [0, 0] });
 // => { x: { a: 0, b: 3 }, y: [0, 4] }
+```
 
+### Use a function
 
-// Use a function
-
+```js
 var inc = function(i) { return i + 1; }
 u({ x: { b: inc } }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0, b: 1 } }
+```
 
+### Partial application
 
-// Partial application
-
+```js
 var setBTo3 = u({ b: 3 });
 setBTo3({ a: 0, b: 0 });
 // => { a: 0, b: 3 })
+```
 
-// Remove a property
+### Remove a property
 
+```js
 u({ x: u.omit('b') }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0 } }
+```
 
+### With a default
 
-// With a default
-
+```js
 u({ x: withDefault([], { 0: 3 }) }, {});
 // => { x: [3] }
+```
 
+### ES6 computed properties
 
-// ES6 computed properties
-
+```js
 var key = 'b';
 u({ x: { [key]: 3 } }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0, b: 3 } }
