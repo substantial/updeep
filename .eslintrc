@@ -2,9 +2,6 @@
   "ecmaFeatures": {
     "modules": true
   },
-  "env": {
-    "es6": true
-  },
   "rules": {
     "strict": [2, "global"],
     "quotes": [2, "single"],
@@ -15,6 +12,7 @@
     "space-before-function-paren": [2, {anonymous: "always", named: "never"}]
   },
   "env": {
+    "es6": true,
     "node": true,
     "mocha": true
   }

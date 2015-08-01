@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; // eslint-disable-line
 var path = require('path');
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
@@ -19,7 +19,7 @@ gulp.task('static', function () {
     .pipe(excludeGitignore())
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('nsp', function (cb) {
@@ -40,10 +40,12 @@ gulp.task('test', ['pre-test'], function (cb) {
     .pipe(plumber())
     .pipe(mocha({reporter: 'spec'}))
     .on('error', function (err) {
+      console.log('err', err);
       mochaErr = err;
     })
     .pipe(istanbul.writeReports())
     .on('end', function () {
+      console.log('end', mochaErr);
       cb(mochaErr);
     });
 });
