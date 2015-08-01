@@ -1,6 +1,6 @@
 {
   "name": "updeep",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "[WIP: do not use] Easily update immutable objects (frozen or not) in a declarative way.",
   "homepage": "https://github.com/aaronjensen/updeep",
   "repository": {
