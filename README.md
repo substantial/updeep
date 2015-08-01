@@ -12,11 +12,11 @@ making it ideal for using reference equality checks to detect changes (like
 [PureRenderMixin]).
 
 updeep requires [lodash], but works very well with `lodash-fp`. As a matter of
-fact, many of the helpers functions are curried [lodash] functions with their
+fact, many of the helpers functions are [curried][currying] [lodash] functions with their
 parameters reversed.
 
 Note that the parameters may be backwards from what you are used to. updeep
-supports currying, so the parameter order is: `updeep(updates, obj)`.
+supports [partial application][currying], so the parameter order is: `updeep(updates, obj)`.
 
 ## Examples
 
@@ -56,38 +56,44 @@ var newPerson = u({
 
 
 // Simple update
+
 u({ x: { b: 3 } }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0, b: 3 } }
 
 
 // Multiple updates, including an array
+
 u({ x: { b: 3 }, y: { 1: 4 } }, { x: { a: 0, b: 0 }, y: [0, 0] });
 // => { x: { a: 0, b: 3 }, y: [0, 4] }
 
 
 // Use a function
+
 var inc = function(i) { return i + 1; }
 u({ x: { b: inc } }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0, b: 1 } }
 
 
-// Curry
+// Partial application
+
 var setBTo3 = u({ b: 3 });
 setBTo3({ a: 0, b: 0 });
 // => { a: 0, b: 3 })
 
-
 // Remove a property
+
 u({ x: u.omit('b') }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0 } }
 
 
 // With a default
+
 u({ x: withDefault([], { 0: 3 }) }, {});
 // => { x: [3] }
 
 
 // ES6 computed properties
+
 var key = 'b';
 u({ x: { [key]: 3 } }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0, b: 3 } }
@@ -138,3 +144,4 @@ MIT ©2015 [Aaron Jensen](https://twitter.com/aaronjensen)
 [icepick]: https://github.com/aearly/icepick
 [React.addons.update]: https://facebook.github.io/react/docs/update.html
 [tests]: https://github.com/aaronjensen/updeep/blob/master/test/index.js
+[currying]: http://www.datchley.name/currying-vs-partial-application/
