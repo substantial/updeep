@@ -29,7 +29,7 @@ MIT © [Aaron Jensen](https://twitter.com/aaronjensen)
 
 [npm-image]: https://badge.fury.io/js/updeep.svg
 [npm-url]: https://npmjs.org/package/updeep
-[travis-image]: https://travis-ci.org/updeep.svg?branch=master
-[travis-url]: https://travis-ci.org/updeep
-[daviddm-image]: https://david-dm.org/updeep.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/updeep
+[travis-image]: https://travis-ci.org/aaronjensen/updeep.svg?branch=master
+[travis-url]: https://travis-ci.org/aaronjensen/updeep
+[daviddm-image]: https://david-dm.org/aaronjensen/updeep.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/aaronjensen/updeep
