@@ -23,31 +23,69 @@ supports currying, so the parameter order is: `updeep(updates, obj)`.
 ```js
 var u = require('updeep');
 
+var person = {
+  name: {
+    first: 'Bill',
+    last: 'Sagat',
+  },
+  children: ['Marty', 'Ashley'],
+  email: 'bill@example.com',
+  version: 1
+};
+
+var inc = function(i) { return i + 1; }
+
+var newPerson = u({
+  name: {
+    first: 'Bob',
+  },
+  children: { 0: 'Mary-Kate' },
+  email: 'bob@example.com',
+  version: inc
+}, person);
+
+// => {
+//      name: {
+//        first: 'Bob',
+//        last: 'Sagat',
+//      },
+//      children: ['Mary-Kate', 'Ashley'],
+//      email: 'bob@example.com',
+//      version: 2
+//    }
+
+
 // Simple update
 u({ x: { b: 3 } }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0, b: 3 } }
 
+
 // Multiple updates, including an array
 u({ x: { b: 3 }, y: { 1: 4 } }, { x: { a: 0, b: 0 }, y: [0, 0] });
 // => { x: { a: 0, b: 3 }, y: [0, 4] }
+
 
 // Use a function
 var inc = function(i) { return i + 1; }
 u({ x: { b: inc } }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0, b: 1 } }
 
+
 // Curry
 var setBTo3 = u({ b: 3 });
 setBTo3({ a: 0, b: 0 });
 // => { a: 0, b: 3 })
 
+
 // Remove a property
 u({ x: u.omit('b') }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0 } }
 
+
 // With a default
 u({ x: withDefault([], { 0: 3 }) }, {});
 // => { x: [3] }
+
 
 // ES6 computed properties
 var key = 'b';
