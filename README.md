@@ -1,5 +1,6 @@
 # updeep [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] 
-> Easily update immutable objects (frozen or not) in a declarative way.
+> Easily update nested objects and arrays (frozen or not) in a declarative
+> and immutable way.
 
 ## About
 
