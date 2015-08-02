@@ -74,7 +74,7 @@ u({ x: { b: 3 }, y: { 1: 4 } }, { x: { a: 0, b: 0 }, y: [0, 0] });
 ### Use a function
 
 ```js
-var inc = function(i) { return i + 1; }
+function inc(i) { return i + 1; }
 u({ x: { b: inc } }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0, b: 1 } }
 ```
@@ -92,6 +92,14 @@ setBTo3({ a: 0, b: 0 });
 ```js
 u({ x: u.omit('b') }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0 } }
+```
+
+### Reject an item from an array
+
+```js
+function even(i) { return i % 2 === 0 };
+u({ x: u.reject(even) }, { x: [1, 2, 3, 4] });
+// => { x: [1, 3] }
 ```
 
 ### With a default
@@ -120,6 +128,11 @@ $ npm install --save updeep
 Requires [lodash] as a peer dependency, so make sure you have it installed as
 well.
 
+## Configuration
+
+If `NODE_ENV` is `"production"`, updeep will not attempt to freeze objects.
+This may yield a slight performance gain.
+
 ## Motivation
 
 While creating reducers for use with [redux], I wanted something that made it
@@ -127,6 +140,10 @@ easy to work with frozen objects. Native javascript objects have some nice
 advantages over things like [Immutable.js][immutablejs] such as debugging and
 destructuring. I wanted something more powerful than [icepick] and more
 composable than [React.addons.update].
+
+If you're manipulating massive amounts of data frequently, you may want to
+benchmark, as [Immutable.js][immutablejs] should be more efficient in that
+case.
 
 ## Contributing
 
