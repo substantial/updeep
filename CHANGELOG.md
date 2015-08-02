@@ -1,6 +1,7 @@
 # Change Log
 
 ## [unreleased]
+* Fix `Object.isFrozen` breaking on non-freezables in PhantomJS. (https://github.com/aaronjensen/updeep/issues/1)
 
 ## [0.2.0]
 * Freeze objects returned by default. It doesn't actually make sense to return
@@ -10,13 +11,13 @@
 * Update README with example for `reject`.
 
 ## [0.1.3]
-* Update README
+* Update README.
 
 ## [0.1.2]
-* Fix package description
+* Fix package description.
 
 ## [0.1.1]
-* Update README and description
+* Update README and description.
 
 ## 0.1.0
 * Initial release
