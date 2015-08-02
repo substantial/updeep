@@ -1,6 +1,7 @@
-# updeep [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# updeep [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![peerDependency Status][daviddm-peer-image]][daviddm-peer-url]
 > Easily update nested frozen objects and arrays in a declarative and immutable
 > manner.
+
 
 ## About
 
@@ -164,6 +165,8 @@ MIT ©2015 [Aaron Jensen](https://twitter.com/aaronjensen)
 [travis-url]: https://travis-ci.org/aaronjensen/updeep
 [daviddm-image]: https://david-dm.org/aaronjensen/updeep.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/aaronjensen/updeep
+[daviddm-peer-image]: https://david-dm.org/aaronjensen/updeep/peer-status.svg
+[daviddm-peer-url]:https://david-dm.org/aaronjensen/updeep#info=peerDependencies
 [lodash]: http://lodash.com
 [lodash-fp]: https://github.com/lodash/lodash-fp
 [Ramda]: http://ramdajs.com/
