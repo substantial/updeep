@@ -1,6 +1,8 @@
 # Change Log
 
 ## [unreleased]
+
+## [0.2.1]
 * Fix `Object.isFrozen` breaking on non-freezables in PhantomJS. (https://github.com/aaronjensen/updeep/issues/1)
 
 ## [0.2.0]
@@ -22,7 +24,8 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.2.0...HEAD
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.2.1...HEAD
+[0.2.0]: https://github.com/aaronjensen/updeep/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/aaronjensen/updeep/compare/v0.1.3...v0.2.0
 [0.1.3]: https://github.com/aaronjensen/updeep/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/aaronjensen/updeep/compare/v0.1.1...v0.1.2
