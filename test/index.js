@@ -79,9 +79,7 @@ describe('updeep', () => {
   it('can use withDefault to default things', () => {
     const obj = {};
     const result = u({
-      foo: u.withDefault([], {
-        0: 'bar'
-      })
+      foo: u.withDefault([], { 0: 'bar' }),
     }, obj);
 
     expect(result).to.eql({ foo: ['bar'] });

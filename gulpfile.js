@@ -1,4 +1,4 @@
-'use strict'; // eslint-disable-line
+'use strict'; /* eslint strict:0, no-var:0, func-names:0 */
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var excludeGitignore = require('gulp-exclude-gitignore');
@@ -12,7 +12,7 @@ var batch = require('gulp-batch');
 // when they're loaded
 require('babel-core/register');
 
-gulp.task('static', function () {
+gulp.task('static', function() {
   return gulp.src('**/*.js')
     .pipe(excludeGitignore())
     .pipe(eslint())
@@ -20,23 +20,23 @@ gulp.task('static', function () {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('nsp', function (cb) {
+gulp.task('nsp', function(cb) {
   nsp('package.json', cb);
 });
 
-gulp.task('test', function () {
+gulp.task('test', function() {
   return gulp.src('test/**/*.js')
     .pipe(mocha({reporter: 'spec'}));
 });
 
-gulp.task('babel', function () {
+gulp.task('babel', function() {
   return gulp.src('lib/**/*.js')
     .pipe(babel())
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', function () {
-  watch(['lib/**/*.js', 'test/**/*.js'], batch(function (events, done) {
+gulp.task('watch', function() {
+  watch(['lib/**/*.js', 'test/**/*.js'], batch(function(events, done) {
     gulp.start('test', done);
   }));
 });
