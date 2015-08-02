@@ -35,10 +35,12 @@
     "eslint-config-airbnb": "0.0.7",
     "gulp": "^3.6.0",
     "gulp-babel": "^5.1.0",
+    "gulp-batch": "^1.0.5",
     "gulp-eslint": "^0.15.0",
     "gulp-exclude-gitignore": "^1.0.0",
     "gulp-mocha": "^2.0.0",
     "gulp-nsp": "^0.4.5",
+    "gulp-watch": "^4.3.4",
     "lodash": "^3.0.0"
   }
 }

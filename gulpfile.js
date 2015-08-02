@@ -5,6 +5,8 @@ var excludeGitignore = require('gulp-exclude-gitignore');
 var mocha = require('gulp-mocha');
 var nsp = require('gulp-nsp');
 var babel = require('gulp-babel');
+var watch = require('gulp-watch');
+var batch = require('gulp-batch');
 
 // Initialize the babel transpiler so ES2015 files gets compiled
 // when they're loaded
@@ -31,6 +33,12 @@ gulp.task('babel', function () {
   return gulp.src('lib/**/*.js')
     .pipe(babel())
     .pipe(gulp.dest('dist'));
+});
+
+gulp.task('watch', function () {
+  watch(['lib/**/*.js', 'test/**/*.js'], batch(function (events, done) {
+    gulp.start('test', done);
+  }));
 });
 
 gulp.task('prepublish', ['nsp', 'babel']);
