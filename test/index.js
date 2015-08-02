@@ -59,7 +59,7 @@ describe('updeep', () => {
     expect(result).to.deep.equal({ foo: 4, bar: 5, baz: 7 });
   });
 
-  it('is curryable', () => {
+  it('can be partially applied', () => {
     const inc = (i) => i + 1;
     const obj = { foo: 3 };
     const incFoo = u({ foo: inc });
@@ -101,5 +101,12 @@ describe('updeep', () => {
     const result = u({ foo: u.omit('bar') }, { foo: { bar: 7 } });
 
     expect(result).to.eql({ foo: {} });
+  });
+
+  it('deeply freezes the result', () => {
+    const result = u({ foo: { bar: 3 } }, { foo: { bar: 0 } });
+
+    expect(Object.isFrozen(result)).to.be.true;
+    expect(Object.isFrozen(result.foo)).to.be.true;
   });
 });

@@ -1,25 +1,25 @@
-# updeep [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] 
-> Easily update nested objects and arrays (frozen or not) in a declarative
-> and immutable way.
+# updeep [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+> Easily update nested frozen objects and arrays in a declarative and immutable
+> manner.
 
 ## About
 
 Updating deeply nested objects/arrays is a bit of a pain.
 updeep makes it painless by allowing you to declare the updates you would like
 to make and it will take care of the rest.
-You can use it on frozen objects, as updeep never mutates.
 It will recursively return the same instance if no changes have been made,
 making it ideal for using reference equality checks to detect changes (like
-[PureRenderMixin]).
+[PureRenderMixin]). Because of this, everything returned by updeep is frozen.
 
-updeep requires [lodash], but works very well with `lodash-fp`. As a matter of
-fact, many of the helpers functions are [curried][currying] [lodash] functions with their
-parameters reversed.
+updeep requires [lodash], but works very well with [lodash-fp] or [Ramda]. As a
+matter of fact, many of the helpers functions are [curried][currying] [lodash]
+functions with their parameters reversed (as [lodash-fp] do).
 
 Note that the parameters may be backwards from what you are used to. updeep
-supports [partial application][currying], so the parameter order is: `updeep(updates, obj)`.
+supports [partial application][currying], so the parameter order is:
+`updeep(updates, obj)`.
 
-## Examples
+## API and Examples
 
 ### Full example
 ```js
@@ -148,6 +148,8 @@ MIT ©2015 [Aaron Jensen](https://twitter.com/aaronjensen)
 [daviddm-image]: https://david-dm.org/aaronjensen/updeep.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/aaronjensen/updeep
 [lodash]: http://lodash.com
+[lodash-fp]: https://github.com/lodash/lodash-fp
+[Ramda]: http://ramdajs.com/
 [PureRenderMixin]: https://facebook.github.io/react/docs/pure-render-mixin.html
 [redux]: https://github.com/gaearon/redux
 [immutablejs]: https://github.com/facebook/immutable-js
