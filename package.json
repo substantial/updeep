@@ -43,6 +43,7 @@
     "gulp-mocha": "^2.0.0",
     "gulp-nsp": "^0.4.5",
     "gulp-watch": "^4.3.4",
-    "lodash": "^3.0.0"
+    "lodash": "^3.0.0",
+    "rimraf": "^2.4.2"
   }
 }

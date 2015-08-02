@@ -7,10 +7,15 @@ var nsp = require('gulp-nsp');
 var babel = require('gulp-babel');
 var watch = require('gulp-watch');
 var batch = require('gulp-batch');
+var rimraf = require('rimraf');
 
 // Initialize the babel transpiler so ES2015 files gets compiled
 // when they're loaded
 require('babel-core/register');
+
+gulp.task('clean', function(cb) {
+  rimraf('./dist', cb);
+});
 
 gulp.task('static', function() {
   return gulp.src('**/*.js')
@@ -29,7 +34,7 @@ gulp.task('test', function() {
     .pipe(mocha({reporter: 'spec'}));
 });
 
-gulp.task('babel', function() {
+gulp.task('babel', ['clean'], function() {
   return gulp.src('lib/**/*.js')
     .pipe(babel())
     .pipe(gulp.dest('dist'));
