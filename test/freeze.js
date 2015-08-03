@@ -50,4 +50,10 @@ describe('freeze', () => {
 
     expect(Object.isFrozen(obj)).to.be.false;
   });
+
+  it('handles null objects', () => {
+    const obj = { foo: null };
+    freeze(obj);
+    expect(Object.isFrozen(obj)).to.be.true;
+  });
 });
