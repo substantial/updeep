@@ -165,15 +165,15 @@ case.
 
 MIT ©2015 [Aaron Jensen](https://twitter.com/aaronjensen)
 
-[npm-image]: https://badge.fury.io/js/updeep.svg
+[npm-image]: https://img.shields.io/npm/v/updeep.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/updeep
-[travis-image]: https://travis-ci.org/aaronjensen/updeep.svg?branch=master
+[travis-image]: https://img.shields.io/travis/aaronjensen/updeep.svg?style=flat-square
 [travis-url]: https://travis-ci.org/aaronjensen/updeep
-[daviddm-image]: https://david-dm.org/aaronjensen/updeep.svg?theme=shields.io
+[daviddm-image]: https://img.shields.io/david/aaronjensen/updeep.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/aaronjensen/updeep
-[daviddm-peer-image]: https://david-dm.org/aaronjensen/updeep/peer-status.svg
+[daviddm-peer-image]: https://img.shields.io/david/peer/aaronjensen/updeep.svg?style=flat-square
 [daviddm-peer-url]:https://david-dm.org/aaronjensen/updeep#info=peerDependencies
-[codeclimate-image]: https://codeclimate.com/github/aaronjensen/updeep/badges/gpa.svg
+[codeclimate-image]: https://img.shields.io/codeclimate/github/aaronjensen/updeep.svg?style=flat-square
 [codeclimate-url]: https://codeclimate.com/github/aaronjensen/updeep
 [lodash]: http://lodash.com
 [lodash-fp]: https://github.com/lodash/lodash-fp
