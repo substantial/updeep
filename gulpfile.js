@@ -1,4 +1,5 @@
 'use strict'; /* eslint strict:0, no-var:0, func-names:0 */
+var path = require('path');
 var gulp = require('gulp');
 
 var babel = require('gulp-babel');
@@ -8,8 +9,9 @@ var excludeGitignore = require('gulp-exclude-gitignore');
 var mocha = require('gulp-mocha');
 var nsp = require('gulp-nsp');
 var rimraf = require('rimraf');
-var watch = require('gulp-watch');
 var webpack = require('webpack-stream');
+
+var KarmaServer = require('karma').Server;
 
 var createWebpackConfig = require('./createWebpackConfig.js');
 
@@ -33,9 +35,18 @@ gulp.task('nsp', function(cb) {
   nsp('package.json', cb);
 });
 
-gulp.task('test', function() {
+gulp.task('test', ['test:karma', 'test:node']);
+
+gulp.task('test:node', function() {
   return gulp.src('test/**/*.js')
     .pipe(mocha({reporter: 'spec'}));
+});
+
+gulp.task('test:karma', function(done) {
+  new KarmaServer({
+    configFile: path.join(__dirname, 'karma.conf.js'),
+    singleRun: true,
+  }, done).start();
 });
 
 gulp.task('babel', function() {
@@ -45,8 +56,8 @@ gulp.task('babel', function() {
 });
 
 gulp.task('watch', function() {
-  watch(['lib/**/*.js', 'test/**/*.js'], batch(function(events, done) {
-    gulp.start('test', done);
+  gulp.watch(['lib/**/*.js', 'test/**/*.js'], batch(function(events, done) {
+    gulp.start('test:node', done);
   }));
 });
 
