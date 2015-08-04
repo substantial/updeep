@@ -1,6 +1,7 @@
 # Change Log
 
 ## [unreleased]
+* Add umd distribution builds via webpack. (https://github.com/aaronjensen/updeep/issues/3)
 
 ## [0.2.2]
 * Fix `Object.isFrozen` breaking on null in chrome. (https://github.com/aaronjensen/updeep/pull/5)
