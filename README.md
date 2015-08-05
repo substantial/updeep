@@ -33,11 +33,15 @@ supports [partial application][currying], so the parameter order is:
 var u = require('updeep');
 
 var person = {
-  name: {
-    first: 'Bill',
-    last: 'Sagat',
-  },
-  children: ['Marty', 'Ashley'],
+  name: { first: 'Bill', last: 'Sagat' },
+  children: [
+    { name: 'Mary-Kate', age: 7 },
+    { name: 'Ashley', age: 7 }
+  ],
+  todo: [
+    'Be funny',
+    'Manage household'
+  ],
   email: 'bill@example.com',
   version: 1
 };
@@ -45,23 +49,29 @@ var person = {
 var inc = function(i) { return i + 1; }
 
 var newPerson = u({
-  name: {
-    first: 'Bob',
-  },
-  children: { 0: 'Mary-Kate' },
+  // Change first name
+  name: { first: 'Bob' },
+  // Increment all children's ages
+  children: u.map({ age: inc }),
+  // Update email
   email: 'bob@example.com',
+  // Remove todo
+  todo: u.reject('Be funny'),
+  // Increment version
   version: inc
 }, person);
-
 // => {
-//      name: {
-//        first: 'Bob',
-//        last: 'Sagat',
-//      },
-//      children: ['Mary-Kate', 'Ashley'],
-//      email: 'bob@example.com',
-//      version: 2
-//    }
+//  name: { first: 'Bob', last: 'Sagat' },
+//  children: [
+//    { name: 'Mary-Kate', age: 8 },
+//    { name: 'Ashley', age: 8 }
+//  ],
+//  todo: [
+//    'Manage household'
+//  ],
+//  email: 'bob@example.com',
+//  version: 2
+//}
 ```
 
 **NOTE**: All functions are curried, so if you see `f(x(, y))`, it can be called with either `f(x, y)` or `f(x)(y)`.
