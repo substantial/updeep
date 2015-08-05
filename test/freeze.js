@@ -56,4 +56,10 @@ describe('freeze', () => {
     freeze(obj);
     expect(Object.isFrozen(obj)).to.be.true;
   });
+
+  it('returns the same object', () => {
+    const obj = {};
+    const result = freeze(obj);
+    expect(result).to.equal(obj);
+  });
 });

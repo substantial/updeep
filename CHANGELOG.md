@@ -1,6 +1,7 @@
 # Change Log
 
 ## [unreleased]
+* Add `u.freeze` to freeze an object deeply. (https://github.com/substantial/updeep/issues/7)
 
 ## [0.2.3]
 * Fix cannot update value to null (https://github.com/substantial/updeep/issues/8)

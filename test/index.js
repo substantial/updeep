@@ -113,4 +113,10 @@ describe('updeep', () => {
   it('assigns null values', () => {
     expect(u({isNull: null}, {})).to.eql({isNull: null});
   });
+
+  it('has additional functions', () => {
+    expect(u.freeze).to.be.a('function');
+    expect(u.omit).to.be.a('function');
+    expect(u.withDefault).to.be.a('function');
+  });
 });
