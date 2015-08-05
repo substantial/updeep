@@ -286,14 +286,14 @@ MIT ©2015 [Substantial](http://substantial.com)
 
 [npm-image]: https://badge.fury.io/js/updeep.svg
 [npm-url]: https://npmjs.org/package/updeep
-[travis-image]: https://travis-ci.org/aaronjensen/updeep.svg?branch=master
-[travis-url]: https://travis-ci.org/aaronjensen/updeep
-[daviddm-image]: https://david-dm.org/aaronjensen/updeep.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/aaronjensen/updeep
-[daviddm-peer-image]: https://david-dm.org/aaronjensen/updeep/peer-status.svg
-[daviddm-peer-url]:https://david-dm.org/aaronjensen/updeep#info=peerDependencies
-[codeclimate-image]: https://codeclimate.com/github/aaronjensen/updeep/badges/gpa.svg
-[codeclimate-url]: https://codeclimate.com/github/aaronjensen/updeep
+[travis-image]: https://travis-ci.org/substantial/updeep.svg?branch=master
+[travis-url]: https://travis-ci.org/substantial/updeep
+[daviddm-image]: https://david-dm.org/substantial/updeep.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/substantial/updeep
+[daviddm-peer-image]: https://david-dm.org/substantial/updeep/peer-status.svg
+[daviddm-peer-url]:https://david-dm.org/substantial/updeep#info=peerDependencies
+[codeclimate-image]: https://codeclimate.com/github/substantial/updeep/badges/gpa.svg
+[codeclimate-url]: https://codeclimate.com/github/substantial/updeep
 [lodash]: http://lodash.com
 [lodash-fp]: https://github.com/lodash/lodash-fp
 [Ramda]: http://ramdajs.com/
@@ -302,5 +302,5 @@ MIT ©2015 [Substantial](http://substantial.com)
 [immutablejs]: https://github.com/facebook/immutable-js
 [icepick]: https://github.com/aearly/icepick
 [React.addons.update]: https://facebook.github.io/react/docs/update.html
-[tests]: https://github.com/aaronjensen/updeep/blob/master/test/index.js
+[tests]: https://github.com/substantial/updeep/blob/master/test/index.js
 [currying]: http://www.datchley.name/currying-vs-partial-application/
