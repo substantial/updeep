@@ -39,7 +39,7 @@ gulp.task('test', ['test:karma', 'test:node']);
 
 gulp.task('test:node', function() {
   return gulp.src('test/**/*.js')
-    .pipe(mocha({reporter: 'spec'}));
+    .pipe(mocha({reporter: 'dot'}));
 });
 
 gulp.task('test:karma', function(done) {
@@ -55,10 +55,14 @@ gulp.task('babel', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', function() {
-  gulp.watch(['lib/**/*.js', 'test/**/*.js'], batch(function(events, done) {
-    gulp.start('test:node', done);
+gulp.task('watch', function(done) {
+  gulp.watch(['lib/**/*.js', 'test/**/*.js'], batch(function(events, batchDone) {
+    gulp.start('test:node', batchDone);
   }));
+
+  new KarmaServer({
+    configFile: path.join(__dirname, 'karma.conf.js'),
+  }, done).start();
 });
 
 gulp.task('webpack', ['webpack:standalone', 'webpack:standalone:min']);
