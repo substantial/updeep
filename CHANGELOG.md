@@ -1,6 +1,8 @@
 # Change Log
 
 ## [unreleased]
+
+## [0.2.3]
 * Fix cannot update value to null (https://github.com/substantial/updeep/issues/8)
 * Add umd distribution builds via webpack. (https://github.com/aaronjensen/updeep/issues/3)
 
@@ -29,7 +31,8 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.2.2...HEAD
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.2.3...HEAD
+[0.2.3]: https://github.com/aaronjensen/updeep/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/aaronjensen/updeep/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/aaronjensen/updeep/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/aaronjensen/updeep/compare/v0.1.3...v0.2.0
