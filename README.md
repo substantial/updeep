@@ -24,7 +24,7 @@ functions with their parameters reversed (as [lodash-fp] do).
 
 Note that the parameters may be backwards from what you are used to. updeep
 supports [partial application][currying], so the parameter order is:
-`updeep(updates, obj)`.
+`updeep(updates, object)`.
 
 ## API and Examples
 
@@ -134,13 +134,13 @@ Apply updates only if `predicate` is truthy or, if `predicate` is a function,
 if it evaluates to truthy when called with `object`.
 
 ```js
-var obj = { a: 2 };
+var object = { a: 2 };
 function isEven(x) { return x % 2 === 0; }
 function inc(x) { return x + 1; }
 
 u({
   a: u.if(isEven, inc),
-}, obj);
+}, object);
 // => { a: 3 }
 ```
 
@@ -148,7 +148,7 @@ u({
 
 If iteratee is a function, map it over the values in `object`.
 If it is an object, apply it as updates to each value in `object`,
-which is equivalent to  `u.map(u(...), obj)`).
+which is equivalent to  `u.map(u(...), object)`).
 
 ```js
 function inc(x) { return x + 1; }
