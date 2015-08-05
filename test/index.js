@@ -109,4 +109,8 @@ describe('updeep', () => {
     expect(Object.isFrozen(result)).to.be.true;
     expect(Object.isFrozen(result.foo)).to.be.true;
   });
+
+  it('assigns null values', () => {
+    expect(u({isNull: null}, {})).to.eql({isNull: null});
+  });
 });
