@@ -26,6 +26,6 @@ describe('u.withDefault', () => {
   });
 
   it('freezes the result', () => {
-    expect(Object.isFrozen(u.withDefault({}, 'a')(undefined))).to.be.true;
+    expect(Object.isFrozen(u.withDefault({}, { a: 1 })(undefined))).to.be.true;
   });
 });
