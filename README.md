@@ -141,7 +141,7 @@ u({
 ### `u.if(predicate(, updates)(, object))`
 
 Apply updates only if `predicate` is truthy or, if `predicate` is a function,
-if it evaluates to truthy when called with `object`.
+it evaluates to truthy when called with `object`.
 
 ```js
 var object = { a: 2 };
