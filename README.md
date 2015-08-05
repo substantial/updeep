@@ -228,7 +228,7 @@ case.
 
 ## License
 
-MIT ©2015 [Aaron Jensen](https://twitter.com/aaronjensen)
+MIT ©2015 [Substantial](http://substantial.com)
 
 [npm-image]: https://img.shields.io/npm/v/updeep.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/updeep
