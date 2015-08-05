@@ -120,4 +120,10 @@ describe('updeep', () => {
     expect(u.omit).to.be.a('function');
     expect(u.withDefault).to.be.a('function');
   });
+
+  it.only('can be chained', () => {
+    const chain = u({ a: 1 }).u({ b: 1 }).u({ c: 1 });
+    const result = chain({});
+    expect(result).to.eql({ a: 1, b: 1, c: 1 });
+  });
 });
