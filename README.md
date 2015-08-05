@@ -144,6 +144,34 @@ u({
 // => { a: 3 }
 ```
 
+### `u.map(iteratee(, object))`
+
+If iteratee is a function, map it over the values in `object`.
+If it is an object, apply it as updates to each value in `object`,
+which is equivalent to  `u.map(u(...), obj)`).
+
+```js
+function inc(x) { return x + 1; }
+u({
+  a: u.map(inc)
+}, { a: [0, 1] });
+// => { a: [1, 2] }
+```
+
+```js
+function inc(x) { return x + 1; }
+u.map(inc, [0, 1, 2]);
+// => [1, 2, 3]
+
+u.map(inc, { a: 0, b: 1, c: 2});
+// => { a: 1, b: 2, c: 3}
+```
+
+```js
+u.map({ a: 2 }, [{ a: 0 }, { a: 1 }]);
+// => [{ a: 2 }, { a: 2 }]
+```
+
 ### `u.omit(predicate(, object))`
 
 Remove properties. See [`_.omit`](https://lodash.com/docs#omit).

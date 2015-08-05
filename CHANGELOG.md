@@ -2,6 +2,7 @@
 
 ## [unreleased]
 * Add `u.if` to conditionally update objects.
+* Add `u.map` to update all values in an array or object.
 
 ## [0.3.1]
 * Actually expose `u.in`.
