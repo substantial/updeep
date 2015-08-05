@@ -64,21 +64,25 @@ var newPerson = u({
 //    }
 ```
 
-### Simple update
+**NOTE**: All functions are curried, so if you see `f(x(, y))`, it can be called with either `f(x, y)` or `f(x)(y)`.
+
+### `u(updates(, object))`
+
+#### Simple update
 
 ```js
 u({ x: { b: 3 } }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0, b: 3 } }
 ```
 
-### Multiple updates, including an array
+#### Multiple updates, including an array
 
 ```js
 u({ x: { b: 3 }, y: { 1: 4 } }, { x: { a: 0, b: 0 }, y: [0, 0] });
 // => { x: { a: 0, b: 3 }, y: [0, 4] }
 ```
 
-### Use a function
+#### Use a function
 
 ```js
 function inc(i) { return i + 1; }
@@ -86,7 +90,7 @@ u({ x: { b: inc } }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0, b: 1 } }
 ```
 
-### Partial application
+#### Partial application
 
 ```js
 var setBTo3 = u({ b: 3 });
@@ -94,14 +98,53 @@ setBTo3({ a: 0, b: 0 });
 // => { a: 0, b: 3 })
 ```
 
-### Remove a property
+#### ES6 computed properties
 
 ```js
-u({ x: u.omit('b') }, { x: { a: 0, b: 0 } });
+var key = 'b';
+u({ x: { [key]: 3 } }, { x: { a: 0, b: 0 } });
+// => { x: { a: 0, b: 3 } }
+```
+
+### `u.in(path(, value)(, object))`
+
+Update a single value with a simple string or array path.
+
+```js
+u.in('a.b', 3, { a: { b: 0 } });
+// => { a: { b: 3 } };
+```
+
+```js
+function inc(i) { return i + 1; }
+u.in('a.b', inc, { a: { b: 0 } });
+// => { a: { b: 1 } };
+```
+
+```js
+u({
+  x: u.in(['a', 'b'], 3)
+}, { x: { a: { b: 0 } } });
+// => { x: { a: { b: 3 } } };
+```
+
+### `u.omit(predicate(, object))`
+
+Remove properties. See [`_.omit`](https://lodash.com/docs#omit).
+
+```js
+u({ x: u.omit('b') }, { x: { a: 0, b: 0, c: 0 } });
+// => { x: { a: 0, c: 0 } }
+```
+
+```js
+u({ x: u.omit(['b', 'c']) }, { x: { a: 0, b: 0, c: 0 } });
 // => { x: { a: 0 } }
 ```
 
-### Reject an item from an array
+### `u.reject(predicate(, object))`
+
+Reject items from an array. See [`_.reject`](https://lodash.com/docs#reject).
 
 ```js
 function even(i) { return i % 2 === 0 };
@@ -109,19 +152,13 @@ u({ x: u.reject(even) }, { x: [1, 2, 3, 4] });
 // => { x: [1, 3] }
 ```
 
-### With a default
+### `u.withDefault(default(, updates)(, object))`
+
+Like `u()`, but start with the default value if the original value is undefined.
 
 ```js
 u({ x: withDefault([], { 0: 3 }) }, {});
 // => { x: [3] }
-```
-
-### ES6 computed properties
-
-```js
-var key = 'b';
-u({ x: { [key]: 3 } }, { x: { a: 0, b: 0 } });
-// => { x: { a: 0, b: 3 } }
 ```
 
 See the [tests] for more examples.

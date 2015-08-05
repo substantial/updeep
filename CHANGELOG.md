@@ -2,6 +2,7 @@
 
 ## [unreleased]
 * Add `u.freeze` to freeze an object deeply. (https://github.com/substantial/updeep/issues/7)
+* Add `u.in` to update a single value in an object with a specified path. (https://github.com/substantial/updeep/issues/6)
 
 ## [0.2.3]
 * Fix cannot update value to null (https://github.com/substantial/updeep/issues/8)

@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import freeze from '../lib/freeze';
 
-describe('freeze', () => {
+describe('u.freeze', () => {
   afterEach(() => {
     delete process.env.NODE_ENV;
   });
