@@ -116,6 +116,7 @@ describe('updeep', () => {
 
   it('has additional functions', () => {
     expect(u.freeze).to.be.a('function');
+    expect(u.in).to.be.a('function');
     expect(u.omit).to.be.a('function');
     expect(u.withDefault).to.be.a('function');
   });
