@@ -128,6 +128,22 @@ u({
 // => { x: { a: { b: 3 } } };
 ```
 
+### `u.if(predicate(, updates)(, object))`
+
+Apply updates only if `predicate` is truthy or, if `predicate` is a function,
+if it evaluates to truthy when called with `object`.
+
+```js
+var obj = { a: 2 };
+function isEven(x) { return x % 2 === 0; }
+function inc(x) { return x + 1; }
+
+u({
+  a: u.if(isEven, inc),
+}, obj);
+// => { a: 3 }
+```
+
 ### `u.omit(predicate(, object))`
 
 Remove properties. See [`_.omit`](https://lodash.com/docs#omit).

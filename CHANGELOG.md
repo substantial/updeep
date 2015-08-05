@@ -1,6 +1,7 @@
 # Change Log
 
 ## [unreleased]
+* Add `u.if` to conditionally update objects.
 
 ## [0.3.1]
 * Actually expose `u.in`.
