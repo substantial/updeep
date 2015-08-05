@@ -33,4 +33,9 @@ describe('u.if', () => {
 
     expect(result).to.eql({ a: 3 });
   });
+
+  it('freezes the result', () => {
+    expect(Object.isFrozen(u.if(true, {}, {}))).to.be.true;
+    expect(Object.isFrozen(u.if(false, {}, {}))).to.be.true;
+  });
 });

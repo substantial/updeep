@@ -74,20 +74,18 @@ describe('updeep', () => {
     expect(result).to.deep.equal({ foo: 4 });
   });
 
+  it('passes additional arguments on to updates if it is a function', () => {
+    const func = (_, x) => x;
+    const result = u(func, 0, 4);
+
+    expect(result).to.equal(4);
+  });
+
   it('can update if the value is an array', () => {
     const object = {};
     const result = u({ foo: [0, 1] }, object);
 
     expect(result).to.deep.equal({ foo: [0, 1] });
-  });
-
-  it('can use withDefault to default things', () => {
-    const object = {};
-    const result = u({
-      foo: u.withDefault([], { 0: 'bar' }),
-    }, object);
-
-    expect(result).to.eql({ foo: ['bar'] });
   });
 
   it('can update when original object is undefined', () => {
@@ -102,12 +100,6 @@ describe('updeep', () => {
     expect(result).to.eql(8);
   });
 
-  it('can omit a key', () => {
-    const result = u({ foo: u.omit('bar') }, { foo: { bar: 7 } });
-
-    expect(result).to.eql({ foo: {} });
-  });
-
   it('deeply freezes the result', () => {
     const result = u({ foo: { bar: 3 } }, { foo: { bar: 0 } });
 
@@ -117,13 +109,5 @@ describe('updeep', () => {
 
   it('assigns null values', () => {
     expect(u({isNull: null}, {})).to.eql({isNull: null});
-  });
-
-  it('has additional functions', () => {
-    expect(u.freeze).to.be.a('function');
-    expect(u.if).to.be.a('function');
-    expect(u.in).to.be.a('function');
-    expect(u.omit).to.be.a('function');
-    expect(u.withDefault).to.be.a('function');
   });
 });

@@ -32,4 +32,14 @@ describe('u.in', () => {
     const result = u.in('a.b')(3)(object);
     expect(result).to.eql({ a: { b: 3 } });
   });
+
+  it('replaces the object outright if the path is empty', () => {
+    const object = {};
+    const result = u.in('', 3, object);
+    expect(result).to.equal(3);
+  });
+
+  it('freezes the result', () => {
+    expect(Object.isFrozen(u.in('a', 0, {}))).to.be.true;
+  });
 });

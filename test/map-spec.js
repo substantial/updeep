@@ -52,4 +52,8 @@ describe('u.map', () => {
       b: [0, 1],
     });
   });
+
+  it('freezes the result', () => {
+    expect(Object.isFrozen(u.map({}, {}))).to.be.true;
+  });
 });
