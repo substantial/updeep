@@ -161,6 +161,34 @@ case.
 1. Push to the branch (`git push origin my-new-feature`).
 1. Create new Pull Request.
 
+## Releasing New Version
+
+1. Login to npm, if you don't have access to the package, ask for it.
+
+    ```bash
+    $ npm login
+    ```
+1. Make sure the build passes (best to let it pass on travis, but you can run it locally):
+
+    ```bash
+    $ gulp
+    ```
+1. Bump the version:
+
+    ```bash
+    $ npm version major|minor|patch
+    ```
+1. Update the `CHANGELOG.md`.
+  1. Add the new version and corresponding notes.
+  1. Add a link to the new version.
+  1. Update the `unreleased` link compare to be based off of the new version.
+1. Publish and push:
+
+    ```bash
+    $ npm publish
+    $ git push master --follow-tags
+    ```
+
 ## License
 
 MIT ©2015 [Aaron Jensen](https://twitter.com/aaronjensen)
