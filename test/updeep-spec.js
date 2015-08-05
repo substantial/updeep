@@ -37,6 +37,11 @@ describe('updeep', () => {
     expect(result).to.deep.equal([1, 7, 3]);
   });
 
+  it('replaces the object outright if updates are a constant', () => {
+    expect(u(3, {})).to.equal(3);
+    expect(u(null, {})).to.be.null;
+  });
+
   it('can add an element to an array', () => {
     const object = [];
     const result = u({ 0: 3 }, object);
