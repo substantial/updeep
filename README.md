@@ -211,7 +211,7 @@ u({ x: u.reject(even) }, { x: [1, 2, 3, 4] });
 Like `u()`, but start with the default value if the original value is undefined.
 
 ```js
-u({ x: withDefault([], { 0: 3 }) }, {});
+u({ x: u.withDefault([], { 0: 3 }) }, {});
 // => { x: [3] }
 ```
 
