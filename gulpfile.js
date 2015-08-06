@@ -3,7 +3,6 @@ var path = require('path');
 var gulp = require('gulp');
 
 var babel = require('gulp-babel');
-var batch = require('gulp-batch');
 var eslint = require('gulp-eslint');
 var excludeGitignore = require('gulp-exclude-gitignore');
 var mocha = require('gulp-mocha');
@@ -55,14 +54,12 @@ gulp.task('babel', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', function(done) {
-  gulp.watch(['lib/**/*.js', 'test/**/*.js'], batch(function(events, batchDone) {
-    gulp.start('test:node', batchDone);
-  }));
-
+gulp.task('watch', function() {
+  gulp.start(['test:node']);
+  gulp.watch(['lib/**/*.js', 'test/**/*.js'], ['test:node']);
   new KarmaServer({
     configFile: path.join(__dirname, 'karma.conf.js'),
-  }, done).start();
+  }).start();
 });
 
 gulp.task('webpack', ['webpack:standalone', 'webpack:standalone:min']);
