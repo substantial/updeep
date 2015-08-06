@@ -140,7 +140,7 @@ u({
 
 ### `u.if(predicate(, updates)(, object))`
 
-Apply updates only if `predicate` is truthy or, if `predicate` is a function,
+Apply `updates` only if `predicate` is truthy or, if `predicate` is a function,
 it evaluates to truthy when called with `object`.
 
 ```js
@@ -152,6 +152,23 @@ u({
   a: u.if(isEven, inc),
 }, object);
 // => { a: 3 }
+```
+
+### `u.ifElse(predicate(, trueUpdates)(, falseUpdates)(, object))`
+
+Apply `trueUpdates` if `predicate` is truthy or, if `predicate` is a function,
+it evaluates to truthy when called with `object`. Otherwise, apply `falseUpdates`.
+
+```js
+var object = { a: 3 };
+function isEven(x) { return x % 2 === 0; }
+function inc(x) { return x + 1; }
+function dec(x) { return x - 1; }
+
+u({
+  a: u.if(isEven, inc),
+}, object);
+// => { a: 2 }
 ```
 
 ### `u.map(iteratee(, object))`

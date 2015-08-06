@@ -1,7 +1,7 @@
 # Change Log
 
 ## [unreleased]
-* Add `u.if` to conditionally update objects.
+* Add `u.if` and `u.ifElse` to conditionally update objects.
 * Add `u.map` to update all values in an array or object.
 * Replace object outright if null or constant provided as `updates`.
 * Freeze objects returned by helper methods that use `update` like `withDefault`, `map`, `in`, etc. Previously, only `u` did freezing.
