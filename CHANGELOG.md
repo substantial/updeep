@@ -1,6 +1,8 @@
 # Change Log
 
 ## [unreleased]
+
+## [0.4.0]
 * Add `u.if` and `u.ifElse` to conditionally update objects.
 * Add `u.map` to update all values in an array or object.
 * Replace object outright if null or constant provided as `updates`.
@@ -42,7 +44,8 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.3.1...HEAD
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/aaronjensen/updeep/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/aaronjensen/updeep/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/aaronjensen/updeep/compare/v0.2.3...v0.3.0
 [0.2.3]: https://github.com/aaronjensen/updeep/compare/v0.2.2...v0.2.3
