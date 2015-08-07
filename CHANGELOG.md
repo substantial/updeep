@@ -3,6 +3,7 @@
 ## [unreleased]
 * Add `u.is` to test predicates in a single path. (https://github.com/substantial/updeep/issues/13)
 * Rename `u.in` to `u.updateIn`. With `u.is` and `u.if` it was too confusing.
+* Make `u` available at `u.update` as well.
 
 ## [0.4.0]
 * Add `u.if` and `u.ifElse` to conditionally update objects. (https://github.com/substantial/updeep/issues/12)

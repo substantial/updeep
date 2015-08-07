@@ -81,6 +81,18 @@ var newPerson = u({
 
 ### `u(updates(, object))`
 
+Update as many values as you want, as deeply as you want. The `updates` parameter can either be an object, a function, or a value. Everything returned from `u` is frozen recursively.
+
+If `updates` is an object, for each key/value, it will apply the updates specified in the value to `object[key]`.
+
+If `updates` is a function, it will call the function with `object` and return the value.
+
+If `updates` is a value, it will return that value.
+
+Sometimes, you may want to set an entire object to a property, or a function. In that case, you'll need to use a function to return that value, otherwise it would be interpreted as an update. Ex. `function() { return { a: 0 }; }`.
+
+Also available at `u.update(...)`.
+
 #### Simple update
 
 ```js
