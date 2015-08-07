@@ -1,6 +1,8 @@
 # Change Log
 
 ## [unreleased]
+
+## [0.5.0]
 * Add `u.is` to test predicates in a single path. (https://github.com/substantial/updeep/issues/13)
 * Rename `u.in` to `u.updateIn`. With `u.is` and `u.if` it was too confusing.
 * Make `u` available at `u.update` as well.
@@ -47,7 +49,8 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.4.0...HEAD
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/aaronjensen/updeep/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/aaronjensen/updeep/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/aaronjensen/updeep/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/aaronjensen/updeep/compare/v0.2.3...v0.3.0
