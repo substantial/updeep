@@ -11,6 +11,8 @@
 
 ## About
 
+**NOTE: Before updeep is 1.0, method or semantics may change without a major version bump, but only if really necessary.**
+
 Updating deeply nested objects/arrays is a bit of a pain.
 updeep makes it painless by allowing you to declare the updates you would like
 to make and it will take care of the rest.
