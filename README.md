@@ -117,24 +117,24 @@ u({ x: { [key]: 3 } }, { x: { a: 0, b: 0 } });
 // => { x: { a: 0, b: 3 } }
 ```
 
-### `u.in(path(, value)(, object))`
+### `u.updateIn(path(, value)(, object))`
 
 Update a single value with a simple string or array path.
 
 ```js
-u.in('a.b', 3, { a: { b: 0 } });
+u.updateIn('a.b', 3, { a: { b: 0 } });
 // => { a: { b: 3 } };
 ```
 
 ```js
 function inc(i) { return i + 1; }
-u.in('a.b', inc, { a: { b: 0 } });
+u.updateIn('a.b', inc, { a: { b: 0 } });
 // => { a: { b: 1 } };
 ```
 
 ```js
 u({
-  x: u.in(['a', 'b'], 3)
+  x: u.updateIn(['a', 'b'], 3)
 }, { x: { a: { b: 0 } } });
 // => { x: { a: { b: 3 } } };
 ```
@@ -253,7 +253,7 @@ u.is('a.b', isEven, { a: { b: 4 } });
 
 ```js
 u({
-  person: u.if(u.is('name.first', 'Jen'), u.in('name.last', 'Simpson'))
+  person: u.if(u.is('name.first', 'Jen'), u.updateIn('name.last', 'Simpson'))
 }, { person: { name: { first: 'Jen', last: 'Matthews' } } });
 // => { person: { name: { first: 'Jen', last: 'Simpson' } } }
 ```
