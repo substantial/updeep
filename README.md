@@ -47,6 +47,7 @@ var person = {
 };
 
 var inc = function(i) { return i + 1; }
+var eq = function(x) { return function(y) { return x == y } };
 
 var newPerson = u({
   // Change first name
@@ -56,7 +57,7 @@ var newPerson = u({
   // Update email
   email: 'bob@example.com',
   // Remove todo
-  todo: u.reject('Be funny'),
+  todo: u.reject(eq('Be funny')),
   // Increment version
   version: inc
 }, person);
