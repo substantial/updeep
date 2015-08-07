@@ -219,8 +219,8 @@ u({ x: u.omit(['b', 'c']) }, { x: { a: 0, b: 0, c: 0 } });
 Reject items from an array. See [`_.reject`](https://lodash.com/docs#reject).
 
 ```js
-function even(i) { return i % 2 === 0 };
-u({ x: u.reject(even) }, { x: [1, 2, 3, 4] });
+function isEven(i) { return i % 2 === 0; }
+u({ x: u.reject(isEven) }, { x: [1, 2, 3, 4] });
 // => { x: [1, 3] }
 ```
 
@@ -234,6 +234,29 @@ u({ x: u.withDefault([], { 0: 3 }) }, {});
 ```
 
 See the [tests] for more examples.
+
+### `u.is(path(, predicate)(, object))`
+
+Returns `true` if the `predicate` matches the `path` applied to the `object`.
+If the `predicate` is a function, the result is returned. If not, they are compared with `===`.
+
+```js
+u.is('a.b', 4, { a: { b: 4 } });
+// => true
+```
+
+```js
+function isEven(i) { return i % 2 === 0; }
+u.is('a.b', isEven, { a: { b: 4 } });
+// => true
+```
+
+```js
+u({
+  person: u.if(u.is('name.first', 'Jen'), u.in('name.last', 'Simpson'))
+}, { person: { name: { first: 'Jen', last: 'Matthews' } } });
+// => { person: { name: { first: 'Jen', last: 'Simpson' } } }
+```
 
 ## Install
 
