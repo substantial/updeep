@@ -25,6 +25,19 @@ describe('u.map', () => {
     expect(result).to.eql([{ a: 1 }, { a: 1 }]);
   });
 
+  it('returns the same object if no updates are made', () => {
+    const array = [0, 1];
+    const ident = x => x;
+    let result = u.map(ident, array);
+
+    expect(result).to.equal(array);
+
+    const object = { a: 0 };
+    result = u.map(ident, object);
+
+    expect(result).to.equal(object);
+  });
+
   it('passes the key or index as the second parameter to the iteratee', () => {
     const object = {
       a: { x: 0 },

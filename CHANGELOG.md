@@ -1,6 +1,7 @@
 # Change Log
 
 ## [unreleased]
+* `u.map` will now return the same instance if nothing changes.
 * Removed a couple lodash dependencies.
 
 ## [0.5.0]
