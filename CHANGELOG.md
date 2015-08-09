@@ -1,6 +1,7 @@
 # Change Log
 
 ## [unreleased]
+* Removed a couple lodash dependencies.
 
 ## [0.5.0]
 * Add `u.is` to test predicates in a single path. (https://github.com/substantial/updeep/issues/13)
