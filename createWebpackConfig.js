@@ -29,11 +29,24 @@ module.exports = function createWebpackConfig(_options) {
   config.output.filename = options.filename;
 
   if (options.minify) {
-    config.plugins.push(new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        screw_ie8: true,
-      },
-    }));
+    config.plugins.push(
+      new webpack.optimize.UglifyJsPlugin({
+        compressor: {
+          screw_ie8: true,
+          warnings: false,
+        },
+      })
+    );
+  }
+
+  if (options.env) {
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify(options.env),
+        },
+      })
+    );
   }
 
   return config;

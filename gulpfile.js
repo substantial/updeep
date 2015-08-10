@@ -76,6 +76,7 @@ gulp.task('webpack:standalone:min', function() {
   var config = createWebpackConfig({
     filename: 'updeep-standalone.min.js',
     minify: true,
+    env: 'production',
   });
 
   return gulp.src('lib/index.js')
