@@ -103,7 +103,7 @@ var person = {
   }
 };
 
-var result = u({ name: { first: 'Susan' } }, person});
+var result = u({ name: { first: 'Susan' } }, person);
 
 expect(result).toEqual({ name: { first: 'Susan', last: 'West' } });
 ```
@@ -145,8 +145,8 @@ expect(result).toEqual({ scores: { team1: 0, team2: 1 } });
 ```js
 function increment(i) { return i + 1; }
 
-var addOne = u({ age: increment });
-var result = addOne({ name: 'Shannon Barnes', age: 62 });
+var addOneYear = u({ age: increment });
+var result = addOneYear({ name: 'Shannon Barnes', age: 62 });
 
 expect(result).toEqual({ name: 'Shannon Barnes', age: 63 });
 ```
