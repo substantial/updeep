@@ -96,39 +96,69 @@ Also available at `u.update(...)`.
 #### Simple update
 
 ```js
-u({ x: { b: 3 } }, { x: { a: 0, b: 0 } });
-// => { x: { a: 0, b: 3 } }
+var person = {
+  name: {
+    first: 'Jane',
+    last: 'West'
+  }
+};
+
+var result = u({ name: { first: 'Susan' } }, person});
+
+expect(result).toEqual({ name: { first: 'Susan', last: 'West' } });
 ```
 
 #### Multiple updates, including an array
 
 ```js
-u({ x: { b: 3 }, y: { 1: 4 } }, { x: { a: 0, b: 0 }, y: [0, 0] });
-// => { x: { a: 0, b: 3 }, y: [0, 4] }
+var person = {
+  name: {
+    first: 'Mike',
+    last: 'Smith'
+  },
+  scores: [12, 28]
+};
+
+var result = u({ name: { last: 'Jones' }, scores: { 1: 36 } }, person);
+
+expect(result).toEqual({ name: { first: 'Mike', last: 'Jones' }, scores: [12, 36] });
 ```
 
 #### Use a function
 
 ```js
-function inc(i) { return i + 1; }
-u({ x: { b: inc } }, { x: { a: 0, b: 0 } });
-// => { x: { a: 0, b: 1 } }
+function increment(i) { return i + 1; }
+var scoreboard = {
+  scores: {
+    team1: 0,
+    team2: 0
+  }
+};
+
+var result = u({ scores: { team2: increment } }, scoreboard);
+
+expect(result).toEqual({ scores: { team1: 0, team2: 1 } });
 ```
 
 #### Partial application
 
 ```js
-var setBTo3 = u({ b: 3 });
-setBTo3({ a: 0, b: 0 });
-// => { a: 0, b: 3 })
+function increment(i) { return i + 1; }
+
+var addOne = u({ age: increment });
+var result = addOne({ name: 'Shannon Barnes', age: 62 });
+
+expect(result).toEqual({ name: 'Shannon Barnes', age: 63 });
 ```
 
 #### ES6 computed properties
 
 ```js
-var key = 'b';
-u({ x: { [key]: 3 } }, { x: { a: 0, b: 0 } });
-// => { x: { a: 0, b: 3 } }
+var key = 'age';
+
+var result = u({ person: { [key]: 21 } }, { person: { name: 'Olivier P.', age: 20 } });
+
+expect(result).toEqual({ person: { name: 'Olivier P.', age: 21 } });
 ```
 
 ### `u.updateIn(path(, value)(, object))`
@@ -136,54 +166,52 @@ u({ x: { [key]: 3 } }, { x: { a: 0, b: 0 } });
 Update a single value with a simple string or array path.
 
 ```js
-u.updateIn('a.b', 3, { a: { b: 0 } });
-// => { a: { b: 3 } };
+var result = u.updateIn('bunny.color', 'brown', { bunny: { color: 'black' } });
+
+expect(result).toEqual({ bunny: { color: 'brown' } });
 ```
 
 ```js
-function inc(i) { return i + 1; }
-u.updateIn('a.b', inc, { a: { b: 0 } });
-// => { a: { b: 1 } };
+function increment(i) { return i + 1; }
+
+var result = u.updateIn('bunny.age', increment, { bunny: { age: 2 } });
+
+expect(result).toEqual({ bunny: { age: 3 } });
 ```
 
 ```js
-u({
-  x: u.updateIn(['a', 'b'], 3)
-}, { x: { a: { b: 0 } } });
-// => { x: { a: { b: 3 } } };
+var result = u({ pet: u.updateIn(['bunny', 'age'], 3) }, { pet: { bunny: { age: 2 } } });
+
+expect(result).toEqual({ pet: { bunny: { age: 3 } } });
 ```
 
 ### `u.if(predicate(, updates)(, object))`
 
-Apply `updates` only if `predicate` is truthy or, if `predicate` is a function,
-it evaluates to truthy when called with `object`.
+Apply `updates` if `predicate` is truthy, or if `predicate` is a function.
+It evaluates to truthy when called with `object`.
 
 ```js
-var object = { a: 2 };
 function isEven(x) { return x % 2 === 0; }
-function inc(x) { return x + 1; }
+function increment(x) { return x + 1; }
 
-u({
-  a: u.if(isEven, inc),
-}, object);
-// => { a: 3 }
+var result = u({ value: u.if(isEven, increment) }, { value: 2 });
+
+expect(result).toEqual({ value: 3 });
 ```
 
 ### `u.ifElse(predicate(, trueUpdates)(, falseUpdates)(, object))`
 
-Apply `trueUpdates` if `predicate` is truthy or, if `predicate` is a function,
-it evaluates to truthy when called with `object`. Otherwise, apply `falseUpdates`.
+Apply `trueUpdates` if `predicate` is truthy, or if `predicate` is a function.
+It evaluates to truthy when called with `object`. Otherwise, apply `falseUpdates`.
 
 ```js
-var object = { a: 3 };
 function isEven(x) { return x % 2 === 0; }
-function inc(x) { return x + 1; }
-function dec(x) { return x - 1; }
+function increment(x) { return x + 1; }
+function decrement(x) { return x - 1; }
 
-u({
-  a: u.ifElse(isEven, inc, dec),
-}, object);
-// => { a: 2 }
+var result = u({ value: u.ifElse(isEven, increment, decrement) }, { value: 3 });
+
+expect(result).toEqual({ value: 2 });
 ```
 
 ### `u.map(iteratee(, object))`
@@ -193,25 +221,33 @@ If it is an object, apply it as updates to each value in `object`,
 which is equivalent to  `u.map(u(...), object)`).
 
 ```js
-function inc(x) { return x + 1; }
-u({
-  a: u.map(inc)
-}, { a: [0, 1] });
-// => { a: [1, 2] }
+function increment(x) { return x + 1; }
+
+var result = u({ values: u.map(increment) }, { values: [0, 1] });
+
+expect(result).toEqual({ values: [1, 2] });
 ```
 
 ```js
-function inc(x) { return x + 1; }
-u.map(inc, [0, 1, 2]);
-// => [1, 2, 3]
+function increment(x) { return x + 1; }
 
-u.map(inc, { a: 0, b: 1, c: 2});
-// => { a: 1, b: 2, c: 3}
+var result = u.map(increment, [0, 1, 2]);
+
+expect(result).toEqual([1, 2, 3]);
 ```
 
 ```js
-u.map({ a: 2 }, [{ a: 0 }, { a: 1 }]);
-// => [{ a: 2 }, { a: 2 }]
+var result = u.map(increment, { a: 0, b: 1, c: 2 });
+
+expect(result).toEqual({ a: 1, b: 2, c: 3 });
+```
+
+```js
+function increment(x) { return x + 1; }
+
+var result = u.map({ a: 100 }, [{ a: 0 }, { a: 1 }]);
+
+expect(result).toEqual([{ a: 100 }, { a: 100 }]);
 ```
 
 ### `u.omit(predicate(, object))`
@@ -219,13 +255,19 @@ u.map({ a: 2 }, [{ a: 0 }, { a: 1 }]);
 Remove properties. See [`_.omit`](https://lodash.com/docs#omit).
 
 ```js
-u({ x: u.omit('b') }, { x: { a: 0, b: 0, c: 0 } });
-// => { x: { a: 0, c: 0 } }
+var user = { user: { email: 'john@aol.com', username: 'john123', authToken: '1211..' } };
+
+var result = u({ user: u.omit('authToken') }, user);
+
+expect(result).toEqual({ user: { email: 'john@aol.com', username: 'john123' } });
 ```
 
 ```js
-u({ x: u.omit(['b', 'c']) }, { x: { a: 0, b: 0, c: 0 } });
-// => { x: { a: 0 } }
+var user = { user: { email: 'john@aol.com', username: 'john123', authToken: '1211..', SSN: 5551234 } };
+
+var result = u({ user: u.omit(['authToken', 'SSN']) }, user);
+
+expect(result).toEqual({ user: { email: 'john@aol.com', username: 'john123' } });
 ```
 
 ### `u.reject(predicate(, object))`
@@ -234,8 +276,10 @@ Reject items from an array. See [`_.reject`](https://lodash.com/docs#reject).
 
 ```js
 function isEven(i) { return i % 2 === 0; }
-u({ x: u.reject(isEven) }, { x: [1, 2, 3, 4] });
-// => { x: [1, 3] }
+
+var result = u({ values: u.reject(isEven) }, { values: [1, 2, 3, 4] });
+
+expect(result).toEqual({ values: [1, 3] });
 ```
 
 ### `u.withDefault(default(, updates)(, object))`
@@ -243,8 +287,9 @@ u({ x: u.reject(isEven) }, { x: [1, 2, 3, 4] });
 Like `u()`, but start with the default value if the original value is undefined.
 
 ```js
-u({ x: u.withDefault([], { 0: 3 }) }, {});
-// => { x: [3] }
+var result = u({ value: u.withDefault([], { 0: 3 }) }, {});
+
+expect(result).toEqual({ value: [3] });
 ```
 
 See the [tests] for more examples.
@@ -255,21 +300,25 @@ Returns `true` if the `predicate` matches the `path` applied to the `object`.
 If the `predicate` is a function, the result is returned. If not, they are compared with `===`.
 
 ```js
-u.is('a.b', 4, { a: { b: 4 } });
-// => true
+var result = u.is('friend.age', 22, { friend: { age: 22 } });
+
+expect(result).toEqual(true);
 ```
 
 ```js
 function isEven(i) { return i % 2 === 0; }
-u.is('a.b', isEven, { a: { b: 4 } });
-// => true
+
+var result = u.is('friend.age', isEven, { friend: { age: 22 } });
+
+expect(result).toEqual(true);
 ```
 
 ```js
-u({
-  person: u.if(u.is('name.first', 'Jen'), u.updateIn('name.last', 'Simpson'))
-}, { person: { name: { first: 'Jen', last: 'Matthews' } } });
-// => { person: { name: { first: 'Jen', last: 'Simpson' } } }
+var person = { person: { name: { first: 'Jen', last: 'Matthews' } } };
+
+var result = u({ person: u.if(u.is('name.first', 'Jen'), u.updateIn('name.last', 'Simpson')) });
+
+expect(result).toEqual({ person: { name: { first: 'Jen', last: 'Simpson' } } });
 ```
 
 ## Install
