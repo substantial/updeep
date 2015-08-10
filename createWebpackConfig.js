@@ -6,6 +6,9 @@ module.exports = function createWebpackConfig(_options) {
   var options = _options || {};
 
   config = {
+    context: options.context,
+    entry: options.entry,
+
     plugins: [
       new webpack.optimize.OccurrenceOrderPlugin(),
     ],

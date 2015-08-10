@@ -20,7 +20,8 @@
   ],
   "scripts": {
     "test": "gulp",
-    "prepublish": "gulp prepublish"
+    "prepublish": "gulp prepublish",
+    "perf-server": "`npm bin`/webpack-dev-server --config perf/webpack.config.js --hot"
   },
   "license": "MIT",
   "bugs": {
@@ -33,9 +34,11 @@
     "babel-core": "^5.5.0",
     "babel-eslint": "^4.0.5",
     "babel-loader": "^5.3.2",
+    "benchmark": "^1.0.0",
     "chai": "^3.2.0",
     "eslint": "^0.24.1",
     "eslint-config-airbnb": "0.0.7",
+    "exports-loader": "^0.6.2",
     "gulp": "^3.6.0",
     "gulp-babel": "^5.1.0",
     "gulp-eslint": "^0.15.0",
@@ -54,6 +57,7 @@
     "phantomjs": "^1.9.17",
     "rimraf": "^2.4.2",
     "webpack": "^1.10.5",
+    "webpack-dev-server": "^1.10.1",
     "webpack-stream": "^2.1.0"
   }
 }
