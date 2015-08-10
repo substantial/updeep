@@ -263,7 +263,14 @@ expect(result).toEqual({ user: { email: 'john@aol.com', username: 'john123' } })
 ```
 
 ```js
-var user = { user: { email: 'john@aol.com', username: 'john123', authToken: '1211..', SSN: 5551234 } };
+var user = {
+  user: {
+    email: 'john@aol.com',
+    username: 'john123',
+    authToken: '1211..',
+    SSN: 5551234
+  }
+};
 
 var result = u({ user: u.omit(['authToken', 'SSN']) }, user);
 
@@ -314,9 +321,22 @@ expect(result).toEqual(true);
 ```
 
 ```js
-var person = { person: { name: { first: 'Jen', last: 'Matthews' } } };
+var person = {
+  person: {
+    name: {
+      first: 'Jen',
+      last: 'Matthews'
+    }
+  }
+};
 
-var result = u({ person: u.if(u.is('name.first', 'Jen'), u.updateIn('name.last', 'Simpson')) });
+// Update person's last name to Simpson if their first name is Jen
+var result = u({
+  person: u.if(
+    u.is('name.first', 'Jen'),
+    u.updateIn('name.last', 'Simpson')
+  )
+});
 
 expect(result).toEqual({ person: { name: { first: 'Jen', last: 'Simpson' } } });
 ```
