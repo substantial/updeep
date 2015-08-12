@@ -2,8 +2,10 @@
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Code Climate][codeclimate-image]][codeclimate-url]
+
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![peerDependency Status][daviddm-peer-image]][daviddm-peer-url]
+[![devDependency Status][daviddm-dev-image]][daviddm-dev-url]
 
 > Easily update nested frozen objects and arrays in a declarative and immutable
 > manner.
@@ -416,6 +418,8 @@ MIT ©2015 [Substantial](http://substantial.com)
 [daviddm-url]: https://david-dm.org/substantial/updeep
 [daviddm-peer-image]: https://david-dm.org/substantial/updeep/peer-status.svg
 [daviddm-peer-url]:https://david-dm.org/substantial/updeep#info=peerDependencies
+[daviddm-dev-image]: https://david-dm.org/substantial/updeep/dev-status.svg
+[daviddm-dev-url]:https://david-dm.org/substantial/updeep#info=devDependencies
 [codeclimate-image]: https://codeclimate.com/github/substantial/updeep/badges/gpa.svg
 [codeclimate-url]: https://codeclimate.com/github/substantial/updeep
 [lodash]: http://lodash.com
