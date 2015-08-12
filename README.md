@@ -163,6 +163,19 @@ var result = u({ person: { [key]: 21 } }, { person: { name: 'Olivier P.', age: 2
 expect(result).toEqual({ person: { name: 'Olivier P.', age: 21 } });
 ```
 
+### `u._`
+
+All updeep functions are curried.
+If you want to partially apply a function in an order other than the default argument order, you can use the placeholder.
+
+```js
+function increment(i) { return i + 1; }
+var updateJoe = u(u._, { name: "Joe Merrill", age: 21 });
+var result = updateJoe({ age: increment });
+
+expect(result).toEqual({ name: "Joe Merrill", age: 22 });
+```
+
 ### `u.updateIn(path(, value)(, object))`
 
 Update a single value with a simple string or array path.

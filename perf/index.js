@@ -3,12 +3,12 @@ const Benchmark = require('benchmark');
 
 const u = require('../lib');
 const _ = require('lodash');
-const { curry2 } = require('../lib/util/curry');
+const { curry4 } = require('../lib/util/curry');
 
-const add = (x, y) => x + y;
+const add = (a, b, c, d) => a + b + c + d;
 const fakeCurryAdd = x => y => x + y;
 const curryAdd = _.curry(add);
-const updeepCurry = curry2(add);
+const updeepCurry = curry4(add);
 // const updeepCurryBig = curry.curryBig(add);
 
 const array = [0, 1, 2, 3, 4, 5];
@@ -44,8 +44,8 @@ function createSuite(suiteName, tests) {
 
 
 const curryVsLodash = createSuite('Curry', {
-  'updeep curry partial call': () => updeepCurry(3)(4),
-  'lodash curry partial call': () => curryAdd(3)(4),
+  'updeep curry partial call': () => updeepCurry(3)(4)(5)(6),
+  'lodash curry partial call': () => curryAdd(3)(4)(5)(6),
 });
 
 const mapVsLodash = createSuite('Map', {
@@ -66,6 +66,6 @@ const applyVsDestructure = createSuite('apply vs destructure', {
   'destructure': () => fnDestructure(1, 2, 3, 4, 5),
 });
 
-// curryVsLodash();
-// mapVsLodash();
-applyVsDestructure();
+curryVsLodash();
+mapVsLodash();
+// applyVsDestructure();

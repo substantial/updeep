@@ -1,6 +1,7 @@
 # Change Log
 
 ## [unreleased]
+* Add `u._` placeholder for curried functions.
 
 ## [0.6.0]
 * Remove support for `_.placeholder` in curried methods. This may come back, but it was necessary for the next item.
