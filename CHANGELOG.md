@@ -1,7 +1,12 @@
 # Change Log
 
 ## [unreleased]
+
+## [0.6.0]
+* Remove support for `_.placeholder` in curried methods. This may come back, but it was necessary for the next item.
+* Improve performance of curried methods.
 * `u.map` will now return the same instance if nothing changes.
+* Improve performance of `u.map`.
 * Removed a couple lodash dependencies.
 
 ## [0.5.0]
@@ -51,7 +56,8 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.5.0...HEAD
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/aaronjensen/updeep/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/aaronjensen/updeep/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/aaronjensen/updeep/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/aaronjensen/updeep/compare/v0.3.0...v0.3.1
