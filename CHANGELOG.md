@@ -4,7 +4,7 @@
 
 ## [0.6.0]
 * Remove support for `_.placeholder` in curried methods. This may come back, but it was necessary for the next item.
-* Improve performance of curried methods.
+* Improve performance of curried methods. (https://github.com/substantial/updeep/issues/16)
 * Improve examples in docs, thanks [hedgerh][].
 * `u.map` will now return the same instance if nothing changes.
 * Improve performance of `u.map`.
