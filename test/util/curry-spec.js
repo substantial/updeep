@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { curry1, curry2, curry3 } from '../../lib/util/curry';
+import { curry1, curry2, curry3, curry4 } from '../../lib/util/curry';
 
 describe('curry1', () => {
   it('can curry one arguments', () => {
@@ -39,5 +39,19 @@ describe('curry3', () => {
   it('will take up to two extra arguments', () => {
     const curried = curry3((a, b, c, d, e) => [a, b, c, d, e]);
     expect(curried(1, 2, 3, 4, 5, 6)).to.eql([1, 2, 3, 4, 5]);
+  });
+});
+
+describe('curry4', () => {
+  it('can curry four arguments', () => {
+    const add = curry4((x, y, z, u) => x + y + z + u);
+    expect(add(3)(4)(5)(6)).to.equal(18);
+    expect(add()(3)()(4, 5, 6)).to.equal(18);
+    expect(add(3, 4, 5, 6)).to.equal(18);
+  });
+
+  it('will take up to two extra arguments', () => {
+    const curried = curry4((a, b, c, d, e, f) => [a, b, c, d, e, f]);
+    expect(curried(1, 2, 3, 4, 5, 6, 7)).to.eql([1, 2, 3, 4, 5, 6]);
   });
 });
