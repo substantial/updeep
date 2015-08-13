@@ -200,6 +200,35 @@ var result = u({ pet: u.updateIn(['bunny', 'age'], 3) }, { pet: { bunny: { age: 
 expect(result).toEqual({ pet: { bunny: { age: 3 } } });
 ```
 
+### `u.constant(object)`
+
+Sometimes, you want to replace an object outright rather than merging it.
+You'll need to use a function that returns the new object.
+`u.constant` creates that function for you.
+
+```js
+var user = {
+  name: 'Mitch',
+  favorites: {
+    band: 'Nirvana',
+    movie: 'The Matrix'
+  }
+};
+
+var newFavorites = {
+  band: 'Coldplay'
+};
+
+var result = u({ favorites: u.constant(newFavorites) }, user);
+
+expect(result).toEqual({ name: 'Mitch', favorites: { band: 'Coldplay' } });
+```
+
+```js
+var alwaysFour = u.constant(4);
+expect(alwaysFour(32)).toEqual(4);
+```
+
 ### `u.if(predicate(, updates)(, object))`
 
 Apply `updates` if `predicate` is truthy, or if `predicate` is a function.

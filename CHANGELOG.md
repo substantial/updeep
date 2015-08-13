@@ -2,6 +2,7 @@
 
 ## [unreleased]
 * Add `u._` placeholder for curried functions.
+* Add `u.constant` for replacing an object outright. (https://github.com/substantial/updeep/issues/10)
 * Fix handling null differently than undefined. `u` and friends will now coerce null to an object if there are updates for it. (https://github.com/substantial/updeep/issues/20)
 
 ## [0.6.0]
