@@ -118,4 +118,15 @@ describe('updeep', () => {
 
     expect(result).to.eql({ name: 'Joe Merrill', age: 22 });
   });
+
+  it('defaults to an empty object when null or undefined', () => {
+    let result = u({ a: { b: 0 } }, { a: null });
+    expect(result).to.eql({ a: { b: 0 } });
+
+    result = u({ a: { b: 0 } }, { a: undefined });
+    expect(result).to.eql({ a: { b: 0 } });
+
+    result = u({ a: { b: 0 } }, { });
+    expect(result).to.eql({ a: { b: 0 } });
+  });
 });
