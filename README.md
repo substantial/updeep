@@ -281,14 +281,14 @@ expect(result).toEqual([1, 2, 3]);
 ```
 
 ```js
+function increment(x) { return x + 1; }
+
 var result = u.map(increment, { a: 0, b: 1, c: 2 });
 
 expect(result).toEqual({ a: 1, b: 2, c: 3 });
 ```
 
 ```js
-function increment(x) { return x + 1; }
-
 var result = u.map({ a: 100 }, [{ a: 0 }, { a: 1 }]);
 
 expect(result).toEqual([{ a: 100 }, { a: 100 }]);
