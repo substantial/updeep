@@ -178,12 +178,18 @@ expect(result).toEqual({ name: "Joe Merrill", age: 22 });
 
 ### `u.updateIn(path(, value)(, object))`
 
-Update a single value with a simple string or array path.
+Update a single value with a simple string or array path. Can be use to update nested objects, arrays, or a combination.
 
 ```js
 var result = u.updateIn('bunny.color', 'brown', { bunny: { color: 'black' } });
 
 expect(result).toEqual({ bunny: { color: 'brown' } });
+```
+
+```js
+var result = u.updateIn('0.1.color', 'brown', [[{ color: 'blue' }, { color: 'red' }], []]);
+
+expect(result).toEqual( [[{ color: 'blue' }, { color: 'brown' }], []]); 
 ```
 
 ```js
@@ -195,9 +201,9 @@ expect(result).toEqual({ bunny: { age: 3 } });
 ```
 
 ```js
-var result = u({ pet: u.updateIn(['bunny', 'age'], 3) }, { pet: { bunny: { age: 2 } } });
+var result = u({ pets: u.updateIn([0, 'bunny', 'age'], 3) }, { pets: [{ bunny: { age: 2 } }] });
 
-expect(result).toEqual({ pet: { bunny: { age: 3 } } });
+expect(result).toEqual({ pets: [{ bunny: { age: 3 } }] });
 ```
 
 ### `u.constant(object)`
