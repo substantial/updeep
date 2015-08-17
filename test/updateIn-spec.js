@@ -27,6 +27,12 @@ describe('u.updateIn', () => {
     expect(result).to.eql({ a: [0, 3, 0] });
   });
 
+  it('can create array if all keys are numbers', () => {
+    const result = u.updateIn('a.0', 3, null);
+
+    expect(result).to.eql({ a: [3] });
+  });
+
   it('can be partially applied', () => {
     const object = { a: { b: 0 } };
     const result = u.updateIn('a.b')(3)(object);
