@@ -1,5 +1,10 @@
 # Change Log
 
+## [unreleased]
+
+## [0.7.1]
+* Fix update omitting empty object. (https://github.com/substantial/updeep/issues/29)
+
 ## [0.7.0]
 * Add `u._` placeholder for curried functions.
 * Add `u.constant` for replacing an object outright. (https://github.com/substantial/updeep/issues/10)
@@ -60,7 +65,8 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.7.0...HEAD
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.7.1...HEAD
+[0.7.1]: https://github.com/aaronjensen/updeep/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/aaronjensen/updeep/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/aaronjensen/updeep/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/aaronjensen/updeep/compare/v0.4.0...v0.5.0

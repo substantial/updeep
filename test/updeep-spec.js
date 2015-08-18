@@ -129,4 +129,9 @@ describe('updeep', () => {
     result = u({ a: { b: 0 } }, { });
     expect(result).toEqual({ a: { b: 0 } });
   });
+
+  it('preserves empty objects when empty updates are specified', () => {
+    const result = u({ a: {} }, {});
+    expect(result).toEqual({ a: {} });
+  });
 });
