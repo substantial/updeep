@@ -4,7 +4,6 @@ var gulp = require('gulp');
 
 var babel = require('gulp-babel');
 var eslint = require('gulp-eslint');
-var excludeGitignore = require('gulp-exclude-gitignore');
 var mocha = require('gulp-mocha');
 var nsp = require('gulp-nsp');
 var rimraf = require('rimraf');
@@ -23,8 +22,7 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('static', function() {
-  return gulp.src('**/*.js')
-    .pipe(excludeGitignore())
+  return gulp.src(['*.js', 'lib/**/*.js', 'test/**/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
