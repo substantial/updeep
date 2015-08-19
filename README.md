@@ -10,27 +10,26 @@
 > Easily update nested frozen objects and arrays in a declarative and immutable
 > manner.
 
-
 ## About
 
-**NOTE: Before updeep is 1.0, method names or semantics may change without a major version bump, but only if really necessary.**
+updeep makes updating deeply nested objects/arrays painless by allowing you to
+declare the updates you would like to make and it will take care of the rest. It
+will recursively return the same instance if no changes have been made, making
+it ideal for using reference equality checks to detect changes (like
+[PureRenderMixin]).
 
-Updating deeply nested objects/arrays is a bit of a pain.
-updeep makes it painless by allowing you to declare the updates you would like
-to make and it will take care of the rest.
-It will recursively return the same instance if no changes have been made,
-making it ideal for using reference equality checks to detect changes (like
-[PureRenderMixin]). Because of this, everything returned by updeep is frozen.
+Because of this, everything returned by updeep is frozen.  updeep requires
+[lodash], but works very well with [lodash-fp] or [Ramda]. As a matter of fact,
+many of the helpers functions are [curried][currying] [lodash] functions with
+their parameters reversed (like [lodash-fp]).
 
-updeep requires [lodash], but works very well with [lodash-fp] or [Ramda]. As a
-matter of fact, many of the helpers functions are [curried][currying] [lodash]
-functions with their parameters reversed (as [lodash-fp] do).
-
-Note that the parameters may be backwards from what you are used to. updeep
+Note that the parameters may be backwards from what you may be used to. updeep
 supports [partial application][currying], so the parameter order is:
 `updeep(updates, object)`.
 
 ## API and Examples
+
+**NOTE: Before updeep is 1.0, method names or semantics may change with a minor version bump.**
 
 ### Full example
 ```js
@@ -189,7 +188,7 @@ expect(result).toEqual({ bunny: { color: 'brown' } });
 ```js
 var result = u.updateIn('0.1.color', 'brown', [[{ color: 'blue' }, { color: 'red' }], []]);
 
-expect(result).toEqual( [[{ color: 'blue' }, { color: 'brown' }], []]); 
+expect(result).toEqual( [[{ color: 'blue' }, { color: 'brown' }], []]);
 ```
 
 ```js
