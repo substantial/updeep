@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import u from '../lib';
 
 describe('u.map', () => {
@@ -7,7 +7,7 @@ describe('u.map', () => {
     const inc = x => x + 1;
     const result = u.map(inc, object);
 
-    expect(result).toEqual([1, 2, 3]);
+    expect(result).to.eql([1, 2, 3]);
   });
 
   it('applies updates to each value in an object', () => {
@@ -15,14 +15,14 @@ describe('u.map', () => {
     const inc = x => x + 1;
     const result = u.map(inc, object);
 
-    expect(result).toEqual({ a: 1, b: 2, c: 3 });
+    expect(result).to.eql({ a: 1, b: 2, c: 3 });
   });
 
   it('can update with a regular updates object', () => {
     const object = [{ a: 0 }, { a: 0 }];
     const result = u.map({ a: 1 }, object);
 
-    expect(result).toEqual([{ a: 1 }, { a: 1 }]);
+    expect(result).to.eql([{ a: 1 }, { a: 1 }]);
   });
 
   it('returns the same object if no updates are made', () => {
@@ -30,12 +30,12 @@ describe('u.map', () => {
     const ident = x => x;
     let result = u.map(ident, array);
 
-    expect(result).toBe(array);
+    expect(result).to.equal(array);
 
     const object = { a: 0 };
     result = u.map(ident, object);
 
-    expect(result).toBe(object);
+    expect(result).to.equal(object);
   });
 
   it('passes the key or index as the second parameter to the iteratee', () => {
@@ -46,7 +46,7 @@ describe('u.map', () => {
     const setToKey = (_, key) => key;
     const result = u.map(u.map(setToKey), object);
 
-    expect(result).toEqual( {
+    expect(result).to.eql( {
       a: { x: 'x' },
       b: [0, 1],
     });
@@ -61,12 +61,12 @@ describe('u.map', () => {
       b: u.map(setToKey),
     }, object);
 
-    expect(result).toEqual( {
+    expect(result).to.eql( {
       b: [0, 1],
     });
   });
 
   it('freezes the result', () => {
-    expect(Object.isFrozen(u.map({}, {}))).toBe(true);
+    expect(Object.isFrozen(u.map({}, {}))).to.be.true;
   });
 });

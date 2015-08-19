@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import u from '../lib';
 
 describe('u.withDefault', () => {
@@ -6,14 +6,14 @@ describe('u.withDefault', () => {
     const inc = x => x + 1;
     const result = u.withDefault({ a: 0 }, { a: inc }, undefined);
 
-    expect(result).toEqual({ a: 1 });
+    expect(result).to.eql({ a: 1 });
   });
 
   it('uses ignores the default if the object is defined', () => {
     const inc = x => x + 1;
     const result = u.withDefault({ a: 0 }, { a: inc }, { a: 3 });
 
-    expect(result).toEqual({ a: 4 });
+    expect(result).to.eql({ a: 4 });
   });
 
   it('can be partially applied', () => {
@@ -22,10 +22,10 @@ describe('u.withDefault', () => {
       foo: u.withDefault([], { 0: 'bar' }),
     }, object);
 
-    expect(result).toEqual({ foo: ['bar'] });
+    expect(result).to.eql({ foo: ['bar'] });
   });
 
   it('freezes the result', () => {
-    expect(Object.isFrozen(u.withDefault({}, { a: 1 })(undefined))).toBe(true);
+    expect(Object.isFrozen(u.withDefault({}, { a: 1 })(undefined))).to.be.true;
   });
 });
