@@ -1,6 +1,7 @@
 # Change Log
 
 ## [unreleased]
+* Fix curried functions not reporting their correct arity. (https://github.com/substantial/updeep/issues/31)
 
 ## [0.7.1]
 * Fix update omitting empty object. (https://github.com/substantial/updeep/issues/29)
