@@ -12,6 +12,11 @@ describe('curry1', () => {
     const curried = curry1((a, b, c) => [a, b, c]);
     expect(curried(1, 2, 3, 4)).to.eql([1, 2, 3]);
   });
+
+  it('returns a fn with arity of 1', () => {
+    const curried = curry1((a, b, c) => [a, b, c]);
+    expect(curried).to.have.length(1);
+  });
 });
 
 describe('curry2', () => {
@@ -30,6 +35,11 @@ describe('curry2', () => {
   it('can use the placeholder', () => {
     const curried = curry2((a, b, c, d) => [a, b, c, d]);
     expect(curried(_, 2)(1, 3, 4)).to.eql([1, 2, 3, 4]);
+  });
+
+  it('returns a fn with arity of 2', () => {
+    const curried = curry2((a, b, c, d) => [a, b, c, d]);
+    expect(curried).to.have.length(2);
   });
 });
 
@@ -52,6 +62,11 @@ describe('curry3', () => {
     expect(curried('b', _, 3)(2, 4, 5)).to.eql(['b', 2, 3, 4, 5]);
     expect(curried(_, 2, 3)('c', 4, 5)).to.eql(['c', 2, 3, 4, 5]);
     expect(curried(_, _, 3)('d', 2, 4, 5)).to.eql(['d', 2, 3, 4, 5]);
+  });
+
+  it('returns a fn with arity of 3', () => {
+    const curried = curry3((a, b, c, d, e) => [a, b, c, d, e]);
+    expect(curried).to.have.length(3);
   });
 });
 
@@ -86,5 +101,10 @@ describe('curry4', () => {
     expect(curried('j', _, _, 4)(2, 3, 5, 6)).to.eql(['j', 2, 3, 4, 5, 6]);
 
     expect(curried(_, _, _, 4)('k', 2, 3, 5, 6)).to.eql(['k', 2, 3, 4, 5, 6]);
+  });
+
+  it('returns a fn with arity of 4', () => {
+    const curried = curry4((a, b, c, d, e, f) => [a, b, c, d, e, f]);
+    expect(curried).to.have.length(4);
   });
 });
