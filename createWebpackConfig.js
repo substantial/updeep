@@ -4,6 +4,7 @@ var webpack = require('webpack');
 module.exports = function createWebpackConfig(_options) {
   var config;
   var options = _options || {};
+  var env = options.env || 'development';
 
   config = {
     context: options.context,
@@ -11,7 +12,16 @@ module.exports = function createWebpackConfig(_options) {
 
     plugins: [
       new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify(env),
+        },
+      }),
     ],
+
+    node: {
+      process: false,
+    },
 
     module: {
       loaders: [
@@ -35,18 +45,11 @@ module.exports = function createWebpackConfig(_options) {
     config.plugins.push(
       new webpack.optimize.UglifyJsPlugin({
         compressor: {
+          pure_getters: true,
+          unsafe: true,
+          unsafe_comps: true,
           screw_ie8: true,
           warnings: false,
-        },
-      })
-    );
-  }
-
-  if (options.env) {
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify(options.env),
         },
       })
     );
