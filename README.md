@@ -106,7 +106,7 @@ var person = {
 
 var result = u({ name: { first: 'Susan' } }, person);
 
-expect(result).toEqual({ name: { first: 'Susan', last: 'West' } });
+expect(result).to.eql({ name: { first: 'Susan', last: 'West' } });
 ```
 
 #### Multiple updates, including an array
@@ -122,7 +122,7 @@ var person = {
 
 var result = u({ name: { last: 'Jones' }, scores: { 1: 36 } }, person);
 
-expect(result).toEqual({ name: { first: 'Mike', last: 'Jones' }, scores: [12, 36] });
+expect(result).to.eql({ name: { first: 'Mike', last: 'Jones' }, scores: [12, 36] });
 ```
 
 #### Use a function
@@ -138,7 +138,16 @@ var scoreboard = {
 
 var result = u({ scores: { team2: increment } }, scoreboard);
 
-expect(result).toEqual({ scores: { team1: 0, team2: 1 } });
+expect(result).to.eql({ scores: { team1: 0, team2: 1 } });
+```
+
+#### When null or undefined object, updeep uses a default object
+```javascript
+var result = u({ foo: 'bar' }, null);
+expect(result).to.eql({ foo: 'bar' });
+
+var result = u({ 0: 'foo', 1: 'bar' }, null);
+expect(result).to.eql(['foo', 'bar']);
 ```
 
 #### Partial application
@@ -149,7 +158,7 @@ function increment(i) { return i + 1; }
 var addOneYear = u({ age: increment });
 var result = addOneYear({ name: 'Shannon Barnes', age: 62 });
 
-expect(result).toEqual({ name: 'Shannon Barnes', age: 63 });
+expect(result).to.eql({ name: 'Shannon Barnes', age: 63 });
 ```
 
 #### ES6 computed properties
@@ -159,7 +168,7 @@ var key = 'age';
 
 var result = u({ person: { [key]: 21 } }, { person: { name: 'Olivier P.', age: 20 } });
 
-expect(result).toEqual({ person: { name: 'Olivier P.', age: 21 } });
+expect(result).to.eql({ person: { name: 'Olivier P.', age: 21 } });
 ```
 
 ### `u._`
@@ -172,7 +181,7 @@ function increment(i) { return i + 1; }
 var updateJoe = u(u._, { name: "Joe Merrill", age: 21 });
 var result = updateJoe({ age: increment });
 
-expect(result).toEqual({ name: "Joe Merrill", age: 22 });
+expect(result).to.eql({ name: "Joe Merrill", age: 22 });
 ```
 
 ### `u.updateIn(path(, value)(, object))`
@@ -182,13 +191,13 @@ Update a single value with a simple string or array path. Can be use to update n
 ```js
 var result = u.updateIn('bunny.color', 'brown', { bunny: { color: 'black' } });
 
-expect(result).toEqual({ bunny: { color: 'brown' } });
+expect(result).to.eql({ bunny: { color: 'brown' } });
 ```
 
 ```js
 var result = u.updateIn('0.1.color', 'brown', [[{ color: 'blue' }, { color: 'red' }], []]);
 
-expect(result).toEqual( [[{ color: 'blue' }, { color: 'brown' }], []]);
+expect(result).to.eql( [[{ color: 'blue' }, { color: 'brown' }], []]);
 ```
 
 ```js
@@ -196,13 +205,13 @@ function increment(i) { return i + 1; }
 
 var result = u.updateIn('bunny.age', increment, { bunny: { age: 2 } });
 
-expect(result).toEqual({ bunny: { age: 3 } });
+expect(result).to.eql({ bunny: { age: 3 } });
 ```
 
 ```js
 var result = u({ pets: u.updateIn([0, 'bunny', 'age'], 3) }, { pets: [{ bunny: { age: 2 } }] });
 
-expect(result).toEqual({ pets: [{ bunny: { age: 3 } }] });
+expect(result).to.eql({ pets: [{ bunny: { age: 3 } }] });
 ```
 
 ### `u.constant(object)`
@@ -226,12 +235,12 @@ var newFavorites = {
 
 var result = u({ favorites: u.constant(newFavorites) }, user);
 
-expect(result).toEqual({ name: 'Mitch', favorites: { band: 'Coldplay' } });
+expect(result).to.eql({ name: 'Mitch', favorites: { band: 'Coldplay' } });
 ```
 
 ```js
 var alwaysFour = u.constant(4);
-expect(alwaysFour(32)).toEqual(4);
+expect(alwaysFour(32)).to.eql(4);
 ```
 
 ### `u.if(predicate(, updates)(, object))`
@@ -245,7 +254,7 @@ function increment(x) { return x + 1; }
 
 var result = u({ value: u.if(isEven, increment) }, { value: 2 });
 
-expect(result).toEqual({ value: 3 });
+expect(result).to.eql({ value: 3 });
 ```
 
 ### `u.ifElse(predicate(, trueUpdates)(, falseUpdates)(, object))`
@@ -260,7 +269,7 @@ function decrement(x) { return x - 1; }
 
 var result = u({ value: u.ifElse(isEven, increment, decrement) }, { value: 3 });
 
-expect(result).toEqual({ value: 2 });
+expect(result).to.eql({ value: 2 });
 ```
 
 ### `u.map(iteratee(, object))`
@@ -274,7 +283,7 @@ function increment(x) { return x + 1; }
 
 var result = u({ values: u.map(increment) }, { values: [0, 1] });
 
-expect(result).toEqual({ values: [1, 2] });
+expect(result).to.eql({ values: [1, 2] });
 ```
 
 ```js
@@ -282,7 +291,7 @@ function increment(x) { return x + 1; }
 
 var result = u.map(increment, [0, 1, 2]);
 
-expect(result).toEqual([1, 2, 3]);
+expect(result).to.eql([1, 2, 3]);
 ```
 
 ```js
@@ -290,13 +299,13 @@ function increment(x) { return x + 1; }
 
 var result = u.map(increment, { a: 0, b: 1, c: 2 });
 
-expect(result).toEqual({ a: 1, b: 2, c: 3 });
+expect(result).to.eql({ a: 1, b: 2, c: 3 });
 ```
 
 ```js
 var result = u.map({ a: 100 }, [{ a: 0 }, { a: 1 }]);
 
-expect(result).toEqual([{ a: 100 }, { a: 100 }]);
+expect(result).to.eql([{ a: 100 }, { a: 100 }]);
 ```
 
 ### `u.omit(predicate(, object))`
@@ -308,7 +317,7 @@ var user = { user: { email: 'john@aol.com', username: 'john123', authToken: '121
 
 var result = u({ user: u.omit('authToken') }, user);
 
-expect(result).toEqual({ user: { email: 'john@aol.com', username: 'john123' } });
+expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123' } });
 ```
 
 ```js
@@ -323,7 +332,7 @@ var user = {
 
 var result = u({ user: u.omit(['authToken', 'SSN']) }, user);
 
-expect(result).toEqual({ user: { email: 'john@aol.com', username: 'john123' } });
+expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123' } });
 ```
 
 ### `u.reject(predicate(, object))`
@@ -335,7 +344,7 @@ function isEven(i) { return i % 2 === 0; }
 
 var result = u({ values: u.reject(isEven) }, { values: [1, 2, 3, 4] });
 
-expect(result).toEqual({ values: [1, 3] });
+expect(result).to.eql({ values: [1, 3] });
 ```
 
 ### `u.withDefault(default(, updates)(, object))`
@@ -345,7 +354,7 @@ Like `u()`, but start with the default value if the original value is undefined.
 ```js
 var result = u({ value: u.withDefault([], { 0: 3 }) }, {});
 
-expect(result).toEqual({ value: [3] });
+expect(result).to.eql({ value: [3] });
 ```
 
 See the [tests] for more examples.
@@ -358,7 +367,7 @@ If the `predicate` is a function, the result is returned. If not, they are compa
 ```js
 var result = u.is('friend.age', 22, { friend: { age: 22 } });
 
-expect(result).toEqual(true);
+expect(result).to.eql(true);
 ```
 
 ```js
@@ -366,7 +375,7 @@ function isEven(i) { return i % 2 === 0; }
 
 var result = u.is('friend.age', isEven, { friend: { age: 22 } });
 
-expect(result).toEqual(true);
+expect(result).to.eql(true);
 ```
 
 ```js
@@ -387,7 +396,7 @@ var result = u({
   )
 });
 
-expect(result).toEqual({ person: { name: { first: 'Jen', last: 'Simpson' } } });
+expect(result).to.eql({ person: { name: { first: 'Jen', last: 'Simpson' } } });
 ```
 
 ## Install
