@@ -1,6 +1,9 @@
 # Change Log
 
-## [unreleased]
+## [0.8]
+* Default to empty array if update keys are integers. (https://github.com/substantial/updeep/issues/22)
+
+## [0.7.2]
 * Fix curried functions not reporting their correct arity. (https://github.com/substantial/updeep/issues/31)
 
 ## [0.7.1]
