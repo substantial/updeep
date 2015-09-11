@@ -1,5 +1,11 @@
 # Change Log
 
+## [unreleased]
+
+## [0.9.0]
+* Do not add object during false branch of `u.if`.
+  (https://github.com/substantial/updeep/issues/35)
+
 ## [0.8.0]
 * Default to empty array if update keys are integers. (https://github.com/substantial/updeep/issues/22)
 
@@ -69,7 +75,8 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.8.0...HEAD
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.9.0...HEAD
+[0.8.0]: https://github.com/aaronjensen/updeep/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/aaronjensen/updeep/compare/v0.7.2...v0.8.0
 [0.7.2]: https://github.com/aaronjensen/updeep/compare/v0.7.1...v0.7.2
 [0.7.1]: https://github.com/aaronjensen/updeep/compare/v0.7.0...v0.7.1
