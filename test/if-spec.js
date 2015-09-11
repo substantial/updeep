@@ -4,8 +4,11 @@ import u from '../lib';
 describe('u.if', () => {
   it('does not update if the predicate is false', () => {
     const object = { a: 0 };
-    const result = u.if(false, { b: 1 }, object);
+    let result = u.if(false, { b: 1 }, object);
     expect(result).to.eql(object);
+
+    result = u({ x: u.if(false, 1)}, {});
+    expect(result).to.eql({});
   });
 
   it('does update if the predicate is true', () => {

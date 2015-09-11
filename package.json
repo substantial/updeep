@@ -20,6 +20,7 @@
   ],
   "scripts": {
     "test": "gulp",
+    "test:watch": "gulp watch",
     "prepublish": "gulp prepublish",
     "perf-server": "`npm bin`/webpack-dev-server --config perf/webpack.config.js --hot"
   },
