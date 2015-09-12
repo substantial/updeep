@@ -1,6 +1,8 @@
 # Change Log
 
 ## [unreleased]
+
+## [0.10.0]
 * Add support for wildcards (`*`) to `u.updateIn`. (https://github.com/substantial/updeep/issues/27)
 
 ## [0.9.0]
@@ -76,8 +78,9 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.9.0...HEAD
-[0.8.0]: https://github.com/aaronjensen/updeep/compare/v0.8.0...v0.9.0
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.10.0...HEAD
+[0.10.0]: https://github.com/aaronjensen/updeep/compare/v0.9.0...v0.10.0
+[0.9.0]: https://github.com/aaronjensen/updeep/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/aaronjensen/updeep/compare/v0.7.2...v0.8.0
 [0.7.2]: https://github.com/aaronjensen/updeep/compare/v0.7.1...v0.7.2
 [0.7.1]: https://github.com/aaronjensen/updeep/compare/v0.7.0...v0.7.1
