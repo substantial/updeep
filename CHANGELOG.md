@@ -1,6 +1,7 @@
 # Change Log
 
 ## [unreleased]
+* Add support for wildcards (`*`) to `u.updateIn`. (https://github.com/substantial/updeep/issues/27)
 
 ## [0.9.0]
 * Do not add object during false branch of `u.if`.

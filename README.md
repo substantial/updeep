@@ -186,7 +186,7 @@ expect(result).to.eql({ name: "Joe Merrill", age: 22 });
 
 ### `u.updateIn(path(, value)(, object))`
 
-Update a single value with a simple string or array path. Can be use to update nested objects, arrays, or a combination.
+Update a single value with a simple string or array path. Can be use to update nested objects, arrays, or a combination. Can also be used to update every element of a nested array with `'*'`.
 
 ```js
 var result = u.updateIn('bunny.color', 'brown', { bunny: { color: 'black' } });
@@ -212,6 +212,22 @@ expect(result).to.eql({ bunny: { age: 3 } });
 var result = u({ pets: u.updateIn([0, 'bunny', 'age'], 3) }, { pets: [{ bunny: { age: 2 } }] });
 
 expect(result).to.eql({ pets: [{ bunny: { age: 3 } }] });
+```
+
+```js
+var result = u.updateIn('todos.*.done', true, {
+  todos: [
+    { done: false },
+    { done: false },
+  ]
+});
+
+expect(result).to.eql({
+  todos: [
+    { done: true },
+    { done: true },
+  ]
+});
 ```
 
 ### `u.constant(object)`

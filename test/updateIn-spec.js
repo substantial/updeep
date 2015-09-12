@@ -48,4 +48,20 @@ describe('u.updateIn', () => {
   it('freezes the result', () => {
     expect(Object.isFrozen(u.updateIn('a', 0, {}))).to.be.true;
   });
+
+  it('can multiple elements of an array with *', () => {
+    let object = { a: [{ b: 0 }, { b: 1 }, { b: 2 }] };
+    let result = u.updateIn('a.*.b', x => x + 1, object);
+    expect(result).to.eql({ a: [{ b: 1 }, { b: 2 }, { b: 3 }] });
+
+    object = { a: [0, 1, 2] };
+    result = u.updateIn(['a', '*'], x => x + 1, object);
+    expect(result).to.eql({ a: [1, 2, 3] });
+  });
+
+  it('can update properties named *', () => {
+    const object = { '*': 1, x: 1 };
+    const result = u.updateIn('*', x => x + 1, object);
+    expect(result).to.eql({ '*': 2, x: 1 });
+  });
 });
