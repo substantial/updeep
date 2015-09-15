@@ -146,4 +146,10 @@ describe('updeep', () => {
     const result = u({ a: {} }, {});
     expect(result).to.eql({ a: {} });
   });
+
+  it('works with date objects', () => {
+    const date = new Date();
+    const result = u({ created: date }, {});
+    expect(result).to.eql({ created: date });
+  });
 });

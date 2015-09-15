@@ -1,6 +1,7 @@
 # Change Log
 
 ## [unreleased]
+* Fix support for Date objects and other non-plain objects (https://github.com/substantial/updeep/issues/36)
 
 ## [0.10.0]
 * Add support for wildcards (`*`) to `u.updateIn`. (https://github.com/substantial/updeep/issues/27)
