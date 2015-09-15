@@ -1,6 +1,8 @@
 # Change Log
 
 ## [unreleased]
+
+## [0.10.1]
 * Fix support for Date objects and other non-plain objects (https://github.com/substantial/updeep/issues/36)
 
 ## [0.10.0]
@@ -79,7 +81,8 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.10.0...HEAD
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.10.1...HEAD
+[0.10.1]: https://github.com/aaronjensen/updeep/compare/v0.10.0...v0.10.1
 [0.10.0]: https://github.com/aaronjensen/updeep/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/aaronjensen/updeep/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/aaronjensen/updeep/compare/v0.7.2...v0.8.0
