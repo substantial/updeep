@@ -2,10 +2,14 @@
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Code Climate][codeclimate-image]][codeclimate-url]
+[![updeep channel on discord](https://img.shields.io/badge/discord-%23updeep%20%40%20reactiflux-61dafb.svg)](https://discord.gg/0ZcbPKXt5bY7zvjh)
 
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![peerDependency Status][daviddm-peer-image]][daviddm-peer-url]
 [![devDependency Status][daviddm-dev-image]][daviddm-dev-url]
+
+
+
 
 > Easily update nested frozen objects and arrays in a declarative and immutable
 > manner.
