@@ -22,10 +22,14 @@ will recursively return the same instance if no changes have been made, making
 it ideal for using reference equality checks to detect changes (like
 [PureRenderMixin]).
 
-Because of this, everything returned by updeep is frozen.  updeep requires
-[lodash], but works very well with [lodash-fp] or [Ramda]. As a matter of fact,
-many of the helpers functions are [curried][currying] [lodash] functions with
-their parameters reversed (like [lodash-fp]).
+Because of this, everything returned by updeep is frozen. Not only that, but
+updeep assumes that every object passed in to update is immutable, so it may
+freeze objects passed in as well. Note that the freezing only happens in
+development.
+
+updeep requires [lodash], but works very well with [lodash-fp] or [Ramda].
+As a matter of fact, many of the helpers functions are [curried][currying]
+[lodash] functions with their parameters reversed (like [lodash-fp]).
 
 Note that the parameters may be backwards from what you may be used to. updeep
 supports [partial application][currying], so the parameter order is:
