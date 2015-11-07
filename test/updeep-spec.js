@@ -54,6 +54,18 @@ describe('updeep', () => {
     expect(result).to.eql({ 0: 'hi', '1a': 'world' });
   });
 
+  it('can create array if all keys are numbers and the index is in order from zero', () => {
+    const result = u({ 0: 'hi', '1': 'world', 2: 'ind2' }, null);
+
+    expect(result).to.eql(['hi', 'world', 'ind2']);
+  });
+
+  it('doest not create array if all keys are numbers but the index is not in order from zero', () => {
+    const result = u({ 0: 'hi', '2': 'world', 3: 'ind3' }, null);
+
+    expect(result).to.eql({ 0: 'hi', '2': 'world', 3: 'ind3' });
+  });
+
   it('can add an element to an array', () => {
     const object = [];
     const result = u({ 0: 3 }, object);
