@@ -42,18 +42,6 @@ describe('updeep', () => {
     expect(u(null, {})).to.be.null;
   });
 
-  it('can create array if all keys are numbers', () => {
-    const result = u({ 0: 'hi', '1': 'world' }, null);
-
-    expect(result).to.eql(['hi', 'world']);
-  });
-
-  it('does not create array if any key is not number', () => {
-    const result = u({ 0: 'hi', '1a': 'world' }, null);
-
-    expect(result).to.eql({ 0: 'hi', '1a': 'world' });
-  });
-
   it('can add an element to an array', () => {
     const object = [];
     const result = u({ 0: 3 }, object);
