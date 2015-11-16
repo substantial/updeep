@@ -1,6 +1,7 @@
 # Change Log
 
 ## [unreleased]
+* Revert: "Default to empty array if update keys are integers." A new object will always be created. If you need an array, use `u.withDefault`. (https://github.com/substantial/updeep/pull/42) 
 
 ## [0.10.1]
 * Fix support for Date objects and other non-plain objects (https://github.com/substantial/updeep/issues/36)

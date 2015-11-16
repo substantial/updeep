@@ -9,8 +9,6 @@
 [![devDependency Status][daviddm-dev-image]][daviddm-dev-url]
 
 
-
-
 > Easily update nested frozen objects and arrays in a declarative and immutable
 > manner.
 
