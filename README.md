@@ -1,4 +1,6 @@
 # updeep
+
+[![Join the chat at https://gitter.im/substantial/updeep](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/substantial/updeep?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Code Climate][codeclimate-image]][codeclimate-url]
