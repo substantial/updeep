@@ -102,6 +102,7 @@ Sometimes, you may want to set an entire object to a property, or a function. In
 Also available at `u.update(...)`.
 
 #### Simple update
+Object properties:
 
 ```js
 var person = {
@@ -116,7 +117,19 @@ var result = u({ name: { first: 'Susan' } }, person);
 expect(result).to.eql({ name: { first: 'Susan', last: 'West' } });
 ```
 
-#### Multiple updates, including an array
+Arrays elements:
+
+```js
+var scoreboard = {
+  scores: [12, 28]
+};
+
+var result = u({ scores: { 1: 36 } }, scoreboard);
+
+expect(result).to.eql({ scores: [12, 36] });
+```
+
+#### Multiple updates
 
 ```js
 var person = {
@@ -146,6 +159,22 @@ var scoreboard = {
 var result = u({ scores: { team2: increment } }, scoreboard);
 
 expect(result).to.eql({ scores: { team1: 0, team2: 1 } });
+```
+
+#### Array Manipulation
+Non-trivial array manipulations, such as element removal/insertion/sorting, can be implemented with functions. Because there are so many possible manipulations, we don't provide any helpers and leave this up to you. Simply ensure your function is pure and does not mutate its arguments.
+
+```js
+function addTodo(todos) { return [].concat(todos, [{done: false}]); }
+var state = {
+  todos: [
+    {done: false},
+    {done: false}
+  ]
+};
+var result = u({ todos: addTodo }, state);
+
+expect(result).to.eql({ todos: [{ done: false}, { done: false }, { done: false }]});
 ```
 
 #### When null or undefined object, updeep uses a default object
