@@ -117,7 +117,7 @@ var result = u({ name: { first: 'Susan' } }, person);
 expect(result).to.eql({ name: { first: 'Susan', last: 'West' } });
 ```
 
-Arrays elements:
+Array elements:
 
 ```js
 var scoreboard = {
