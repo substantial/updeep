@@ -46,7 +46,7 @@ describe('u.map', () => {
     const setToKey = (_, key) => key;
     const result = u.map(u.map(setToKey), object);
 
-    expect(result).to.eql( {
+    expect(result).to.eql({
       a: { x: 'x' },
       b: [0, 1],
     });
@@ -61,7 +61,7 @@ describe('u.map', () => {
       b: u.map(setToKey),
     }, object);
 
-    expect(result).to.eql( {
+    expect(result).to.eql({
       b: [0, 1],
     });
   });

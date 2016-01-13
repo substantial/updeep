@@ -108,7 +108,7 @@ describe('updeep', () => {
   });
 
   it('assigns null values', () => {
-    expect(u({isNull: null}, {})).to.eql({isNull: null});
+    expect(u({ isNull: null }, {})).to.eql({ isNull: null });
   });
 
   it('can use a placeholder to partially apply', () => {
