@@ -507,7 +507,7 @@ case.
 
     ```bash
     $ npm publish
-    $ git push master --follow-tags
+    $ git push origin master --follow-tags
     ```
 
 ## License
