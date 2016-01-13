@@ -6,7 +6,6 @@
 [![Code Climate][codeclimate-image]][codeclimate-url]
 
 [![Dependency Status][daviddm-image]][daviddm-url]
-[![peerDependency Status][daviddm-peer-image]][daviddm-peer-url]
 [![devDependency Status][daviddm-dev-image]][daviddm-dev-url]
 
 
@@ -456,9 +455,6 @@ expect(result).to.eql({ person: { name: { first: 'Jen', last: 'Simpson' } } });
 ```sh
 $ npm install --save updeep
 ```
-
-Requires [lodash] as a peer dependency, so make sure you have it installed as
-well.
 
 ## Configuration
 
