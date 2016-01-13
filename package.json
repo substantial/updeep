@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/aaronjensen/updeep/issues"
   },
-  "peerDependencies": {
+  "dependencies": {
     "lodash": "^3.0.0"
   },
   "devDependencies": {
