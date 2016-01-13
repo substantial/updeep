@@ -2,6 +2,10 @@
 
 ## [unreleased]
 
+## [0.12.0]
+* Make lodash a dependency instead of a peerDependency - Thanks @epeli
+  (https://github.com/substantial/updeep/issues/43 https://github.com/substantial/updeep/pull/48)
+
 ## [0.11.0]
 * **BREAKING CHANGE** Revert: "Default to empty array if update keys are integers." A new object will always be created. If you need an array, use `u.withDefault`. (https://github.com/substantial/updeep/pull/42)
 
@@ -84,7 +88,8 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.11.0...HEAD
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.12.0...HEAD
+[0.12.0]: https://github.com/aaronjensen/updeep/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/aaronjensen/updeep/compare/v0.10.1...v0.11.0
 [0.10.1]: https://github.com/aaronjensen/updeep/compare/v0.10.0...v0.10.1
 [0.10.0]: https://github.com/aaronjensen/updeep/compare/v0.9.0...v0.10.0
