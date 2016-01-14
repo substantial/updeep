@@ -8,6 +8,12 @@ describe('u.reject', () => {
     expect(result).to.eql([3, 5]);
   });
 
+  it('can reject with callback shorthand', () => {
+    const result = u.reject('bad', [{ bad: true }, { bad: false }]);
+
+    expect(result).to.eql([{ bad: false }]);
+  });
+
   it('freezes the result', () => {
     expect(Object.isFrozen(u.reject('a', []))).to.be.true;
   });
