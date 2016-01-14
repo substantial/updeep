@@ -7,7 +7,7 @@ describe('u.if', () => {
     let result = u.if(false, { b: 1 }, object);
     expect(result).to.eql(object);
 
-    result = u({ x: u.if(false, 1)}, {});
+    result = u({ x: u.if(false, 1) }, {});
     expect(result).to.eql({});
   });
 

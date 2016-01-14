@@ -76,9 +76,9 @@ const fnDestructure = (...args) => {
   return fn(a, b, c, d, e);
 };
 const applyVsDestructure = createSuite('apply vs destructure', {
-  'control': () => fnControl(1, 2, 3, 4, 5),
-  'apply': () => fnApply(1, 2, 3, 4, 5),
-  'destructure': () => fnDestructure(1, 2, 3, 4, 5),
+  control: () => fnControl(1, 2, 3, 4, 5),
+  apply: () => fnApply(1, 2, 3, 4, 5),
+  destructure: () => fnDestructure(1, 2, 3, 4, 5),
 });
 
 curryVsLodash();
