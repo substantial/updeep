@@ -208,10 +208,10 @@ expect(result).to.eql({ person: { name: 'Olivier P.', age: 21 } });
 
 ### `u.freeze`
 
-Freeze your initial state to protect against mutations. Does nothing in production.
+Freeze your initial state to protect against mutations. Only performs the freezing in development, and returns the original object unchanged in production.
 
 ```js
-var state = u.freeze({someKey: "Some Value"})
+var state = u.freeze({ someKey: "Some Value" })
 state.someKey = "Mutate" // ERROR in development
 ```
 
