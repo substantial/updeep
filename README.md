@@ -206,6 +206,15 @@ var result = u({ person: { [key]: 21 } }, { person: { name: 'Olivier P.', age: 2
 expect(result).to.eql({ person: { name: 'Olivier P.', age: 21 } });
 ```
 
+### `u.freeze`
+
+Freeze your initial state to protect against mutations. Only performs the freezing in development, and returns the original object unchanged in production.
+
+```js
+var state = u.freeze({ someKey: "Some Value" })
+state.someKey = "Mutate" // ERROR in development
+```
+
 ### `u._`
 
 All updeep functions are curried.
