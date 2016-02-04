@@ -40,6 +40,7 @@ supports [partial application][currying], so the parameter order is:
 ### Full example
 ```js
 var u = require('updeep');
+var reject = require('lodash/fp/reject')
 
 var person = {
   name: { first: 'Bill', last: 'Sagat' },
@@ -66,7 +67,7 @@ var newPerson = u({
   // Update email
   email: 'bob@example.com',
   // Remove todo
-  todo: u.reject(eq('Be funny')),
+  todo: reject(eq('Be funny')),
   // Increment version
   version: inc
 }, person);
@@ -158,6 +159,29 @@ var scoreboard = {
 var result = u({ scores: { team2: increment } }, scoreboard);
 
 expect(result).to.eql({ scores: { team1: 0, team2: 1 } });
+```
+
+#### Replacing an object
+
+Sometimes, you want to replace an object outright rather than merging it.
+You'll need to use a function that returns the new object.
+
+```js
+var user = {
+  name: 'Mitch',
+  favorites: {
+    band: 'Nirvana',
+    movie: 'The Matrix'
+  }
+};
+
+var newFavorites = {
+  band: 'Coldplay'
+};
+
+var result = u({ favorites: () => newFavorites }, user);
+
+expect(result).to.eql({ name: 'Mitch', favorites: { band: 'Coldplay' } });
 ```
 
 #### Array Manipulation
@@ -274,35 +298,6 @@ expect(result).to.eql({
 });
 ```
 
-### `u.constant(object)`
-
-Sometimes, you want to replace an object outright rather than merging it.
-You'll need to use a function that returns the new object.
-`u.constant` creates that function for you.
-
-```js
-var user = {
-  name: 'Mitch',
-  favorites: {
-    band: 'Nirvana',
-    movie: 'The Matrix'
-  }
-};
-
-var newFavorites = {
-  band: 'Coldplay'
-};
-
-var result = u({ favorites: u.constant(newFavorites) }, user);
-
-expect(result).to.eql({ name: 'Mitch', favorites: { band: 'Coldplay' } });
-```
-
-```js
-var alwaysFour = u.constant(4);
-expect(alwaysFour(32)).to.eql(4);
-```
-
 ### `u.if(predicate(, updates)(, object))`
 
 Apply `updates` if `predicate` is truthy, or if `predicate` is a function.
@@ -366,45 +361,6 @@ expect(result).to.eql({ a: 1, b: 2, c: 3 });
 var result = u.map({ a: 100 }, [{ a: 0 }, { a: 1 }]);
 
 expect(result).to.eql([{ a: 100 }, { a: 100 }]);
-```
-
-### `u.omit(predicate(, object))`
-
-Remove properties. See [`_.omit`](https://lodash.com/docs#omit).
-
-```js
-var user = { user: { email: 'john@aol.com', username: 'john123', authToken: '1211..' } };
-
-var result = u({ user: u.omit('authToken') }, user);
-
-expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123' } });
-```
-
-```js
-var user = {
-  user: {
-    email: 'john@aol.com',
-    username: 'john123',
-    authToken: '1211..',
-    SSN: 5551234
-  }
-};
-
-var result = u({ user: u.omit(['authToken', 'SSN']) }, user);
-
-expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123' } });
-```
-
-### `u.reject(predicate(, object))`
-
-Reject items from an array. See [`_.reject`](https://lodash.com/docs#reject).
-
-```js
-function isEven(i) { return i % 2 === 0; }
-
-var result = u({ values: u.reject(isEven) }, { values: [1, 2, 3, 4] });
-
-expect(result).to.eql({ values: [1, 3] });
 ```
 
 ### `u.withDefault(default(, updates)(, object))`
