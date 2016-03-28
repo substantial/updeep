@@ -29,7 +29,8 @@
     "url": "https://github.com/aaronjensen/updeep/issues"
   },
   "dependencies": {
-    "lodash": "^4.2.0"
+    "lodash": "^4.2.0",
+    "warning": "^2.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
