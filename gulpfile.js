@@ -7,11 +7,8 @@ var eslint = require('gulp-eslint');
 var mocha = require('gulp-mocha');
 var nsp = require('gulp-nsp');
 var rimraf = require('rimraf');
-var webpack = require('webpack-stream');
 
 var KarmaServer = require('karma').Server;
-
-var createWebpackConfig = require('./createWebpackConfig.js');
 
 // Initialize the babel transpiler so ES2015 files gets compiled
 // when they're loaded
@@ -58,28 +55,6 @@ gulp.task('watch', function () {
   new KarmaServer({
     configFile: path.join(__dirname, 'karma.conf.js'),
   }).start();
-});
-
-gulp.task('webpack', ['webpack:standalone', 'webpack:standalone:min']);
-
-gulp.task('webpack:standalone', function () {
-  var config = createWebpackConfig({ filename: 'updeep-standalone.js' });
-
-  return gulp.src('lib/index.js')
-    .pipe(webpack(config))
-    .pipe(gulp.dest('dist/umd/'));
-});
-
-gulp.task('webpack:standalone:min', function () {
-  var config = createWebpackConfig({
-    filename: 'updeep-standalone.min.js',
-    minify: true,
-    env: 'production',
-  });
-
-  return gulp.src('lib/index.js')
-    .pipe(webpack(config))
-    .pipe(gulp.dest('dist/umd/'));
 });
 
 gulp.task('build', ['babel', 'webpack']);
