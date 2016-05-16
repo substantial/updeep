@@ -1,7 +1,5 @@
 'use strict'; /* eslint strict:0, no-var:0, func-names:0 */
 
-var createWebpackConfig = require('./createWebpackConfig');
-
 module.exports = function (config) {
   config.set({
 
@@ -16,7 +14,7 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      { pattern: 'test/**/*.js', watched: false, included: true, served: true },
+      { pattern: 'test/karma.js', watched: true, included: true, served: true },
     ],
 
     // list of files to exclude
@@ -27,14 +25,6 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/**/*.js': ['webpack'],
-    },
-
-    webpack: createWebpackConfig(),
-
-    webpackMiddleware: {
-      noInfo: true,
-      watch: true,
     },
 
     // test results reporter to use
@@ -42,10 +32,8 @@ module.exports = function (config) {
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['dots'],
 
-
     // web server port
     port: 9876,
-
 
     // enable / disable colors in the output (reporters and logs)
     colors: true,

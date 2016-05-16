@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import u from '../lib';
+import u from '../lib/index';
 
 describe('updeep', () => {
   it('does not change anything if no updates are specified', () => {

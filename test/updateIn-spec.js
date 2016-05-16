@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import u from '../lib';
+import u from '../lib/index';
 
 describe('u.updateIn', () => {
   it('can update a single path described with a string', () => {

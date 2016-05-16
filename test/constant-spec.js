@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import u from '../lib';
+import u from '../lib/index';
 
 describe('u.constant', () => {
   it('returns what it is given... constantly', () => {

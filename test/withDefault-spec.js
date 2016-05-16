@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import u from '../lib';
+import u from '../lib/index';
 
 describe('u.withDefault', () => {
   it('uses the default as the basis for the update if the object is undefined', () => {

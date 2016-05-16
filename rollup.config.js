@@ -19,5 +19,7 @@ export default {
     'lodash/reject': '_.reject',
   },
   sourceMap: true,
-  plugins: [babel()],
+  plugins: [
+    babel(),
+  ],
 };

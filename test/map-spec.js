@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import u from '../lib';
+import u from '../lib/index';
 
 describe('u.map', () => {
   it('applies updates to each item in an array', () => {
