@@ -395,6 +395,26 @@ var result = u({ user: u.omit(['authToken', 'SSN']) }, user);
 expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123' } });
 ```
 
+### `u.omitBy(predicate(, object))`
+
+Remove properties. See [`_.omitBy`](https://lodash.com/docs#omitBy).
+
+```js
+var user = {
+  user: {
+    email: 'john@aol.com',
+    username: 'john123',
+    authToken: '1211..',
+    SSN: 5551234
+  }
+};
+
+function isSensitive(value, key) { return key == 'SSN' }
+var result = u({ user: u.omitBy(isSensitive, user);
+
+expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123', authToken: '1211..' } });
+```
+
 ### `u.reject(predicate(, object))`
 
 Reject items from an array. See [`_.reject`](https://lodash.com/docs#reject).
