@@ -2,6 +2,12 @@
 
 ## [unreleased]
 
+## [0.15.0]
+* Add `u.omitBy` (https://github.com/substantial/updeep/pull/60)
+* Add `dangerously_never_freeze`, which I wouldn't recommend using unless you
+  absolutely have to and you know exactly what the effects will be.
+  (https://github.com/substantial/updeep/pull/59)
+
 ## [0.14.0]
 * Allow updeep to be required from CommonJS (https://github.com/substantial/updeep/pull/56)
 
@@ -94,7 +100,8 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.14.0...HEAD
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.15.0...HEAD
+[0.14.0]: https://github.com/aaronjensen/updeep/compare/v0.14.0...v0.15.0
 [0.14.0]: https://github.com/aaronjensen/updeep/compare/v0.13.0...v0.14.0
 [0.13.0]: https://github.com/aaronjensen/updeep/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/aaronjensen/updeep/compare/v0.11.0...v0.12.0
