@@ -140,4 +140,16 @@ describe('updeep', () => {
     const result = u({ created: date }, {});
     expect(result).to.eql({ created: date });
   });
+
+  it('can overwrite an array child with an object', () => {
+    const parent = {
+      child: [],
+    };
+    const newChild = {
+    };
+    const newParent = u({
+      child: newChild,
+    }, parent);
+    expect(newParent.child).to.eql(newChild);
+  });
 });
