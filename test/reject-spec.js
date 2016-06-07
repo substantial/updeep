@@ -14,6 +14,24 @@ describe('u.reject', () => {
     expect(result).to.eql([{ bad: false }]);
   });
 
+  it('returns the same instance if reject doesn\'t make changes', () => {
+    const object = { foo: [1, 2, 3] };
+    const result = u({
+      foo: u.reject(x => x === 'Justin Bieber'),
+    }, object);
+
+    expect(result).to.equal(object);
+  });
+
+  it('returns a different instance if reject makes changes', () => {
+    const object = { foo: [1, 2, 3, 4] };
+    const result = u({
+      foo: u.reject(x => x === 4),
+    }, object);
+
+    expect(result).to.not.equal(object);
+  });
+
   it('freezes the result', () => {
     expect(Object.isFrozen(u.reject('a', []))).to.be.true;
   });
