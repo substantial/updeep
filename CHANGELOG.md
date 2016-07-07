@@ -2,6 +2,9 @@
 
 ## [unreleased]
 
+## [0.16.1]
+* Do not freeze regexp (https://github.com/substantial/updeep/pull/65)
+
 ## [0.16.0]
 * `u.reject` should return same instance if no changes (https://github.com/substantial/updeep/pull/62)
 
@@ -103,7 +106,8 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.16.0...HEAD
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.16.1...HEAD
+[0.16.1]: https://github.com/aaronjensen/updeep/compare/v0.16.0...v0.16.1
 [0.16.0]: https://github.com/aaronjensen/updeep/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/aaronjensen/updeep/compare/v0.14.0...v0.15.0
 [0.14.0]: https://github.com/aaronjensen/updeep/compare/v0.13.0...v0.14.0
