@@ -35,6 +35,13 @@ describe('u.freeze', () => {
     expect(Object.isFrozen(object.foo)).to.be.false;
   });
 
+  it('ignores regexps', () => {
+    const object = { foo: /\d/ };
+    u.freeze(object);
+
+    expect(Object.isFrozen(object.foo)).to.be.false;
+  });
+
   it('does not freeze children if the parent is already frozen', () => {
     const object = { foo: {} };
     Object.freeze(object);
