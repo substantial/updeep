@@ -2,6 +2,9 @@
 
 ## [unreleased]
 
+## [1.0.0]
+* Allow Number type in updateIn function - Thanks @AveVlad (https://github.com/substantial/updeep/pull/67)
+
 ## [0.16.1]
 * Do not freeze regexp (https://github.com/substantial/updeep/pull/65)
 
@@ -106,7 +109,8 @@
 ## 0.1.0
 * Initial release
 
-[unreleased]: https://github.com/aaronjensen/updeep/compare/v0.16.1...HEAD
+[unreleased]: https://github.com/aaronjensen/updeep/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/aaronjensen/updeep/compare/v0.16.1...v1.0.0
 [0.16.1]: https://github.com/aaronjensen/updeep/compare/v0.16.0...v0.16.1
 [0.16.0]: https://github.com/aaronjensen/updeep/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/aaronjensen/updeep/compare/v0.14.0...v0.15.0
