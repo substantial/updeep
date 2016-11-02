@@ -1,5 +1,8 @@
 # updeep
 
+> Easily update nested frozen objects and arrays in a declarative and immutable
+> manner.
+
 [![Join the chat at https://gitter.im/substantial/updeep](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/substantial/updeep?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
@@ -7,10 +10,6 @@
 
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![devDependency Status][daviddm-dev-image]][daviddm-dev-url]
-
-
-> Easily update nested frozen objects and arrays in a declarative and immutable
-> manner.
 
 ## About
 
@@ -34,8 +33,6 @@ supports [partial application][currying], so the parameter order is:
 `updeep(updates, object)`.
 
 ## API and Examples
-
-**NOTE: Before updeep is 1.0, method names or semantics may change with a minor version bump.**
 
 ### Full example
 ```js
