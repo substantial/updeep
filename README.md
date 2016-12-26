@@ -471,7 +471,7 @@ var result = u({
     u.is('name.first', 'Jen'),
     u.updateIn('name.last', 'Simpson')
   )
-});
+}, person);
 
 expect(result).to.eql({ person: { name: { first: 'Jen', last: 'Simpson' } } });
 ```
