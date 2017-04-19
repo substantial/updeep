@@ -57,7 +57,7 @@ describe('updeep', () => {
   });
 
   it('can use functions to update values', () => {
-    const inc = (i) => i + 1;
+    const inc = i => i + 1;
     const object = { foo: 3, bar: 4, baz: 7 };
     const result = u({ foo: inc, bar: inc }, object);
 
@@ -65,7 +65,7 @@ describe('updeep', () => {
   });
 
   it('can be partially applied', () => {
-    const inc = (i) => i + 1;
+    const inc = i => i + 1;
     const object = { foo: 3 };
     const incFoo = u({ foo: inc });
 

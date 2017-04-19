@@ -3,7 +3,7 @@ import { curry1, curry2, curry3, curry4, _ } from '../../lib/util/curry';
 
 describe('curry1', () => {
   it('can curry one arguments', () => {
-    const addOne = curry1((x) => x + 1);
+    const addOne = curry1(x => x + 1);
     expect(addOne(3)).to.equal(4);
     expect(addOne()(3)).to.equal(4);
   });

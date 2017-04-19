@@ -1,4 +1,6 @@
-'use strict'; /* eslint strict:0, no-var:0, func-names:0 */
+'use strict'; // eslint-disable-line
+/* eslint no-var:0, func-names:0, import/no-extraneous-dependencies:0 */
+
 var webpack = require('webpack');
 
 module.exports = function createWebpackConfig(_options) {

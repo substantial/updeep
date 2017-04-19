@@ -1,6 +1,16 @@
 {
-  "extends": "airbnb/base",
+  "extends": "airbnb-base",
   "ecmaFeatures": {
-    "experimentalObjectRestSpread": true,
+    "experimentalObjectRestSpread": true
   },
+  "rules": {
+    "no-confusing-arrow": "off",
+    "comma-dangle": ["error", {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+    }]
+  }
 }

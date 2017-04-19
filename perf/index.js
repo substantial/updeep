@@ -1,4 +1,5 @@
-/* eslint no-console:0, no-unused-vars:0 */
+/* eslint no-console:0, no-unused-vars:0, import/no-extraneous-dependencies:0 */
+/* global document */
 const Benchmark = require('benchmark');
 
 const u = require('../lib');
@@ -21,7 +22,7 @@ function log(str) {
   if (typeof document !== 'undefined') {
     console.log(str);
     const el = document.getElementById('perf');
-    el.innerHTML = el.innerHTML + str;
+    el.innerHTML += str;
   }
 }
 

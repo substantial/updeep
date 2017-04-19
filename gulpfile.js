@@ -1,4 +1,6 @@
-'use strict'; /* eslint strict:0, no-var:0, func-names:0 */
+'use strict';
+
+ /* eslint strict:0, no-var:0, func-names:0 */
 var path = require('path');
 var gulp = require('gulp');
 
@@ -17,42 +19,36 @@ var createWebpackConfig = require('./createWebpackConfig.js');
 // when they're loaded
 require('babel-core/register');
 
-gulp.task('clean', function (cb) {
+gulp.task('clean', (cb) => {
   rimraf('./dist', cb);
 });
 
-gulp.task('static', function () {
-  return gulp.src(['*.js', 'lib/**/*.js', 'test/**/*.js'])
+gulp.task('static', () => gulp.src(['*.js', 'lib/**/*.js', 'test/**/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-});
+    .pipe(eslint.failAfterError()));
 
-gulp.task('nsp', function (cb) {
+gulp.task('nsp', (cb) => {
   nsp({ package: path.join(__dirname, 'package.json') }, cb);
 });
 
 gulp.task('test', ['test:karma', 'test:node']);
 
-gulp.task('test:node', function () {
-  return gulp.src('test/**/*.js')
-    .pipe(mocha({ reporter: 'dot' }));
-});
+gulp.task('test:node', () => gulp.src('test/**/*.js')
+    .pipe(mocha({ reporter: 'dot' })));
 
-gulp.task('test:karma', function (done) {
+gulp.task('test:karma', (done) => {
   new KarmaServer({
     configFile: path.join(__dirname, 'karma.conf.js'),
     singleRun: true,
   }, done).start();
 });
 
-gulp.task('babel', function () {
-  return gulp.src('lib/**/*.js')
+gulp.task('babel', () => gulp.src('lib/**/*.js')
     .pipe(babel())
-    .pipe(gulp.dest('dist'));
-});
+    .pipe(gulp.dest('dist')));
 
-gulp.task('watch', function () {
+gulp.task('watch', () => {
   gulp.start(['test:node']);
   gulp.watch(['lib/**/*.js', 'test/**/*.js'], ['test:node']);
   new KarmaServer({
@@ -62,7 +58,7 @@ gulp.task('watch', function () {
 
 gulp.task('webpack', ['webpack:standalone', 'webpack:standalone:min']);
 
-gulp.task('webpack:standalone', function () {
+gulp.task('webpack:standalone', () => {
   var config = createWebpackConfig({ filename: 'updeep-standalone.js' });
 
   return gulp.src('lib/index.js')
@@ -70,7 +66,7 @@ gulp.task('webpack:standalone', function () {
     .pipe(gulp.dest('dist/umd/'));
 });
 
-gulp.task('webpack:standalone:min', function () {
+gulp.task('webpack:standalone:min', () => {
   var config = createWebpackConfig({
     filename: 'updeep-standalone.min.js',
     minify: true,
@@ -84,7 +80,7 @@ gulp.task('webpack:standalone:min', function () {
 
 gulp.task('build', ['babel', 'webpack']);
 
-gulp.task('build:clean', ['clean'], function (done) {
+gulp.task('build:clean', ['clean'], (done) => {
   gulp.start('build', done);
 });
 
