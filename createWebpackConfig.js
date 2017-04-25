@@ -9,8 +9,8 @@ module.exports = function createWebpackConfig(_options) {
   var env = options.env || 'development';
 
   config = {
-    context: options.context,
-    entry: options.entry,
+    context: __dirname,
+    entry: './lib/index.js',
 
     plugins: [
       new webpack.optimize.OccurrenceOrderPlugin(),
@@ -26,7 +26,7 @@ module.exports = function createWebpackConfig(_options) {
     },
 
     module: {
-      loaders: [
+      rules: [
         { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ },
       ],
     },
@@ -34,10 +34,6 @@ module.exports = function createWebpackConfig(_options) {
     output: {
       library: 'updeep',
       libraryTarget: 'umd',
-    },
-
-    resolve: {
-      extensions: ['', '.js'],
     },
   };
 
