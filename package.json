@@ -19,6 +19,7 @@
     "declarative"
   ],
   "scripts": {
+    "test:karma": "NODE_ENV=test karma start --single-run",
     "test": "gulp",
     "test:watch": "gulp watch",
     "prepublish": "gulp prepublish",
@@ -52,6 +53,7 @@
     "karma": "^0.13.3",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-chrome-launcher": "^0.2.0",
+    "karma-cli": "^1.0.1",
     "karma-mocha": "^0.2.0",
     "karma-mocha-reporter": "^1.0.4",
     "karma-phantomjs-launcher": "^1.0.4",
