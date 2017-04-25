@@ -21,7 +21,7 @@
   "scripts": {
     "test:karma": "NODE_ENV=test karma start --single-run",
     "test:mocha": "NODE_ENV=test mocha --compilers js:babel-register",
-    "test": "gulp",
+    "test": "yarn test:mocha && yarn test:karma",
     "test:watch": "gulp watch",
     "prepublish": "gulp prepublish",
     "perf-server": "`npm bin`/webpack-dev-server --config perf/webpack.config.js --hot"
