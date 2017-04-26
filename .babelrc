@@ -1,4 +1,8 @@
 {
+  "plugins": [
+    "external-helpers",
+    "lodash"
+  ],
   "env": {
     "test": {
       "presets": [
