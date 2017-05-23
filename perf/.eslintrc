@@ -1,0 +1,10 @@
+{
+  "extends": "../.eslintrc",
+  "rules": {
+    "new-cap": [2, {
+      "capIsNewExceptions": [
+        "Suite"
+      ]
+    }],
+  }
+}

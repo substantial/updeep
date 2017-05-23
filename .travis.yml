@@ -1,0 +1,10 @@
+sudo: false
+language: node_js
+node_js:
+  - '6'
+  - '7'
+  - 'node'
+notifications:
+  email:
+    on_success: change
+    on_failure: always

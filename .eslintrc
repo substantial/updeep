@@ -1,0 +1,31 @@
+{
+  "extends": [
+    "airbnb-base",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "ecmaFeatures": {
+    "experimentalObjectRestSpread": true
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "bracketSpacing": true,
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    ],
+    "no-confusing-arrow": "off",
+    "comma-dangle": ["error", {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+    }]
+  }
+}
