@@ -161,16 +161,16 @@ expect(result).to.eql({ scores: { team1: 0, team2: 1 } });
 Non-trivial array manipulations, such as element removal/insertion/sorting, can be implemented with functions. Because there are so many possible manipulations, we don't provide any helpers and leave this up to you. Simply ensure your function is pure and does not mutate its arguments.
 
 ```js
-function addTodo(todos) { return [].concat(todos, [{done: false}]); }
+function addTodo(todos) { return [].concat(todos, [{ done: false }]); }
 var state = {
   todos: [
-    {done: false},
-    {done: false}
+    { done: false },
+    { done: false }
   ]
 };
 var result = u({ todos: addTodo }, state);
 
-expect(result).to.eql({ todos: [{ done: false}, { done: false }, { done: false }]});
+expect(result).to.eql({ todos: [{ done: false }, { done: false }, { done: false }]});
 ```
 
 #### When null or undefined object, updeep uses a default object
