@@ -164,13 +164,13 @@ Non-trivial array manipulations, such as element removal/insertion/sorting, can 
 function addTodo(todos) { return [].concat(todos, [{done: false}]); }
 var state = {
   todos: [
-    {done: false},
-    {done: false}
+    { done: false },
+    { done: false }
   ]
 };
 var result = u({ todos: addTodo }, state);
 
-expect(result).to.eql({ todos: [{ done: false}, { done: false }, { done: false }]});
+expect(result).to.eql({ todos: [{ done: false }, { done: false }, { done: false }]});
 ```
 
 #### When null or undefined object, updeep uses a default object
