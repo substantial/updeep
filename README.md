@@ -35,6 +35,7 @@ supports [partial application][currying], so the parameter order is:
 ## API and Examples
 
 ### Full example
+
 ```js
 var u = require('updeep');
 
@@ -174,6 +175,7 @@ expect(result).to.eql({ todos: [{ done: false }, { done: false }, { done: false 
 ```
 
 #### When null or undefined object, updeep uses a default object
+
 ```javascript
 var result = u({ foo: 'bar' }, null);
 expect(result).to.eql({ foo: 'bar' });
@@ -525,21 +527,30 @@ case.
     ```bash
     $ npm version major|minor|patch
     ```
+
 1. Update the `CHANGELOG.md`.
   1. Add the new version and corresponding notes.
   1. Add a link to the new version.
   1. Update the `unreleased` link compare to be based off of the new version.
 1. Publish and push:
 
-    ```bash
-    $ npm publish
-    $ git push origin master --follow-tags
-    ```
+```bash
+$ npm publish
+$ git push origin master --follow-tags
+```
+
+## See Also
+
+A [Dash][dash]/[Zeal][zeal] version of the documentation is
+also [available][docset].
 
 ## License
 
 MIT ©2015 [Substantial](http://substantial.com)
 
+[dash]: https://kapeli.com/dash
+[zeal]: https://zealdocs.org/
+[docset]: https://github.com/yanick/dash-docset-updeep
 [npm-image]: https://badge.fury.io/js/updeep.svg
 [npm-url]: https://npmjs.org/package/updeep
 [travis-image]: https://travis-ci.org/substantial/updeep.svg?branch=master
