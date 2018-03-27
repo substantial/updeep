@@ -407,7 +407,7 @@ var user = {
 };
 
 function isSensitive(value, key) { return key == 'SSN' }
-var result = u({ user: u.omitBy(isSensitive, user);
+var result = u({ user: u.omitBy(isSensitive) }, user);
 
 expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123', authToken: '1211..' } });
 ```
