@@ -541,13 +541,16 @@ $ git push origin master --follow-tags
 
 ## See Also
 
-A [Dash][dash]/[Zeal][zeal] version of the documentation is
-also [available][docset].
+A [Dash][dash] version of the documention is also available
+as part of their user-contributed docsets.
+For [Zeal][zeal] users, the user-contributed docsets
+can be accessed via [zealusercontributions.herokuapp.com][zealuc].
 
 ## License
 
 MIT ©2015 [Substantial](http://substantial.com)
 
+[zealuc]: http://zealusercontributions.herokuapp.com/
 [dash]: https://kapeli.com/dash
 [zeal]: https://zealdocs.org/
 [docset]: https://github.com/yanick/dash-docset-updeep
