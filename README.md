@@ -3,6 +3,8 @@
 > Easily update nested frozen objects and arrays in a declarative and immutable
 > manner.
 
+## This library is still maintained but is considered feature complete. Please feel free to use it and report any issues you have with it.
+
 [![Join the chat at https://gitter.im/substantial/updeep](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/substantial/updeep?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
