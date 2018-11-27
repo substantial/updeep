@@ -1,12 +1,12 @@
-'use strict'; // eslint-disable-line
+"use strict"; // eslint-disable-line
 /* eslint no-var:0, func-names:0, import/no-extraneous-dependencies:0 */
 
-var webpack = require('webpack');
+var webpack = require('webpack')
 
 module.exports = function createWebpackConfig(_options) {
-  var config;
-  var options = _options || {};
-  var env = options.env || 'development';
+  var config
+  var options = _options || {}
+  var env = options.env || 'development'
 
   config = {
     context: options.context,
@@ -39,9 +39,9 @@ module.exports = function createWebpackConfig(_options) {
     resolve: {
       extensions: ['', '.js'],
     },
-  };
+  }
 
-  config.output.filename = options.filename;
+  config.output.filename = options.filename
 
   if (options.minify) {
     config.plugins.push(
@@ -54,8 +54,8 @@ module.exports = function createWebpackConfig(_options) {
           warnings: false,
         },
       })
-    );
+    )
   }
 
-  return config;
-};
+  return config
+}
