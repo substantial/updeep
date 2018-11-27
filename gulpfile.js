@@ -7,7 +7,6 @@ var gulp = require('gulp')
 var babel = require('gulp-babel')
 var eslint = require('gulp-eslint')
 var mocha = require('gulp-mocha')
-var nsp = require('gulp-nsp')
 var rimraf = require('rimraf')
 var webpack = require('webpack-stream')
 
@@ -30,10 +29,6 @@ gulp.task('static', () =>
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
 )
-
-gulp.task('nsp', cb => {
-  nsp({ package: path.join(__dirname, 'package.json') }, cb)
-})
 
 gulp.task('test', ['test:karma', 'test:node'])
 
@@ -96,5 +91,5 @@ gulp.task('build:clean', ['clean'], done => {
   gulp.start('build', done)
 })
 
-gulp.task('prepublish', ['nsp', 'build:clean'])
+gulp.task('prepublish', ['build:clean'])
 gulp.task('default', ['static', 'test'])
