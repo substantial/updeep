@@ -52,7 +52,10 @@ gulp.task('test:karma', done => {
 })
 
 gulp.task('babel', () =>
-  gulp.src('lib/**/*.js').pipe(babel()).pipe(gulp.dest('dist'))
+  gulp
+    .src('lib/**/*.js')
+    .pipe(babel())
+    .pipe(gulp.dest('dist'))
 )
 
 gulp.task('watch', () => {
