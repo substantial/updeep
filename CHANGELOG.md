@@ -2,6 +2,9 @@
 
 ## [unreleased]
 
+## [1.1.0]
+* Add _.omitted to omit properties - Thanks @yanick (https://github.com/substantial/updeep/pull/78)
+
 ## [1.0.0]
 * Allow Number type in updateIn function - Thanks @AveVlad (https://github.com/substantial/updeep/pull/67)
 
