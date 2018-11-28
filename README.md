@@ -394,6 +394,18 @@ var user = {
 var result = u({ user: u.omit(['authToken', 'SSN']) }, user);
 
 expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123' } });
+
+### `u.omitted`
+
+A property updated to this constant will be removed from the final object.
+Useful when one wishes to remove and update properties in a single operation.
+
+```js
+var user = { email: 'john@aol.com', username: 'john123', authToken: '1211..' };
+
+var result = u({ authToken: u.omitted, active: true }, user);
+
+expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123', active: true } });
 ```
 
 ### `u.omitBy(predicate(, object))`
@@ -414,6 +426,7 @@ function isSensitive(value, key) { return key == 'SSN' }
 var result = u({ user: u.omitBy(isSensitive) }, user);
 
 expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123', authToken: '1211..' } });
+
 ```
 
 ### `u.reject(predicate(, object))`

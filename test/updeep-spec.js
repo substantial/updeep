@@ -142,4 +142,33 @@ describe('updeep', () => {
     const result = u({ created: date }, {})
     expect(result).to.eql({ created: date })
   })
+
+  const expectU = (update, orig, expected) =>
+    expect(update(orig)).to.eql(expected)
+
+  describe('u.omitted', () => {
+    it('omit properties via u.omitted', () => {
+      expectU(u({ a: u.omitted, b: i => i + 1 }), { a: 1, b: 2 }, { b: 3 })
+    })
+
+    it('omit array and object properties', () => {
+      expectU(
+        u({ a: u.omitted, b: 'stuff', c: u.omitted }),
+        { a: [1, 2, 3], b: 'orig', c: { z: 'bar' } },
+        { b: 'stuff' }
+      )
+    })
+
+    it('deep omit', () => {
+      expectU(
+        u({ a: { b: u.omitted, c: 'stuff' } }),
+        { a: { b: 'foo', z: 'bar' } },
+        { a: { z: 'bar', c: 'stuff' } }
+      )
+    })
+
+    it('omitting an array item filters it out', () => {
+      expectU(u({ 1: u.omitted }), ['a', 'b', 'c'], ['a', 'c'])
+    })
+  })
 })
