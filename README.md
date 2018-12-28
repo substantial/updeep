@@ -394,6 +394,7 @@ var user = {
 var result = u({ user: u.omit(['authToken', 'SSN']) }, user);
 
 expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123' } });
+```
 
 ### `u.omitted`
 
