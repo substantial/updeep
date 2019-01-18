@@ -432,7 +432,7 @@ expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123', auth
 
 ### `u.reject(predicate(, object))`
 
-Reject items from an array. See [`_.reject`](https://lodash.com/docs#reject).
+Reject items from an array or object. See [`_.reject`](https://lodash.com/docs#reject).
 
 ```js
 function isEven(i) { return i % 2 === 0; }
