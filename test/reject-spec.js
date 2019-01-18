@@ -41,4 +41,10 @@ describe('u.reject', () => {
   it('freezes the result', () => {
     expect(Object.isFrozen(u.reject('a', []))).to.be.true
   })
+
+  it('works on objects too', () => {
+    expect(
+      u.reject('goner', { a: { one: 1 }, b: { goner: true }, c: { two: 2 } })
+    ).to.eql([{ one: 1 }, { two: 2 }])
+  })
 })
