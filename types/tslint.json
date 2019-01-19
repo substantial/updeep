@@ -1,0 +1,11 @@
+{
+    "extends": "dtslint/dtslint.json",
+    "rules": {
+        "trim-file": false,
+        "no-consecutive-blank-lines": false,
+        "typedef-whitespace": false,
+        "whitespace": false,
+        "space-within-parens": false,
+        "prefer-declare-function": false,
+        "no-unnecessary-generics": false,
+        "strict-export-declare-modifiers": false } }
