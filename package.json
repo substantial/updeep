@@ -45,7 +45,7 @@
     "eslint-plugin-prettier": "^2.0.1",
     "exports-loader": "^0.6.2",
     "gulp": "^3.6.0",
-    "gulp-babel": "^6.1.1",
+    "gulp-babel": "^7.0.1",
     "gulp-eslint": "^3.0.1",
     "gulp-mocha": "^2.0.0",
     "karma": "^0.13.3",
