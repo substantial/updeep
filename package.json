@@ -36,7 +36,7 @@
     "babel-loader": "^6.2.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-stage-2": "^6.3.13",
-    "benchmark": "^1.0.0",
+    "benchmark": "^2.1.4",
     "chai": "^4.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^11.1.3",
