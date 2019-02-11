@@ -43,7 +43,7 @@
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-prettier": "^2.0.1",
-    "exports-loader": "^0.6.2",
+    "exports-loader": "^0.7.0",
     "gulp": "^3.6.0",
     "gulp-babel": "^7.0.1",
     "gulp-eslint": "^3.0.1",
