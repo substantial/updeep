@@ -1,6 +1,8 @@
 # Change Log
 
 ## [unreleased]
+
+## [1.2.0]
 * Add TypeScript types - Thanks @yanick (https://github.com/substantial/updeep/pull/83)
 
 ## [1.1.0]
