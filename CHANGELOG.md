@@ -1,6 +1,7 @@
 # Change Log
 
 ## [unreleased]
+* Add TypeScript types - Thanks @yanick (https://github.com/substantial/updeep/pull/83)
 
 ## [1.1.0]
 * Add _.omitted to omit properties - Thanks @yanick (https://github.com/substantial/updeep/pull/78)
