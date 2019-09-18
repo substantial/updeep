@@ -9,7 +9,8 @@
   },
   "author": "Aaron Jensen",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "main": "dist/index.js",
   "keywords": [
