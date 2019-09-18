@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "dtslint": "dtslint --localTs node_modules/typescript/lib types",
-    "test": "gulp",
+    "test": "gulp && yarn -s dtslint",
     "test:watch": "gulp watch",
     "prepublish": "gulp prepublish",
     "perf-server": "`npm bin`/webpack-dev-server --config perf/webpack.config.js --hot"
