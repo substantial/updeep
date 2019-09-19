@@ -65,7 +65,7 @@
     "mocha": "^6.0.0",
     "phantomjs-prebuilt": "^2.1.14",
     "prettier": "^1.1.0",
-    "rimraf": "^2.4.2",
+    "rimraf": "^3.0.0",
     "typescript": "^3.6.3",
     "webpack": "^1.10.5",
     "webpack-dev-server": "^3.1.11",
