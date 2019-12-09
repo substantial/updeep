@@ -53,7 +53,7 @@
     "exports-loader": "^0.7.0",
     "gulp": "^3.6.0",
     "gulp-babel": "^7.0.1",
-    "gulp-eslint": "^3.0.1",
+    "gulp-eslint": "^6.0.0",
     "gulp-mocha": "^2.0.0",
     "karma": "^4.3.0",
     "karma-babel-preprocessor": "^7.0.0",
