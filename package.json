@@ -62,7 +62,7 @@
     "karma-mocha-reporter": "^2.2.5",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-webpack": "^2.0.13",
-    "mocha": "^6.0.0",
+    "mocha": "^7.0.0",
     "phantomjs-prebuilt": "^2.1.14",
     "prettier": "^1.1.0",
     "rimraf": "^3.0.0",
