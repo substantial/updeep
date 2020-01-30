@@ -36,7 +36,7 @@
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/lodash": "^4.14.119",
-    "@types/mocha": "^5.2.5",
+    "@types/mocha": "^7.0.1",
     "@types/node": "^13.1.0",
     "babel-core": "^6.4.0",
     "babel-loader": "^6.2.1",
