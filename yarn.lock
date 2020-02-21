@@ -2063,23 +2063,24 @@ domain-browser@^1.1.1:
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
   integrity sha512-jnjyiM6eRyZl2H+W8Q/zLMA481hzi0eszAaBUzIVnmYVDBbnLxVNnfu1HgEBvCbL+71FrxMl3E6lpKH7Ge3OXA==
 
-dts-critic@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/dts-critic/-/dts-critic-2.2.4.tgz#3ef70be891eede2bdf2ff9e293d9ec398b9cf772"
-  integrity sha512-yGHhVKo66iyPBFUYRyXX1uW+XEG3/HDP1pHCR3VlPl9ho8zRHy6lzS5k+gCSuINqjNsV8UjZSUXUuTuw0wHp7g==
+dts-critic@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/dts-critic/-/dts-critic-3.0.1.tgz#c4f18e08dda91456a14835b700b1f816a77ce299"
+  integrity sha512-3y34qsytqwEgfoUcYwxVm9Lv54Q+MPEXCOtZpwhl4TNM1SN/yjolWXz7Xw2U0BQv/rGhIdM2ONNTaAxRfQdJ6g==
   dependencies:
     command-exists "^1.2.8"
     definitelytyped-header-parser "^3.8.2"
     semver "^6.2.0"
+    typescript "^3.7.5"
     yargs "^12.0.5"
 
-dtslint@^2.0.0:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/dtslint/-/dtslint-2.0.6.tgz#8862293c9bb01b923a7ed40643695fc6f12a7c78"
-  integrity sha512-lvuwW8ZSJOIP5Ipm2hGGZ/t1urFwzIwaI46aPxqZ8GgMpdxbzr2iBjNwews+mJygkmR04TT8HnfCa1vcggMIMQ==
+dtslint@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/dtslint/-/dtslint-3.0.0.tgz#d89224ffe517df208c09012027ffd6da53b553d8"
+  integrity sha512-DXCFLHZWCtqo45AiWM5uFE/+3DUH+5I+a0QiayG4vVWgWm9/4UD5lPuGhQz51P8iJDtO+gtnEEUOHbbpVAsrHQ==
   dependencies:
     definitelytyped-header-parser "3.8.2"
-    dts-critic "^2.2.4"
+    dts-critic "^3.0.0"
     fs-extra "^6.0.1"
     strip-json-comments "^2.0.1"
     tslint "5.14.0"
@@ -7214,7 +7215,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.6.3:
+typescript@^3.6.3, typescript@^3.7.5:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.2.tgz#91d6868aaead7da74f493c553aeff76c0c0b1d5a"
   integrity sha512-EgOVgL/4xfVrCMbhYKUQTdF37SQn4Iw73H5BgCrF1Abdun7Kwy/QZsE/ssAy0y4LxBbvua3PIbFsbRczWWnDdQ==
