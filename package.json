@@ -64,7 +64,7 @@
     "karma-webpack": "^2.0.13",
     "mocha": "^7.0.0",
     "phantomjs-prebuilt": "^2.1.14",
-    "prettier": "^1.1.0",
+    "prettier": "^2.0.2",
     "rimraf": "^3.0.0",
     "typescript": "^3.6.3",
     "webpack": "^1.10.5",
