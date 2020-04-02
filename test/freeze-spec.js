@@ -50,19 +50,14 @@ describe('u.freeze', () => {
     expect(Object.isFrozen(object.foo)).to.be.false
   })
 
-  if (typeof process !== 'undefined') {
-    it('does not freeze in production', () => {
-      process.env = {
-        ...process.env,
-        NODE_ENV: 'production',
-      }
+  it('does not freeze in production', () => {
+    process.env.NODE_ENV = 'production'
 
-      const object = {}
-      u.freeze(object)
+    const object = {}
+    u.freeze(object)
 
-      expect(Object.isFrozen(object)).to.be.false
-    })
-  }
+    expect(Object.isFrozen(object)).to.be.false
+  })
 
   it('handles null objects', () => {
     const object = { foo: null }
