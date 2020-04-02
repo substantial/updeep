@@ -26,7 +26,8 @@
     "build": "microbundle",
     "dev": "microbundle watch",
     "dtslint": "dtslint --localTs node_modules/typescript/lib types",
-    "lint": "npm run dtslint && eslint .",
+    "eslint": "eslint --ext .js,.jsx,.ts,.tsx",
+    "lint": "yarn -s eslint . && yarn -s dtslint",
     "test": "mocha --recursive --require \"@babel/register\" test"
   },
   "license": "MIT",
