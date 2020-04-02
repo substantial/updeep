@@ -52,7 +52,11 @@ describe('u.freeze', () => {
 
   if (typeof process !== 'undefined') {
     it('does not freeze in production', () => {
-      process.env.NODE_ENV = 'production'
+      process.env = {
+        ...process.env,
+        NODE_ENV: 'production',
+      }
+
       const object = {}
       u.freeze(object)
 

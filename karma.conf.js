@@ -4,6 +4,22 @@
 
 var createWebpackConfig = require('./createWebpackConfig')
 
+var localLaunchers = {
+  ChromeNoSandboxHeadless: {
+    base: 'Chrome',
+    flags: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      // See https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md
+      '--headless',
+      '--disable-gpu',
+      '--no-gpu',
+      // Without a remote debugging port, Google Chrome exits immediately.
+      '--remote-debugging-port=9333',
+    ],
+  },
+}
+
 module.exports = function(config) {
   config.set({
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -13,10 +29,11 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['mocha'],
 
-    // list of files / patterns to load in the browser
-    files: [
-      { pattern: 'test/**/*.js', watched: false, included: true, served: true },
-    ],
+    mochaReporter: {
+      showDiff: true,
+    },
+
+    files: [{ pattern: 'test/**/*.js', watched: false }],
 
     // list of files to exclude
     exclude: [],
@@ -24,20 +41,20 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/**/*.js': ['webpack'],
+      'test/**/*.js': ['webpack', 'sourcemap'],
     },
 
     webpack: createWebpackConfig(),
 
     webpackMiddleware: {
       noInfo: true,
-      watch: true,
+      stats: 'errors-only',
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['dots'],
+    reporters: ['mocha'],
 
     // web server port
     port: 9876,
@@ -52,10 +69,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
-
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    browsers: Object.keys(localLaunchers),
+    customLaunchers: localLaunchers,
   })
 }

@@ -11,7 +11,8 @@ module.exports = function createWebpackConfig(_options) {
   config = {
     context: options.context,
     entry: options.entry,
-
+    mode: 'development',
+    devtool: 'inline-source-map',
     plugins: [
       new webpack.optimize.OccurrenceOrderPlugin(),
       new webpack.DefinePlugin({
@@ -26,8 +27,8 @@ module.exports = function createWebpackConfig(_options) {
     },
 
     module: {
-      loaders: [
-        { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ },
+      rules: [
+        { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       ],
     },
 
@@ -37,7 +38,7 @@ module.exports = function createWebpackConfig(_options) {
     },
 
     resolve: {
-      extensions: ['', '.js'],
+      extensions: ['.js'],
     },
   }
 

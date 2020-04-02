@@ -1,4 +1,10 @@
-{
+const config = {
+  parserOptions: {
+    ecmaVersion: 2018,
+  },
+  env: {
+    node: true,
+  },
   "extends": [
     "airbnb-base",
     "prettier"
@@ -6,9 +12,6 @@
   "plugins": [
     "prettier"
   ],
-  "ecmaFeatures": {
-    "experimentalObjectRestSpread": true
-  },
   "rules": {
     "prettier/prettier": [
       "error",
@@ -27,5 +30,16 @@
         "exports": "always-multiline",
         "functions": "never"
     }]
-  }
+  },
+  overrides: [
+    {
+      files: ['**/*.d.ts'],
+      rules: {
+        strict: 'off',
+        'no-var': 'off',
+      },
+    },
+  ]
 }
+
+module.exports = config
