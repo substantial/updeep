@@ -1,0 +1,32 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@1.1.6
+  yarn: substantial/yarn@3.10.2
+  node-build: substantial/node-build@2.3.0
+
+jobs:
+  build:
+    executor:
+      name: node/default
+      tag: '12.14.1'
+    steps:
+      - checkout
+      - yarn/install:
+          cache-version: v2
+          yarn-audit: false
+      - node-build/eslint
+      - run:
+          name: Test
+          command: |
+            yarn test
+      - run:
+          name: dtslint
+          command: |
+            yarn dtslint
+      - run:
+          name: build
+          command: |
+            yarn build
+      - node-build/store-results
+      - node-build/release
