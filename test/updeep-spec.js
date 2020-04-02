@@ -57,7 +57,7 @@ describe('updeep', () => {
   })
 
   it('can use functions to update values', () => {
-    const inc = i => i + 1
+    const inc = (i) => i + 1
     const object = { foo: 3, bar: 4, baz: 7 }
     const result = u({ foo: inc, bar: inc }, object)
 
@@ -65,7 +65,7 @@ describe('updeep', () => {
   })
 
   it('can be partially applied', () => {
-    const inc = i => i + 1
+    const inc = (i) => i + 1
     const object = { foo: 3 }
     const incFoo = u({ foo: inc })
 
@@ -95,7 +95,7 @@ describe('updeep', () => {
   })
 
   it('can take a function as the updater', () => {
-    const result = u(i => i + 1, 7)
+    const result = u((i) => i + 1, 7)
 
     expect(result).to.eql(8)
   })
@@ -148,7 +148,7 @@ describe('updeep', () => {
 
   describe('u.omitted', () => {
     it('omit properties via u.omitted', () => {
-      expectU(u({ a: u.omitted, b: i => i + 1 }), { a: 1, b: 2 }, { b: 3 })
+      expectU(u({ a: u.omitted, b: (i) => i + 1 }), { a: 1, b: 2 }, { b: 3 })
     })
 
     it('omit array and object properties', () => {

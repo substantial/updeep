@@ -8,7 +8,7 @@ describe('u.is', () => {
   })
 
   it('returns true if path matches a function predicate', () => {
-    const isEven = x => x % 2 === 0
+    const isEven = (x) => x % 2 === 0
     const result = u.is('a.b', isEven, { a: { b: 6 } })
     expect(result).to.be.true
   })
@@ -19,7 +19,7 @@ describe('u.is', () => {
   })
 
   it('returns false if path matches a function predicate', () => {
-    const isEven = x => x % 2 === 0
+    const isEven = (x) => x % 2 === 0
     const result = u.is('a.b', isEven, { a: { b: 7 } })
     expect(result).to.be.false
   })

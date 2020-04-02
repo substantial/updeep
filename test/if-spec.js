@@ -19,7 +19,7 @@ describe('u.if', () => {
 
   it('will use the result of a function passed as a predicate', () => {
     const object = { a: 0 }
-    const aIsThree = x => x.a === 3
+    const aIsThree = (x) => x.a === 3
     const result = u.if(aIsThree, { b: 1 }, object)
 
     expect(result).to.eql({ a: 0 })
@@ -27,8 +27,8 @@ describe('u.if', () => {
 
   it('can be partially applied', () => {
     const object = { a: 2 }
-    const isEven = x => x % 2 === 0
-    const inc = x => x + 1
+    const isEven = (x) => x % 2 === 0
+    const inc = (x) => x + 1
 
     const result = u(
       {

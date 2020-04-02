@@ -2,13 +2,13 @@
 /* global document */
 const Benchmark = require('benchmark')
 
-const u = require('../lib')
 const _ = require('lodash')
+const u = require('../lib')
 const { curry2, curry4 } = require('../lib/util/curry')
 
 const add4 = (a, b, c, d) => a + b + c + d
 const add2 = (a, b) => a + b
-const fakeCurryAdd = x => y => x + y
+const fakeCurryAdd = (x) => (y) => x + y
 const lodashCurryAdd2 = _.curry(add2)
 const updeepCurryAdd2 = curry2(add2)
 const lodashCurryAdd4 = _.curry(add4)
@@ -37,7 +37,7 @@ function createSuite(suiteName, tests) {
     })
 
     suite
-      .on('cycle', event => {
+      .on('cycle', (event) => {
         log(`<li>${String(event.target)}</li>`)
       })
       .on('complete', () => {

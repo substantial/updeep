@@ -4,7 +4,7 @@ import u from '../lib'
 describe('u.map', () => {
   it('applies updates to each item in an array', () => {
     const object = [0, 1, 2]
-    const inc = x => x + 1
+    const inc = (x) => x + 1
     const result = u.map(inc, object)
 
     expect(result).to.eql([1, 2, 3])
@@ -12,7 +12,7 @@ describe('u.map', () => {
 
   it('applies updates to each value in an object', () => {
     const object = { a: 0, b: 1, c: 2 }
-    const inc = x => x + 1
+    const inc = (x) => x + 1
     const result = u.map(inc, object)
 
     expect(result).to.eql({ a: 1, b: 2, c: 3 })
@@ -27,7 +27,7 @@ describe('u.map', () => {
 
   it('returns the same object if no updates are made', () => {
     const array = [0, 1]
-    const ident = x => x
+    const ident = (x) => x
     let result = u.map(ident, array)
 
     expect(result).to.equal(array)
