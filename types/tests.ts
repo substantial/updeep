@@ -39,7 +39,7 @@ u.ifElse(false, "foo", 3, { a: 3 }); // $ExpectType 3
 u.ifElse(true, "foo", 3, { a: 3 }); // $ExpectType "foo"
 
 // *** map ***
-const inc = (i:number) => i+1;
+const inc = (i: number) => i+1;
 
 u.map(inc, [1,2,3]); // $ExpectType number[]
 u.map(inc, ["potato"]); // $ExpectType number[]
