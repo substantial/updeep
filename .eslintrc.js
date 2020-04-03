@@ -41,16 +41,7 @@ const config = {
         sourceType: 'module',
       },
       rules: {
-        "no-unused-expressions": 0
-      }
-    },
-    {
-      files: ['perf/**/*'],
-      env: {
-        browser: true
-      },
-      rules: {
-        'no-unused-vars': 'off',
+        "no-unused-expressions": 'off'
       }
     },
     {

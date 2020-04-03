@@ -1,8 +1,10 @@
-const Benchmark = require('benchmark')
+import Benchmark from 'benchmark'
+import {table} from 'table'
+import chalk from 'chalk'
 
-const _ = require('lodash')
-const u = require('../lib')
-const { curry2, curry4 } = require('../lib/util/curry')
+import _ from 'lodash'
+import u from '../dist/index.umd.js'
+import {curry2, curry4 } from '../lib/util/curry'
 
 const add4 = (a, b, c, d) => a + b + c + d
 const add2 = (a, b) => a + b
@@ -16,33 +18,31 @@ const updeepCurryAdd4 = curry4(add4)
 const array = [0, 1, 2, 3, 4, 5]
 // const doUpdate = u(x => x + 1);
 
-function log(str) {
-  if (typeof document !== 'undefined') {
-    console.log(str)
-    const el = document.getElementById('perf')
-    el.innerHTML += str
-  }
-}
+
+const log = console.log
 
 function createSuite(suiteName, tests) {
-  const suite = Benchmark.Suite() // eslint-disable
+  const results = []
 
-  return () => {
-    log(`<h2>${suiteName}</h2><ul>`)
+  const suite = Benchmark.Suite({
+    onCycle: (event) => {
+      results.push(event.target)
+    },
+    onError: (event) => {
+      console.error(event)
+    },
+  })
 
-    _.each(tests, (fn, testName) => {
-      suite.add(testName, fn)
-    })
+  _.each(tests, (fn, testName) => {
+    suite.add(testName, fn)
+  })
 
-    suite
-      .on('cycle', (event) => {
-        log(`<li>${String(event.target)}</li>`)
-      })
-      .on('complete', () => {
-        log('</ul>')
-      })
-      .run({ async: true })
-  }
+  return () => new Promise((resolve, reject) => {
+    suite.on('complete', () => resolve({
+      suiteName,
+      results,
+    })).on('error', reject).run({ async: true})
+  })
 }
 
 const curryVsLodash = createSuite('Curry', {
@@ -80,6 +80,25 @@ const applyVsDestructure = createSuite('apply vs destructure', {
   destructure: () => fnDestructure(1, 2, 3, 4, 5),
 })
 
-curryVsLodash()
-mapVsLodash()
-// applyVsDestructure();
+const printSuiteResults = (suiteResults) => {
+  const HEADERS = ['Suite Name', 'Results (fastest first)'].map(s => chalk.bold(s))
+
+  const data = suiteResults.reduce((acc, {suiteName, results}) => {
+    const row = [
+      chalk.cyan(suiteName),
+      results.sort((a, b) => -a.compare(b)).map(String).join('\n'),
+    ]
+
+    acc.push(row)
+    return acc
+  }, [HEADERS])
+
+  log(table(data))
+}
+
+
+Promise.all([
+  curryVsLodash(),
+  mapVsLodash(),
+  // applyVsDestructure(),
+]).then(printSuiteResults)
