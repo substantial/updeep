@@ -45,6 +45,15 @@ const config = {
       }
     },
     {
+      files: ['perf/**/*'],
+      env: {
+        browser: true
+      },
+      rules: {
+        'no-unused-vars': 'off',
+      }
+    },
+    {
       files: ['**/*.@(ts|tsx)'],
       parser: '@typescript-eslint/parser',
       plugins: ['@typescript-eslint'],
@@ -52,8 +61,6 @@ const config = {
         sourceType: 'module',
       },
       rules: {
-        'no-undef': 'off',
-        'no-unused-vars': 'off',
         '@typescript-eslint/class-name-casing': 'error',
         '@typescript-eslint/consistent-type-assertions': 'error',
         '@typescript-eslint/no-empty-interface': 'error',
