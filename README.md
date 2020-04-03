@@ -7,7 +7,7 @@
 
 [![Join the chat at https://gitter.im/substantial/updeep](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/substantial/updeep?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+[![Build Status][circleci-image]][circleci-url]
 [![Code Climate][codeclimate-image]][codeclimate-url]
 
 [![Dependency Status][daviddm-image]][daviddm-url]
@@ -533,10 +533,10 @@ case.
     ```bash
     $ npm login
     ```
-1. Make sure the build passes (best to let it pass on travis, but you can run it locally):
+1. Make sure the build passes (best to let it pass on circleci, but you can run it locally):
 
     ```bash
-    $ gulp
+    $ npm build
     ```
 1. Bump the version:
 
@@ -572,8 +572,8 @@ MIT ©2015 [Substantial](http://substantial.com)
 [docset]: https://github.com/yanick/dash-docset-updeep
 [npm-image]: https://badge.fury.io/js/updeep.svg
 [npm-url]: https://npmjs.org/package/updeep
-[travis-image]: https://travis-ci.org/substantial/updeep.svg?branch=master
-[travis-url]: https://travis-ci.org/substantial/updeep
+[circleci-image]: https://circleci.com/gh/substantial/updeep.svg?style=shield
+[circleci-url]: https://circleci.com/gh/substantial/updeep
 [daviddm-image]: https://david-dm.org/substantial/updeep.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/substantial/updeep
 [daviddm-peer-image]: https://david-dm.org/substantial/updeep/peer-status.svg

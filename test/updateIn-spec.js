@@ -9,7 +9,7 @@ describe('u.updateIn', () => {
   })
 
   it('can update a single path described with a string with a function', () => {
-    const inc = x => x + 1
+    const inc = (x) => x + 1
     const object = { a: { b: 0 } }
     const result = u.updateIn('a.b', inc, object)
     expect(result).to.eql({ a: { b: 1 } })
@@ -45,17 +45,17 @@ describe('u.updateIn', () => {
 
   it('can multiple elements of an array with *', () => {
     let object = { a: [{ b: 0 }, { b: 1 }, { b: 2 }] }
-    let result = u.updateIn('a.*.b', x => x + 1, object)
+    let result = u.updateIn('a.*.b', (x) => x + 1, object)
     expect(result).to.eql({ a: [{ b: 1 }, { b: 2 }, { b: 3 }] })
 
     object = { a: [0, 1, 2] }
-    result = u.updateIn(['a', '*'], x => x + 1, object)
+    result = u.updateIn(['a', '*'], (x) => x + 1, object)
     expect(result).to.eql({ a: [1, 2, 3] })
   })
 
   it('can update properties named *', () => {
     const object = { '*': 1, x: 1 }
-    const result = u.updateIn('*', x => x + 1, object)
+    const result = u.updateIn('*', (x) => x + 1, object)
     expect(result).to.eql({ '*': 2, x: 1 })
   })
 })

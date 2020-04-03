@@ -18,7 +18,7 @@ describe('u.reject', () => {
     const object = { foo: [1, 2, 3] }
     const result = u(
       {
-        foo: u.reject(x => x === 'Justin Bieber'),
+        foo: u.reject((x) => x === 'Justin Bieber'),
       },
       object
     )
@@ -30,7 +30,7 @@ describe('u.reject', () => {
     const object = { foo: [1, 2, 3, 4] }
     const result = u(
       {
-        foo: u.reject(x => x === 4),
+        foo: u.reject((x) => x === 4),
       },
       object
     )
