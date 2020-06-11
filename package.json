@@ -62,7 +62,7 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.1.1",
     "microbundle": "^0.12.0",
-    "mocha": "^7.0.0",
+    "mocha": "^8.0.1",
     "prettier": "^2.0.2",
     "table": "^5.4.6",
     "typescript": "^3.6.3"
