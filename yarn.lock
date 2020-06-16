@@ -2389,10 +2389,10 @@ eslint-module-utils@^2.6.0:
     debug "^2.6.9"
     pkg-dir "^2.0.0"
 
-eslint-plugin-expect-type@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-expect-type/-/eslint-plugin-expect-type-0.0.4.tgz#f3adced6cc634afd710b9b3936c1e82db88bcf94"
-  integrity sha512-H/+KMeZVOe6986IjWkf6bx4kJ46QTZi6kU+i94NVX+KVcbuiL5HIi6/RK9iSX3TKLG+kw5h+y8A0+xJZrjs0fA==
+eslint-plugin-expect-type@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-expect-type/-/eslint-plugin-expect-type-0.0.5.tgz#1b016a7fdf6e740e1683e24c603543735ab09c2e"
+  integrity sha512-zuW9WvpSpuUL1fi+QryMcB8ZvevIgLUVscFA1kgtl5xl/DMIh2tN0zuGQLuN1qsLfrq2sTN+bA+pQk9lxFpzRw==
   dependencies:
     "@typescript-eslint/experimental-utils" "^2.0.0"
     fs-extra "^8.1.0"
