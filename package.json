@@ -64,7 +64,7 @@
     "microbundle": "^0.12.0",
     "mocha": "^8.0.1",
     "prettier": "^2.0.2",
-    "table": "^5.4.6",
+    "table": "^6.0.1",
     "typescript": "^3.6.3"
   }
 }
