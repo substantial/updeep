@@ -59,7 +59,7 @@
     "eslint-plugin-expect-type": "^0.0.5",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.2",
-    "husky": "^4.2.3",
+    "husky": "^5.0.9",
     "lint-staged": "^10.1.1",
     "microbundle": "^0.13.0",
     "mocha": "^8.0.1",
