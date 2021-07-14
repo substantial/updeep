@@ -161,19 +161,42 @@ expect(result).to.eql({ scores: { team1: 0, team2: 1 } });
 ```
 
 #### Array Manipulation
+
 Non-trivial array manipulations, such as element removal/insertion/sorting, can be implemented with functions. Because there are so many possible manipulations, we don't provide any helpers and leave this up to you. Simply ensure your function is pure and does not mutate its arguments.
 
 ```js
 function addTodo(todos) { return [].concat(todos, [{ done: false }]); }
-var state = {
+
+const state = {
   todos: [
     { done: false },
     { done: false }
   ]
 };
-var result = u({ todos: addTodo }, state);
+
+const result = u({ todos: addTodo }, state);
 
 expect(result).to.eql({ todos: [{ done: false }, { done: false }, { done: false }]});
+```
+
+[lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) is one of the many
+libraries providing good utility functions for such manipulations.
+
+```js
+import fp from 'lodash/fp';
+
+let state = {
+  todos: [
+    { done: true },
+    { done: false }
+  ]
+};
+
+// add a new todo
+state = u({ todos: fp.concat({ done: false }) }, state);
+
+// remove all done todos
+state = u({ todos: fp.reject({ done: true }) }, state);
 ```
 
 #### When null or undefined object, updeep uses a default object
