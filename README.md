@@ -179,8 +179,8 @@ const result = u({ todos: addTodo }, state);
 expect(result).to.eql({ todos: [{ done: false }, { done: false }, { done: false }]});
 ```
 
-[lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) is one of the many
-libraries providing good utility functions for such manipulations.
+[lodash/fp] is one of the many libraries providing good utility functions for
+such manipulations.
 
 ```js
 import fp from 'lodash/fp';
@@ -194,9 +194,11 @@ let state = {
 
 // add a new todo
 state = u({ todos: fp.concat({ done: false }) }, state);
+expect(state).to.eql({ todos: [{ done: true }, { done: false }, { done: false }]});
 
 // remove all done todos
 state = u({ todos: fp.reject({ done: true }) }, state);
+expect(state).to.eql({ todos: [{ done: false }, { done: false }]});
 ```
 
 #### When null or undefined object, updeep uses a default object
