@@ -181,9 +181,6 @@ expect(result).to.eql({ todos: [{ done: false }, { done: false }, { done: false 
 ```javascript
 var result = u({ foo: 'bar' }, null);
 expect(result).to.eql({ foo: 'bar' });
-
-var result = u({ 0: 'foo', 1: 'bar' }, null);
-expect(result).to.eql(['foo', 'bar']);
 ```
 
 #### Partial application
