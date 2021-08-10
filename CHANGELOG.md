@@ -2,6 +2,10 @@
 
 ## [unreleased]
 
+## [1.2.1]
+* Improved TypeScript types - Thanks @yanick
+* Check for existence of `process` before testing environment variables - Thanks @yanick
+
 ## [1.2.0]
 * Add TypeScript types - Thanks @yanick (https://github.com/substantial/updeep/pull/83)
 
