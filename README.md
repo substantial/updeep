@@ -10,9 +10,6 @@
 [![Build Status][circleci-image]][circleci-url]
 [![Code Climate][codeclimate-image]][codeclimate-url]
 
-[![Dependency Status][daviddm-image]][daviddm-url]
-[![devDependency Status][daviddm-dev-image]][daviddm-dev-url]
-
 ## About
 
 updeep makes updating deeply nested objects/arrays painless by allowing you to
