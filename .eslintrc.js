@@ -5,22 +5,20 @@ const config = {
   env: {
     node: true,
   },
-  "extends": [
-    "eslint:recommended",
-    "prettier"
-  ],
-  "plugins": [
-    "prettier"
-  ],
-  "rules": {
-    "no-confusing-arrow": "off",
-    "comma-dangle": ["error", {
-      "arrays": "always-multiline",
-      "objects": "always-multiline",
-      "imports": "always-multiline",
-      "exports": "always-multiline",
-      "functions": "never"
-    }]
+  extends: ['eslint:recommended', 'prettier'],
+  plugins: ['prettier'],
+  rules: {
+    'no-confusing-arrow': 'off',
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'never',
+      },
+    ],
   },
   overrides: [
     {
@@ -33,16 +31,16 @@ const config = {
       },
     },
     {
-      files: ['test/**/*'] ,
+      files: ['test/**/*'],
       env: {
-        mocha: true
+        mocha: true,
       },
       parserOptions: {
         sourceType: 'module',
       },
       rules: {
-        "no-unused-expressions": 'off'
-      }
+        'no-unused-expressions': 'off',
+      },
     },
     {
       files: ['**/*.@(ts|tsx)'],
@@ -52,10 +50,10 @@ const config = {
         sourceType: 'module',
       },
       rules: {
-        '@typescript-eslint/class-name-casing': 'error',
         '@typescript-eslint/consistent-type-assertions': 'error',
         '@typescript-eslint/no-empty-interface': 'error',
         '@typescript-eslint/no-non-null-assertion': 'error',
+        '@typescript-eslint/no-redeclare': 'error',
         '@typescript-eslint/type-annotation-spacing': 'error',
         '@typescript-eslint/no-unused-vars': [
           'error',
@@ -64,6 +62,7 @@ const config = {
             ignoreRestSiblings: true,
           },
         ],
+        'no-redeclare': 'off',
       },
     },
     {
@@ -72,10 +71,11 @@ const config = {
         '@typescript-eslint/no-useless-constructor': 'error',
         'no-var': 'off',
         'no-useless-constructor': 'off',
+        'no-redeclare': 'off',
         strict: 'off',
       },
     },
-  ]
+  ],
 }
 
 module.exports = config

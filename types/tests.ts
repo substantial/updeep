@@ -34,9 +34,9 @@ u({ this: 2 })({ that: 3 }); // $ExpectType object
 
 
 u.ifElse(false as boolean, { a: 1 }, { a: 2 }, { a: 3 }); // $ExpectType object
-u.ifElse(false as boolean, "foo", 3, { a: 3 }); // $ExpectType 3 | "foo"
-u.ifElse(false, "foo", 3, { a: 3 }); // $ExpectType 3
-u.ifElse(true, "foo", 3, { a: 3 }); // $ExpectType "foo"
+u.ifElse(false as boolean, "foo" as const, 3 as const, { a: 3 }); // $ExpectType 3 | "foo"
+u.ifElse(false, "foo" as const, 3 as const, { a: 3 }); // $ExpectType 3
+u.ifElse(true, "foo" as const, 3 as const, { a: 3 }); // $ExpectType "foo"
 
 // *** map ***
 const inc = (i: number) => i+1;

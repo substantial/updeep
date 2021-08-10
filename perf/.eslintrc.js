@@ -1,5 +1,5 @@
 module.exports = {
-  extends: require.resolve("../.eslintrc.js"),
+  extends: require.resolve('../.eslintrc.js'),
   env: {
     node: true,
     es6: true,
@@ -9,6 +9,6 @@ module.exports = {
   },
   rules: {
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'off'
-  }
+    '@typescript-eslint/no-unused-vars': 'off',
+  },
 }
