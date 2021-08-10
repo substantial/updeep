@@ -26,9 +26,9 @@ updeep assumes that every object passed in to update is immutable, so it may
 freeze objects passed in as well. Note that the freezing only happens in
 development.
 
-updeep requires [lodash], but works very well with [lodash-fp] or [Ramda].
+updeep requires [lodash], but works very well with [lodash/fp] or [Ramda].
 As a matter of fact, many of the helpers functions are [curried][currying]
-[lodash] functions with their parameters reversed (like [lodash-fp]).
+[lodash] functions with their parameters reversed (like [lodash/fp]).
 
 Note that the parameters may be backwards from what you may be used to. updeep
 supports [partial application][currying], so the parameter order is:
@@ -580,7 +580,7 @@ MIT ©2015 [Substantial](http://substantial.com)
 [codeclimate-image]: https://codeclimate.com/github/substantial/updeep/badges/gpa.svg
 [codeclimate-url]: https://codeclimate.com/github/substantial/updeep
 [lodash]: http://lodash.com
-[lodash-fp]: https://github.com/lodash/lodash-fp
+[lodash/fp]: https://github.com/lodash/lodash/wiki/FP-Guide
 [Ramda]: http://ramdajs.com/
 [PureRenderMixin]: https://facebook.github.io/react/docs/pure-render-mixin.html
 [redux]: https://github.com/gaearon/redux
