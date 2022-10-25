@@ -15,6 +15,7 @@ jobs:
       - yarn/install:
           cache-version: v2
           yarn-audit: false
+          yarn-version: 1.22.19
       - node-build/eslint
       - run:
           name: Test
