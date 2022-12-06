@@ -9,7 +9,7 @@ jobs:
   build:
     executor:
       name: node/default
-      tag: '12.14.1'
+      tag: '18.12.1'
     steps:
       - checkout
       - yarn/install:
