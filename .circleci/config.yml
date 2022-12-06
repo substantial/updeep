@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@1.1.6
+  node: circleci/node@5.0.3
   yarn: substantial/yarn@3.10.2
   node-build: substantial/node-build@2.3.0
 
@@ -9,7 +9,7 @@ jobs:
   build:
     executor:
       name: node/default
-      tag: '12.14.1'
+      tag: '18.12.1'
     steps:
       - checkout
       - yarn/install:
