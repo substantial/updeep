@@ -36,9 +36,9 @@ supports [partial application][currying], so the parameter order is:
 ### Full example
 
 ```js
-var u = require('updeep');
+const u = require('updeep');
 
-var person = {
+const person = {
   name: { first: 'Bill', last: 'Sagat' },
   children: [
     { name: 'Mary-Kate', age: 7 },
@@ -52,10 +52,10 @@ var person = {
   version: 1
 };
 
-var inc = function(i) { return i + 1; }
-var eq = function(x) { return function(y) { return x == y } };
+const inc = function(i) { return i + 1; }
+const eq = function(x) { return function(y) { return x == y } };
 
-var newPerson = u({
+const newPerson = u({
   // Change first name
   name: { first: 'Bob' },
   // Increment all children's ages
@@ -101,14 +101,14 @@ Also available at `u.update(...)`.
 Object properties:
 
 ```js
-var person = {
+const person = {
   name: {
     first: 'Jane',
     last: 'West'
   }
 };
 
-var result = u({ name: { first: 'Susan' } }, person);
+const result = u({ name: { first: 'Susan' } }, person);
 
 expect(result).to.eql({ name: { first: 'Susan', last: 'West' } });
 ```
@@ -116,11 +116,11 @@ expect(result).to.eql({ name: { first: 'Susan', last: 'West' } });
 Array elements:
 
 ```js
-var scoreboard = {
+const scoreboard = {
   scores: [12, 28]
 };
 
-var result = u({ scores: { 1: 36 } }, scoreboard);
+const result = u({ scores: { 1: 36 } }, scoreboard);
 
 expect(result).to.eql({ scores: [12, 36] });
 ```
@@ -128,7 +128,7 @@ expect(result).to.eql({ scores: [12, 36] });
 #### Multiple updates
 
 ```js
-var person = {
+const person = {
   name: {
     first: 'Mike',
     last: 'Smith'
@@ -136,7 +136,7 @@ var person = {
   scores: [12, 28]
 };
 
-var result = u({ name: { last: 'Jones' }, scores: { 1: 36 } }, person);
+const result = u({ name: { last: 'Jones' }, scores: { 1: 36 } }, person);
 
 expect(result).to.eql({ name: { first: 'Mike', last: 'Jones' }, scores: [12, 36] });
 ```
@@ -145,14 +145,14 @@ expect(result).to.eql({ name: { first: 'Mike', last: 'Jones' }, scores: [12, 36]
 
 ```js
 function increment(i) { return i + 1; }
-var scoreboard = {
+const scoreboard = {
   scores: {
     team1: 0,
     team2: 0
   }
 };
 
-var result = u({ scores: { team2: increment } }, scoreboard);
+const result = u({ scores: { team2: increment } }, scoreboard);
 
 expect(result).to.eql({ scores: { team1: 0, team2: 1 } });
 ```
@@ -201,7 +201,7 @@ expect(state).to.eql({ todos: [{ done: false }, { done: false }]});
 #### When null or undefined object, updeep uses a default object
 
 ```javascript
-var result = u({ foo: 'bar' }, null);
+const result = u({ foo: 'bar' }, null);
 expect(result).to.eql({ foo: 'bar' });
 ```
 
@@ -210,8 +210,8 @@ expect(result).to.eql({ foo: 'bar' });
 ```js
 function increment(i) { return i + 1; }
 
-var addOneYear = u({ age: increment });
-var result = addOneYear({ name: 'Shannon Barnes', age: 62 });
+const addOneYear = u({ age: increment });
+const result = addOneYear({ name: 'Shannon Barnes', age: 62 });
 
 expect(result).to.eql({ name: 'Shannon Barnes', age: 63 });
 ```
@@ -219,9 +219,9 @@ expect(result).to.eql({ name: 'Shannon Barnes', age: 63 });
 #### ES6 computed properties
 
 ```js
-var key = 'age';
+const key = 'age';
 
-var result = u({ person: { [key]: 21 } }, { person: { name: 'Olivier P.', age: 20 } });
+const result = u({ person: { [key]: 21 } }, { person: { name: 'Olivier P.', age: 20 } });
 
 expect(result).to.eql({ person: { name: 'Olivier P.', age: 21 } });
 ```
@@ -231,7 +231,7 @@ expect(result).to.eql({ person: { name: 'Olivier P.', age: 21 } });
 Freeze your initial state to protect against mutations. Only performs the freezing in development, and returns the original object unchanged in production.
 
 ```js
-var state = u.freeze({ someKey: "Some Value" })
+const state = u.freeze({ someKey: "Some Value" })
 state.someKey = "Mutate" // ERROR in development
 ```
 
@@ -242,8 +242,8 @@ If you want to partially apply a function in an order other than the default arg
 
 ```js
 function increment(i) { return i + 1; }
-var updateJoe = u(u._, { name: "Joe Merrill", age: 21 });
-var result = updateJoe({ age: increment });
+const updateJoe = u(u._, { name: "Joe Merrill", age: 21 });
+const result = updateJoe({ age: increment });
 
 expect(result).to.eql({ name: "Joe Merrill", age: 22 });
 ```
@@ -253,13 +253,13 @@ expect(result).to.eql({ name: "Joe Merrill", age: 22 });
 Update a single value with a simple string or array path. Can be use to update nested objects, arrays, or a combination. Can also be used to update every element of a nested array with `'*'`.
 
 ```js
-var result = u.updateIn('bunny.color', 'brown', { bunny: { color: 'black' } });
+const result = u.updateIn('bunny.color', 'brown', { bunny: { color: 'black' } });
 
 expect(result).to.eql({ bunny: { color: 'brown' } });
 ```
 
 ```js
-var result = u.updateIn('0.1.color', 'brown', [[{ color: 'blue' }, { color: 'red' }], []]);
+const result = u.updateIn('0.1.color', 'brown', [[{ color: 'blue' }, { color: 'red' }], []]);
 
 expect(result).to.eql( [[{ color: 'blue' }, { color: 'brown' }], []]);
 ```
@@ -267,19 +267,19 @@ expect(result).to.eql( [[{ color: 'blue' }, { color: 'brown' }], []]);
 ```js
 function increment(i) { return i + 1; }
 
-var result = u.updateIn('bunny.age', increment, { bunny: { age: 2 } });
+const result = u.updateIn('bunny.age', increment, { bunny: { age: 2 } });
 
 expect(result).to.eql({ bunny: { age: 3 } });
 ```
 
 ```js
-var result = u({ pets: u.updateIn([0, 'bunny', 'age'], 3) }, { pets: [{ bunny: { age: 2 } }] });
+const result = u({ pets: u.updateIn([0, 'bunny', 'age'], 3) }, { pets: [{ bunny: { age: 2 } }] });
 
 expect(result).to.eql({ pets: [{ bunny: { age: 3 } }] });
 ```
 
 ```js
-var result = u.updateIn('todos.*.done', true, {
+const result = u.updateIn('todos.*.done', true, {
   todos: [
     { done: false },
     { done: false },
@@ -301,7 +301,7 @@ You'll need to use a function that returns the new object.
 `u.constant` creates that function for you.
 
 ```js
-var user = {
+const user = {
   name: 'Mitch',
   favorites: {
     band: 'Nirvana',
@@ -309,17 +309,17 @@ var user = {
   }
 };
 
-var newFavorites = {
+const newFavorites = {
   band: 'Coldplay'
 };
 
-var result = u({ favorites: u.constant(newFavorites) }, user);
+const result = u({ favorites: u.constant(newFavorites) }, user);
 
 expect(result).to.eql({ name: 'Mitch', favorites: { band: 'Coldplay' } });
 ```
 
 ```js
-var alwaysFour = u.constant(4);
+const alwaysFour = u.constant(4);
 expect(alwaysFour(32)).to.eql(4);
 ```
 
@@ -332,7 +332,7 @@ It evaluates to truthy when called with `object`.
 function isEven(x) { return x % 2 === 0; }
 function increment(x) { return x + 1; }
 
-var result = u({ value: u.if(isEven, increment) }, { value: 2 });
+const result = u({ value: u.if(isEven, increment) }, { value: 2 });
 
 expect(result).to.eql({ value: 3 });
 ```
@@ -347,7 +347,7 @@ function isEven(x) { return x % 2 === 0; }
 function increment(x) { return x + 1; }
 function decrement(x) { return x - 1; }
 
-var result = u({ value: u.ifElse(isEven, increment, decrement) }, { value: 3 });
+const result = u({ value: u.ifElse(isEven, increment, decrement) }, { value: 3 });
 
 expect(result).to.eql({ value: 2 });
 ```
@@ -361,7 +361,7 @@ which is equivalent to  `u.map(u(...), object)`).
 ```js
 function increment(x) { return x + 1; }
 
-var result = u({ values: u.map(increment) }, { values: [0, 1] });
+const result = u({ values: u.map(increment) }, { values: [0, 1] });
 
 expect(result).to.eql({ values: [1, 2] });
 ```
@@ -369,7 +369,7 @@ expect(result).to.eql({ values: [1, 2] });
 ```js
 function increment(x) { return x + 1; }
 
-var result = u.map(increment, [0, 1, 2]);
+const result = u.map(increment, [0, 1, 2]);
 
 expect(result).to.eql([1, 2, 3]);
 ```
@@ -377,13 +377,13 @@ expect(result).to.eql([1, 2, 3]);
 ```js
 function increment(x) { return x + 1; }
 
-var result = u.map(increment, { a: 0, b: 1, c: 2 });
+const result = u.map(increment, { a: 0, b: 1, c: 2 });
 
 expect(result).to.eql({ a: 1, b: 2, c: 3 });
 ```
 
 ```js
-var result = u.map({ a: 100 }, [{ a: 0 }, { a: 1 }]);
+const result = u.map({ a: 100 }, [{ a: 0 }, { a: 1 }]);
 
 expect(result).to.eql([{ a: 100 }, { a: 100 }]);
 ```
@@ -393,15 +393,15 @@ expect(result).to.eql([{ a: 100 }, { a: 100 }]);
 Remove properties. See [`_.omit`](https://lodash.com/docs#omit).
 
 ```js
-var user = { user: { email: 'john@aol.com', username: 'john123', authToken: '1211..' } };
+const user = { user: { email: 'john@aol.com', username: 'john123', authToken: '1211..' } };
 
-var result = u({ user: u.omit('authToken') }, user);
+const result = u({ user: u.omit('authToken') }, user);
 
 expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123' } });
 ```
 
 ```js
-var user = {
+const user = {
   user: {
     email: 'john@aol.com',
     username: 'john123',
@@ -410,7 +410,7 @@ var user = {
   }
 };
 
-var result = u({ user: u.omit(['authToken', 'SSN']) }, user);
+const result = u({ user: u.omit(['authToken', 'SSN']) }, user);
 
 expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123' } });
 ```
@@ -421,9 +421,9 @@ A property updated to this constant will be removed from the final object.
 Useful when one wishes to remove and update properties in a single operation.
 
 ```js
-var user = { email: 'john@aol.com', username: 'john123', authToken: '1211..' };
+const user = { email: 'john@aol.com', username: 'john123', authToken: '1211..' };
 
-var result = u({ authToken: u.omitted, active: true }, user);
+const result = u({ authToken: u.omitted, active: true }, user);
 
 expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123', active: true } });
 ```
@@ -433,7 +433,7 @@ expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123', acti
 Remove properties. See [`_.omitBy`](https://lodash.com/docs#omitBy).
 
 ```js
-var user = {
+const user = {
   user: {
     email: 'john@aol.com',
     username: 'john123',
@@ -443,7 +443,7 @@ var user = {
 };
 
 function isSensitive(value, key) { return key == 'SSN' }
-var result = u({ user: u.omitBy(isSensitive) }, user);
+const result = u({ user: u.omitBy(isSensitive) }, user);
 
 expect(result).to.eql({ user: { email: 'john@aol.com', username: 'john123', authToken: '1211..' } });
 
@@ -456,7 +456,7 @@ Reject items from an array. See [`_.reject`](https://lodash.com/docs#reject).
 ```js
 function isEven(i) { return i % 2 === 0; }
 
-var result = u({ values: u.reject(isEven) }, { values: [1, 2, 3, 4] });
+const result = u({ values: u.reject(isEven) }, { values: [1, 2, 3, 4] });
 
 expect(result).to.eql({ values: [1, 3] });
 ```
@@ -466,7 +466,7 @@ expect(result).to.eql({ values: [1, 3] });
 Like `u()`, but start with the default value if the original value is undefined.
 
 ```js
-var result = u({ value: u.withDefault([], { 0: 3 }) }, {});
+const result = u({ value: u.withDefault([], { 0: 3 }) }, {});
 
 expect(result).to.eql({ value: [3] });
 ```
@@ -479,7 +479,7 @@ Returns `true` if the `predicate` matches the `path` applied to the `object`.
 If the `predicate` is a function, the result is returned. If not, they are compared with `===`.
 
 ```js
-var result = u.is('friend.age', 22, { friend: { age: 22 } });
+const result = u.is('friend.age', 22, { friend: { age: 22 } });
 
 expect(result).to.eql(true);
 ```
@@ -487,13 +487,13 @@ expect(result).to.eql(true);
 ```js
 function isEven(i) { return i % 2 === 0; }
 
-var result = u.is('friend.age', isEven, { friend: { age: 22 } });
+const result = u.is('friend.age', isEven, { friend: { age: 22 } });
 
 expect(result).to.eql(true);
 ```
 
 ```js
-var person = {
+const person = {
   person: {
     name: {
       first: 'Jen',
@@ -503,7 +503,7 @@ var person = {
 };
 
 // Update person's last name to Simpson if their first name is Jen
-var result = u({
+const result = u({
   person: u.if(
     u.is('name.first', 'Jen'),
     u.updateIn('name.last', 'Simpson')
