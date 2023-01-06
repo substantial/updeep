@@ -13,7 +13,7 @@ describe('u.omit', () => {
   })
 
   it("doesn't change the obj if nothing is omitted", () => {
-    const orig = {a: 1}
+    const orig = { a: 1 }
     const result = u.omit(['b'], orig)
     expect(result).to.be.equal(orig)
   })
