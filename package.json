@@ -33,7 +33,8 @@
     "dtslint": "dtslint --localTs node_modules/typescript/lib types",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx",
     "lint": "yarn -s eslint . && yarn -s dtslint",
-    "test": "mocha --recursive --require \"@babel/register\" test"
+    "test": "mocha --recursive --require \"@babel/register\" test",
+    "format": "prettier --write '**/*.{js,ts}'"
   },
   "dependencies": {
     "lodash": ">=4.2.0"

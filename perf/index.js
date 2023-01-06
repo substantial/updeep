@@ -1,10 +1,10 @@
 import Benchmark from 'benchmark'
-import {table} from 'table'
+import { table } from 'table'
 import chalk from 'chalk'
 
 import _ from 'lodash'
 import u from '../dist/index.umd.js'
-import {curry2, curry4 } from '../lib/util/curry'
+import { curry2, curry4 } from '../lib/util/curry'
 
 const add4 = (a, b, c, d) => a + b + c + d
 const add2 = (a, b) => a + b
@@ -17,7 +17,6 @@ const updeepCurryAdd4 = curry4(add4)
 
 const array = [0, 1, 2, 3, 4, 5]
 // const doUpdate = u(x => x + 1);
-
 
 const log = console.log
 
@@ -37,12 +36,18 @@ function createSuite(suiteName, tests) {
     suite.add(testName, fn)
   })
 
-  return () => new Promise((resolve, reject) => {
-    suite.on('complete', () => resolve({
-      suiteName,
-      results,
-    })).on('error', reject).run({ async: true})
-  })
+  return () =>
+    new Promise((resolve, reject) => {
+      suite
+        .on('complete', () =>
+          resolve({
+            suiteName,
+            results,
+          })
+        )
+        .on('error', reject)
+        .run({ async: true })
+    })
 }
 
 const curryVsLodash = createSuite('Curry', {
@@ -81,21 +86,28 @@ const applyVsDestructure = createSuite('apply vs destructure', {
 })
 
 const printSuiteResults = (suiteResults) => {
-  const HEADERS = ['Suite Name', 'Results (fastest first)'].map(s => chalk.bold(s))
+  const HEADERS = ['Suite Name', 'Results (fastest first)'].map((s) =>
+    chalk.bold(s)
+  )
 
-  const data = suiteResults.reduce((acc, {suiteName, results}) => {
-    const row = [
-      chalk.cyan(suiteName),
-      results.sort((a, b) => -a.compare(b)).map(String).join('\n'),
-    ]
+  const data = suiteResults.reduce(
+    (acc, { suiteName, results }) => {
+      const row = [
+        chalk.cyan(suiteName),
+        results
+          .sort((a, b) => -a.compare(b))
+          .map(String)
+          .join('\n'),
+      ]
 
-    acc.push(row)
-    return acc
-  }, [HEADERS])
+      acc.push(row)
+      return acc
+    },
+    [HEADERS]
+  )
 
   log(table(data))
 }
-
 
 Promise.all([
   curryVsLodash(),

@@ -6,7 +6,7 @@ module.exports = {
   singleQuote: true,
   tabWidth: 2,
   trailingComma: 'es5',
-  bracketSpacing: false,
+  bracketSpacing: true,
 
   proseWrap: 'always',
 }
