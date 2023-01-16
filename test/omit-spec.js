@@ -12,7 +12,7 @@ describe('u.omit', () => {
     expect(Object.isFrozen(u.omit('a', {}))).to.be.true
   })
 
-  it("doesn't change the obj if nothing is omitted", () => {
+  it("doesn't change the object if nothing is omitted", () => {
     const orig = { a: 1 }
     const result = u.omit(['b'], orig)
     expect(result).to.be.equal(orig)

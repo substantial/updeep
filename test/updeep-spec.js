@@ -172,7 +172,7 @@ describe('updeep', () => {
     })
   })
 
-  it("doesn't change the obj if nothing is omitted", () => {
+  it("doesn't change the object if nothing is omitted", () => {
     const orig = { a: 1 }
     const result = u({ b: u.omitted }, orig)
     expect(result).to.be.equal(orig)
