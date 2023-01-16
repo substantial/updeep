@@ -171,4 +171,16 @@ describe('updeep', () => {
       expectU(u({ 1: u.omitted }), ['a', 'b', 'c'], ['a', 'c'])
     })
   })
+
+  it("doesn't change the object if nothing is omitted", () => {
+    const orig = { a: 1 }
+    const result = u({ b: u.omitted }, orig)
+    expect(result).to.be.equal(orig)
+  })
+
+  it("doesn't change the array if nothing is omitted", () => {
+    const orig = [1, 2, 3]
+    const result = u({ 4: u.omitted }, orig)
+    expect(result).to.be.equal(orig)
+  })
 })
