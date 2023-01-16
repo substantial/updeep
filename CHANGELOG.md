@@ -2,6 +2,9 @@
 
 ## [unreleased]
 
+## [1.2.2]
+* Omitting a key that does not exist will reuse the object, rather than creating a new, identical object - Thanks @yanick
+
 ## [1.2.1]
 * Improved TypeScript types - Thanks @yanick
 * Check for existence of `process` before testing environment variables - Thanks @yanick
