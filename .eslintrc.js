@@ -9,6 +9,7 @@ const config = {
   plugins: ['prettier'],
   rules: {
     'no-confusing-arrow': 'off',
+    'no-prototype-builtins': 'off',
     'comma-dangle': [
       'error',
       {
