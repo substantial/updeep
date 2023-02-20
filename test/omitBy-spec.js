@@ -13,7 +13,13 @@ describe('u.omitBy', () => {
   })
 
   it('freezes the result', () => {
-    expect(Object.isFrozen(u.omit('a', {}))).to.be.true
+    expect(Object.isFrozen(u.omitBy('a', {}))).to.be.true
+  })
+
+  it('returns empty object when null is provided for the collection', () => {
+    const result = u.omitBy('a', null)
+
+    expect(result).to.eql({})
   })
 
   it("doesn't change the object if nothing is omitted", () => {
