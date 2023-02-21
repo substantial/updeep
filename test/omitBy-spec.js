@@ -27,4 +27,16 @@ describe('u.omitBy', () => {
     const result = u.omitBy(() => false, orig)
     expect(result).to.be.equal(orig)
   })
+
+  it('deals with undefined values', () => {
+    const result = u(
+      {
+        foo: u.omitBy((a) => {
+          return a === 'bar'
+        }),
+      },
+      {}
+    )
+    expect(result).to.eql({ foo: {} })
+  })
 })
