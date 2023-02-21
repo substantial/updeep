@@ -18,6 +18,12 @@ describe('u.omit', () => {
     expect(result).to.eql({})
   })
 
+  it('returns empty object when undefined is provided for the collection', () => {
+    const result = u.omit('a', undefined)
+
+    expect(result).to.eql({})
+  })
+
   it('does not change the object if nothing is omitted', () => {
     const orig = { a: 1 }
     const result = u.omit(['b'], orig)

@@ -22,6 +22,12 @@ describe('u.omitBy', () => {
     expect(result).to.eql({})
   })
 
+  it('returns empty object when undefined is provided for the collection', () => {
+    const result = u.omitBy('a', undefined)
+
+    expect(result).to.eql({})
+  })
+
   it("doesn't change the object if nothing is omitted", () => {
     const orig = { a: 1 }
     const result = u.omitBy(() => false, orig)
