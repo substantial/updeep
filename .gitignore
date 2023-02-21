@@ -2,3 +2,4 @@ yarn.lock
 node_modules
 coverage
 dist
+/index.d.ts
