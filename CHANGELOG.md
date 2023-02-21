@@ -2,6 +2,14 @@
 
 ## [unreleased]
 
+## [1.2.4]
+
+* Fixed `omit` and `omitBy` so that they can accept `null` as the object - Thanks @ianschuster for the report.
+
+## [1.2.3]
+
+* No changes
+
 ## [1.2.2]
 * Omitting a key that does not exist will reuse the object, rather than creating a new, identical object - Thanks @yanick
 
