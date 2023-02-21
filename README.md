@@ -555,7 +555,7 @@ case.
 1. Make sure the build passes (best to let it pass on circleci, but you can run it locally):
 
     ```bash
-    $ npm build
+    $ npm run build
     ```
 1. Bump the version:
 
